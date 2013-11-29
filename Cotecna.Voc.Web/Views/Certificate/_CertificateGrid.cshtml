@@ -1,0 +1,340 @@
+﻿@model Cotecna.Voc.Web.Models.CertificateListModel
+
+@{
+    int totalNumberOfItemsWithoutPagination = Model.Certificates.TotalCount;
+    int currentPage = Model.Certificates.Page;
+    int numberOfPages = Model.Certificates.NumberOfPages;
+    int pageSize = Model.Certificates.PageSize;
+
+    string dataSent = "";
+    dataSent = dataSent + " CertificateNumber:$('#CertificateNumberHidden').val(),";
+    dataSent = dataSent + " IssuanceDateFrom:$('#IssuanceDateFromHidden').val(),";
+    dataSent = dataSent + " IssuanceDateTo:$('#IssuanceDateToHidden').val(),";
+    dataSent = dataSent + " EntryPointSelected:$('#EntryPointSelectedHidden').val(),";
+    dataSent = dataSent + " CertificateStatusSelected:$('#CertificateStatusHidden').val(),";
+
+    var pageNext = currentPage +1;
+    var pageLast = currentPage - 1;
+    string errorPdfFileNotConfigured = Resources.Common.ErrorPdfFile;
+    string errorPdfTitle = Resources.Common.ErrorPdfTitle;
+    string errorPdfFileNotExist = Resources.Common.ErrorPdfFileNotExist;
+    
+}
+
+@Html.Partial("_MessagePopup")
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#resetButton").click(function () {
+            window.location = '@Url.Action("Index")';
+        });
+
+        function UpdateGridResult(results) {
+            $(".gridArea").html(results);
+            $(".gridArea").fadeIn("slow");
+        }
+
+        $("#nextButton").click(function () {
+            var ajaxUrl = '@Url.Action("SearchCertificateGrid", "Certificate")';
+
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'html',
+                success: UpdateGridResult,
+                error: function () { alert('@Resources.Common.CommonErrorMessageAjax') },
+                data: {
+                    @Html.Raw(dataSent+"selectedPage:"+pageNext)
+                }
+        });
+
+        });
+
+
+        $("#endButton").click(function () {
+
+            var ajaxUrl = '@Url.Action("SearchCertificateGrid", "Certificate")';
+
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'html',
+                success: UpdateGridResult,
+                error: function () { alert('@Resources.Common.CommonErrorMessageAjax') },
+                data: {
+                    @Html.Raw(dataSent+"selectedPage:"+numberOfPages)
+                }
+        });
+
+    });
+
+
+        $("#lastButton").click(function () {
+
+            var ajaxUrl = '@Url.Action("SearchCertificateGrid", "Certificate")';
+
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'html',
+                success: UpdateGridResult,
+                error: function () { alert('@Resources.Common.CommonErrorMessageAjax') },
+                data: {
+                    @Html.Raw(dataSent+"selectedPage:"+pageLast)
+                }                
+            });
+
+    });
+
+
+        $("#firtsButton").click(function () {
+
+            var ajaxUrl = '@Url.Action("SearchCertificateGrid", "Certificate")';
+
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'html',
+                success: UpdateGridResult,
+                error: function () { alert('@Resources.Common.CommonErrorMessageAjax') },
+                data: {
+                    @Html.Raw(dataSent+"selectedPage:"+1)
+                }
+            });
+
+    });
+
+
+        $("#gotoButton").click(function () {
+
+            var parameter = $("#pageNumber").val().toString();
+            var ajaxUrl = '@Url.Action("SearchCertificateGrid", "Certificate")';
+
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'html',
+                success: UpdateGridResult,
+                error: function () { alert('@Resources.Common.CommonErrorMessageAjax') },
+                data: {
+                    @Html.Raw(dataSent+"selectedPage:parameter")
+                }
+            });
+        });
+
+
+        $("#exportButton").click(function () {
+
+            var ajaxUrl = '@Url.Action("SearchCertificateExport", "Certificate")';
+
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'json',
+                success: function () {
+                    $("#exportExcelForm").submit();
+                },
+                error: function () { alert('@Resources.Common.CommonErrorMessageAjax') },
+            data: { @Html.Raw(dataSent+"selectedPage:1") }
+        });
+        });
+
+
+    });
+
+    function ResultCheckFile(result) {
+        if (result == "ok") {
+            $("#formDownload").submit();
+
+        }
+        else if (result == "fail") {
+            ShowMessage('@errorPdfFileNotExist', '@errorPdfTitle');
+        }
+        else {
+            $("#GoLoginForm").submit();
+        }
+    }
+
+    function LaunchViewDocument(filepath, fileName) {
+
+        $("#fileSectionPath").val(filepath);
+        $("#fileName").val(fileName);
+
+        var ajaxUrl = '@Url.Action("CheckFile", "Certificate")';
+        $.ajax({
+            url: ajaxUrl,
+            type: 'POST',
+            dataType: 'html',
+            success: ResultCheckFile,
+            error: function () { alert('@Resources.Common.CommonErrorMessageAjax') },
+            data: {
+                fileSectionPath: filepath,
+                fileName: fileName
+            }
+        });
+
+    }
+
+    function ViewCertificate(certificateId) {
+        $("#certificateId").val(certificateId);
+        $("#viewCertificate").submit();
+    }
+
+    
+
+</script>
+@if (totalNumberOfItemsWithoutPagination == 0)
+{
+    <div class="table-legend">
+        @Resources.Common.NoResults
+    </div>
+}
+else
+{
+<div class="table-legend"><span class="bottom">&nbsp;</span>Results (<span class="count">@totalNumberOfItemsWithoutPagination</span>)</div>
+                <table class="data" summary="search results">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div>@Resources.Common.CertificateNumber</div>
+                            </th>
+                            <th>
+                                <div>@Resources.Common.IssuanceDate</div>
+                            </th>
+                            <th>
+                                <div>@Resources.Common.CertificateStatus</div>
+                            </th>
+                            <th>
+                                <div>@Resources.Common.EntryPoint</div>
+                            </th>
+                            <th>
+                                <div>@Resources.Common.CertificateFile</div>
+                            </th>
+                            <th>
+                                <div>@Resources.Common.DetailCertificate</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int counterRow = 0;
+                        }
+                        @foreach (var certificate in Model.Certificates.Collection)
+                        {
+                            string rowAlter = "ev";
+
+                            string issuanceDate = certificate.Certificate.IssuanceDate.HasValue ? certificate.Certificate.IssuanceDate.Value.ToString("dd/MM/yyyy") : "";
+                            if (counterRow % 2 == 0)
+                            {
+                                rowAlter = "od";
+                            }
+                            string filePathRow = !String.IsNullOrEmpty(certificate.FilePath)? certificate.FilePath.Replace(@"\","/"):"";
+                            string fileNameRow = !String.IsNullOrEmpty(certificate.FileName)? certificate.FileName.Replace(@"\", "/"):"";
+                            string entryPointName = "";
+                            if (certificate.Certificate.EntryPoint != null)
+                            {
+                                entryPointName = certificate.Certificate.EntryPoint.Name;
+                            }
+                            <tr class="@rowAlter">
+                                <td>
+                                    @certificate.Certificate.Sequential                                    
+                                </td>
+                                <td>@issuanceDate</td>
+                                <td>@certificate.Certificate.CertificateStatusId</td>
+                                <td>@entryPointName</td>
+                                <td>
+                                    @if (certificate.Certificate.IssuanceDate.HasValue)
+                                    {
+                                    <a style="cursor: pointer;" onclick="LaunchViewDocument('@filePathRow', '@fileNameRow');">
+                                    @Resources.Common.DownloadCertificate
+                                    </a>
+                                    }
+                                </td>
+                                <td>
+                                    <a style="cursor: pointer;" onclick="ViewCertificate('@certificate.Certificate.CertificateId')">
+                                    @Resources.Common.DetailCertificate
+                                    </a>
+                                </td>                                
+                            </tr>
+                            counterRow++;                            
+                        }                        
+                     </tbody>
+</table>
+
+<div class="form">
+    <div class="pages">
+        
+        <div style="float:left; padding-left:17px;">
+            <span class="btn" id="spanExportButton">
+                <input type="reset" value="@Resources.Common.ExportExcelButton" id="exportButton" />
+            </span>
+        </div>
+
+
+        <div>
+        
+            @if (totalNumberOfItemsWithoutPagination > pageSize)
+            {
+                <label>
+                    <span class="name">@Resources.Common.GotoPage</span>
+                    <input type="text" class="txt w1"  id="pageNumber" name="pageNumber"/>
+                    <a id="gotoButton" class="btn">
+                        <span class="btn">@Resources.Common.Go</span>
+                    </a>
+                </label>
+            }
+
+            @if (currentPage != 1)
+            {
+                
+                <a class="btn" id="firtsButton">
+                     <span class="btn">&lt;&lt;</span>
+                </a>    
+                <a class="btn" id="lastButton">
+                     <span class="btn">&lt;</span>
+                </a>
+                
+            }
+
+            <span class="num">@string.Format(Resources.Common.PageCurrentPaginator, currentPage, numberOfPages)</span>
+
+            @if (currentPage < numberOfPages)
+            {
+            
+                <a id="nextButton" class="btn">
+                    <span class="btn">&gt;</span>
+                </a>
+                <a id="endButton" class="btn">
+                    <span class="btn">&gt;&gt;</span>
+                </a>
+            
+            }
+        </div>
+    </div>
+</div>
+}
+<input id="CertificateNumberHidden" name="CertificateNumberHidden" type="hidden" value=@Model.CertificateNumber />
+<input id="IssuanceDateFromHidden" name="IssuanceDateFromHidden" type="hidden" value=@Model.IssuanceDateFrom />
+<input id="IssuanceDateToHidden" name="IssuanceDateToHidden" type="hidden" value=@Model.IssuanceDateTo />
+<input id="EntryPointSelectedHidden" name="EntryPointSelectedHidden" type="hidden" value=@Model.EntryPointSelected />
+<input id="CertificateStatusHidden" name="CertificateStatusHidden" type="hidden" value=@Model.CertificateStatusSelected />
+
+
+<form action="@Url.Action("ViewCertificate", "Certificate")" method="post" id="formDownload">
+        <input type="hidden" name="fileSectionPath" id="fileSectionPath" value="" />
+    <input type="hidden" name="fileName" id="fileName" value="" />
+</form>
+
+<form action="@Url.Action("ViewCertificateDetail", "Certificate")" method="post" id="viewCertificate">
+    <input type="hidden" name="certificateId" id="certificateId" value="" />
+</form>
+
+<form action="@Url.Action("DownloadExcelReport","Certificate")" method="post" id="exportExcelForm">
+
+</form>
+
+<form action="@Url.Action("Index","Home")" method="get" id="GoLoginForm">
+
+</form>

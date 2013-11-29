@@ -1,0 +1,24 @@
+USE IQVoc
+GO
+
+IF (EXISTS (SELECT COLUMN_NAME
+		    FROM INFORMATION_SCHEMA.COLUMNS
+			WHERE TABLE_NAME = 'ReleaseNote' AND COLUMN_NAME = 'SecurityPaperNumber'))
+BEGIN
+
+ALTER TABLE [dbo].[ReleaseNote]
+DROP COLUMN [SecurityPaperNumber]
+
+END
+GO
+
+IF (EXISTS (SELECT COLUMN_NAME
+		    FROM INFORMATION_SCHEMA.COLUMNS
+			WHERE TABLE_NAME = 'ReleaseNote' AND COLUMN_NAME = 'NetWeight'))
+
+BEGIN
+
+ALTER TABLE [dbo].[ReleaseNote]
+ALTER COLUMN [NetWeight] decimal(18,2) null
+
+END

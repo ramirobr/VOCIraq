@@ -1,0 +1,184 @@
+﻿<UserControl x:Class="Cotecna.Voc.Silverlight.OfficeWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"             
+    mc:Ignorable="d"
+    xmlns:local="clr-namespace:Cotecna.Voc.Silverlight"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"                     
+    xmlns:cotecna="clr-namespace:Cotecna.Silverlight.Controls;assembly=Cotecna.Silverlight.Controls"   
+    xmlns:controls="clr-namespace:Cotecna.Voc.Silverlight.Assets"
+    d:DesignHeight="500" d:DesignWidth="500">
+
+    <UserControl.Resources>
+        <local:ByteToImageConverter x:Key="ByteToImageConverter" />
+        <local:RadioButtonNullableConverter x:Key="RadioButtonNullableConverter" />
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </UserControl.Resources>
+    
+    <Grid >
+        <toolkit:BusyIndicator BusyContent="{Binding Translations.PleaseWait, Source={StaticResource ResourceWrapper}}"
+                                    IsBusy="{Binding IsBusy}" >
+            <Grid Margin="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <!-- 0: Instruction screen section-->
+                        <RowDefinition Height="Auto"/>
+                        <!-- 1: Office Information Section-->
+                        <RowDefinition Height="*" />
+                        <!-- 2: Commands-->
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- 0: Instructions Screen Section-->
+                    <StackPanel Margin="10,5,10,5">
+                        <TextBlock Text="{Binding OfficeHeaderText}"
+                                           Style="{StaticResource Text_TitleH1}" TextTrimming="WordEllipsis"/>
+                        <TextBlock TextWrapping="Wrap"
+                                       Text="{Binding OfficeInstructionsText}" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                    </StackPanel>
+
+                    <!-- 1: Office Information Section-->
+                    <ContentControl Grid.Row="1" HorizontalContentAlignment="Stretch" IsEnabled="{Binding IsEnabled}" VerticalContentAlignment="Stretch" >
+                        <Border MaxHeight="700" Margin="10,5,10,5" Style="{StaticResource Control_TitleH2_Border}">
+                            <Grid Background="White">
+                                <Grid.RowDefinitions>
+                                    <!-- 0: Office text-->
+                                    <RowDefinition Height="Auto"/>
+                                    <!-- 1: Office Fields section-->
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <!-- 0: Office text-->
+                                <Border Style="{StaticResource Control_TitleH2_BorderBackground}">
+                                    <TextBlock Margin="5" Style="{StaticResource Text_TitleH2}"
+                                     Text="{Binding Translations.OfficeInformation, Source={StaticResource ResourceWrapper}}"
+                                     HorizontalAlignment="Left" />
+                                </Border>
+                                
+                                <!-- 1: Office Fields section-->
+                                <Grid Grid.Row="1" Margin="20,5,0,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    
+                                    <StackPanel Margin="5">
+                                        <sdk:Label Target="{Binding ElementName=txtOfficeName}" Content="{Binding Translations.OfficeName, Source={StaticResource ResourceWrapper}}"/>
+                                        <TextBox x:Name="txtOfficeName" TextWrapping="Wrap" Width="150" HorizontalAlignment="Left" MaxLength="50"
+                                        	Text="{Binding OfficeName, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" VerticalAlignment="Top" Margin="0,0,-51,0"/>
+                                    </StackPanel>
+                                    
+                                    <StackPanel Margin="5" Grid.Column="1">
+                                        <sdk:Label Target="{Binding ElementName=txtOfficeCode}" Content="{Binding Translations.OfficeCode, Source={StaticResource ResourceWrapper}}"/>
+                                        <TextBox x:Name="txtOfficeCode" TextWrapping="Wrap" Width="150" HorizontalAlignment="Left" MaxLength="3"
+                                         Text="{Binding OfficeCode, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" VerticalAlignment="Top"/> 
+                                    </StackPanel>
+                                    
+                                    <StackPanel Margin="5" Grid.Row="1">
+                                        <sdk:Label Target="{Binding ElementName=txtCountryCode}" Content="{Binding Translations.CountryCode, Source={StaticResource ResourceWrapper}}" />
+                                        <TextBox x:Name="txtCountryCode" TextWrapping="Wrap" Width="150" HorizontalAlignment="Left" MaxLength="3"
+                                        	Text="{Binding Office.CountryCode, Mode=TwoWay}" VerticalAlignment="Top" />
+                                    </StackPanel>
+
+                                    <StackPanel Margin="5" Grid.Row="1" Grid.Column="1">
+
+                                        <sdk:Label Target="{Binding ElementName=OfficeTypeList}" Content="{Binding Translations.OfficeType, Source={StaticResource ResourceWrapper}}" />
+                                        
+                                        <ComboBox  ItemsSource="{Binding OfficeTypeList}" Name="OfficeTypeList"
+                                                   DisplayMemberPath="DictionaryEnumName" SelectedValuePath="DictionaryEnumId" 
+                                                   Width="140"
+                                                   SelectedValue="{Binding SelectedOfficeType, Mode=TwoWay,NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                                                   HorizontalAlignment="Left" />
+                                        
+                                    </StackPanel>
+                                    
+                                    
+                                    <StackPanel Margin="5" Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" >
+                                        <sdk:Label Target="{Binding ElementName=imgOfficeStamp}" Content="{Binding Translations.OfficeStamp, Source={StaticResource ResourceWrapper}}" />
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Width="150" Height="50" Source="{Binding Office.OfficeStamp, Mode=OneWay,Converter={StaticResource ByteToImageConverter}, NotifyOnValidationError=True, ValidatesOnExceptions=True}"/>
+                                            <Button Content="{Binding Translations.UploadStamp, Source={StaticResource ResourceWrapper}}"
+                                                    Margin="5" Height="30" VerticalAlignment="Center" Click="UploadOfficeSignature_Clicked" HorizontalAlignment="Right"/>
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                    <StackPanel Margin="5" Grid.Row="2" Grid.Column="0" Visibility="{Binding IsRegionalOffice, Converter={StaticResource BoolToVisibilityConverter}}">
+
+                                        <sdk:Label Target="{Binding ElementName=RegionalOfficeList}" Content="{Binding Translations.RegionalOffice, Source={StaticResource ResourceWrapper}}" />
+
+                                        <ComboBox  ItemsSource="{Binding RegionalOfficeList}" Name="RegionalOfficeList"
+                                                   DisplayMemberPath="OfficeName" SelectedValuePath="OfficeId" 
+                                                   Width="140"
+                                                   SelectedValue="{Binding RegionalOfficeId, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                                                   HorizontalAlignment="Left" />
+
+                                    </StackPanel>
+                                    <StackPanel Margin="5" Grid.Row="2" Visibility="{Binding IsLocalOffice,Converter={StaticResource BoolToVisibilityConverter}}">
+                                        <sdk:Label Target="{Binding ElementName=rbActive}" Content="{Binding Translations.Active, Source={StaticResource ResourceWrapper}}" />
+                                        <StackPanel Orientation="Horizontal">
+                                            <RadioButton x:Name="rbActive"
+                                                         IsChecked="{Binding Office.IsDeleted, Mode=TwoWay, Converter={StaticResource RadioButtonNullableConverter},ConverterParameter='False'}"
+                                                         Content="{Binding Translations.Yes, Source={StaticResource ResourceWrapper}}"/>
+
+                                            <RadioButton IsChecked="{Binding Office.IsDeleted, Mode=TwoWay, Converter={StaticResource RadioButtonNullableConverter},ConverterParameter='True'}"
+                                                         Margin="5,0,5,0" Content="{Binding Translations.No, Source={StaticResource ResourceWrapper}}"/>
+                                        </StackPanel>
+
+                                    </StackPanel>
+
+                                    <StackPanel Margin="5" Grid.Row="3" Visibility="{Binding IsRegionalOffice,Converter={StaticResource BoolToVisibilityConverter}}">
+                                        <sdk:Label Target="{Binding ElementName=rbActive1}" Content="{Binding Translations.Active, Source={StaticResource ResourceWrapper}}" />
+                                        <StackPanel Orientation="Horizontal">
+                                            <RadioButton x:Name="rbActive1"
+                                                         IsChecked="{Binding Office.IsDeleted, Mode=TwoWay, Converter={StaticResource RadioButtonNullableConverter},ConverterParameter='False'}"
+                                                         Content="{Binding Translations.Yes, Source={StaticResource ResourceWrapper}}"/>
+
+                                            <RadioButton IsChecked="{Binding Office.IsDeleted, Mode=TwoWay, Converter={StaticResource RadioButtonNullableConverter},ConverterParameter='True'}"
+                                                         Margin="5,0,5,0" Content="{Binding Translations.No, Source={StaticResource ResourceWrapper}}"/>
+                                        </StackPanel>
+                                        
+                                    </StackPanel>
+                                </Grid>
+
+                            </Grid>
+
+                        </Border>
+
+                    </ContentControl>
+                </Grid>
+                
+                <!-- 1: Validation  Section-->
+                <cotecna:ClosableValidationSummary Margin="10,5,0,0" Grid.Row="1" Filter="All" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                
+                <!-- 2: Commands-->
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" >
+                    <Button x:Name="btnSave" Content="{Binding Translations.Save, Source={StaticResource ResourceWrapper}}"
+                     Margin="5,0" Style="{StaticResource Control_GreenButton}" HorizontalAlignment="Right"
+                     Command="{Binding SaveCommand}" Visibility="{Binding IsSaveVisible, Converter={StaticResource BoolToVisibilityConverter}}" Height="30" />
+                </StackPanel>
+            </Grid>
+
+        </toolkit:BusyIndicator>
+    </Grid>
+
+</UserControl>

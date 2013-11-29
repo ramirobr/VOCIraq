@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{55514B28-221A-416A-A8F3-DB1723611C17}"
+	ProjectSection(SolutionItems) = preProject
+		Cotecna.Voc.QA.vsmdi = Cotecna.Voc.QA.vsmdi
+		Local.testsettings = Local.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cotecna.Voc.QA.UI", "Cotecna.Voc.QA.UI.csproj", "{FB043162-6358-4AA1-9D7A-E696849BB3B8}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://gvatfs:8080/tfs/cotecna
+		SccProjectUniqueName0 = Cotecna.Voc.QA.UI.csproj
+		SccLocalPath0 = .
+		SccLocalPath1 = .
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Cotecna.Voc.QA.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB043162-6358-4AA1-9D7A-E696849BB3B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB043162-6358-4AA1-9D7A-E696849BB3B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB043162-6358-4AA1-9D7A-E696849BB3B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB043162-6358-4AA1-9D7A-E696849BB3B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

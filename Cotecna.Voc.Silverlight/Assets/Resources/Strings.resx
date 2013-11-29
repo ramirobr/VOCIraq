@@ -1,0 +1,1111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CertificateInformation" xml:space="preserve">
+    <value>Certificate Information</value>
+  </data>
+  <data name="CertificateNumber" xml:space="preserve">
+    <value>Certificate Number</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>Certificates</value>
+  </data>
+  <data name="CertificateStatus" xml:space="preserve">
+    <value>Certificate Status</value>
+  </data>
+  <data name="CoC" xml:space="preserve">
+    <value>CoC</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="DownloadTemplate" xml:space="preserve">
+    <value>Download Template</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditCertificate" xml:space="preserve">
+    <value>Edit Certificate</value>
+  </data>
+  <data name="EditCertificateInstructions" xml:space="preserve">
+    <value>Provide the information that require the certificate to be published. Download the word template according to your needs, and upload the CoC or NCR document once it is properly filled.</value>
+  </data>
+  <data name="EntryPoint" xml:space="preserve">
+    <value>Entry Point</value>
+  </data>
+  <data name="Invoiced" xml:space="preserve">
+    <value>Paid border fees</value>
+  </data>
+  <data name="IssuanceDate" xml:space="preserve">
+    <value>Issuance Date</value>
+  </data>
+  <data name="ListCertificateInstructions" xml:space="preserve">
+    <value>Please choose a certificate to edit its information</value>
+  </data>
+  <data name="ListCertificateTitle" xml:space="preserve">
+    <value>List of certificates</value>
+  </data>
+  <data name="NCR" xml:space="preserve">
+    <value>NCR</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="PageOf" xml:space="preserve">
+    <value>Page {0} of {1}</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Please Wait....</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TotalRecords" xml:space="preserve">
+    <value>Total Records:</value>
+  </data>
+  <data name="TypeOfCertificate" xml:space="preserve">
+    <value>Type of certificate</value>
+  </data>
+  <data name="UploadCertificate" xml:space="preserve">
+    <value>Upload Certificate</value>
+  </data>
+  <data name="UploadDocuments" xml:space="preserve">
+    <value>Upload Supporting Documents</value>
+  </data>
+  <data name="WorkflowStatus" xml:space="preserve">
+    <value>Workflow Status</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>Published</value>
+  </data>
+  <data name="NetworkOffline" xml:space="preserve">
+    <value>No network is detected.</value>
+  </data>
+  <data name="NetworkOnline" xml:space="preserve">
+    <value>Online.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="SaveConfirmationMessage" xml:space="preserve">
+    <value>Some changes in the current screen have not been saved. Are you sure you want to navigate away?</value>
+  </data>
+  <data name="UnsavedChanges" xml:space="preserve">
+    <value>Unsaved Changes</value>
+  </data>
+  <data name="DeleteConfirmation" xml:space="preserve">
+    <value>Delete Confirmation</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Uploaded</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Publish</value>
+  </data>
+  <data name="Unpublish" xml:space="preserve">
+    <value>Unpublish</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Authenticating" xml:space="preserve">
+    <value>Authenticating...</value>
+  </data>
+  <data name="RequireInstallApplication" xml:space="preserve">
+    <value>You are required to Install the application on your machine</value>
+  </data>
+  <data name="ApplicationAlreadyInstalled" xml:space="preserve">
+    <value>The Voc application is already installed in this machine.
+Please, check on the desktop shortcut "Voc Application" to start the system.</value>
+  </data>
+  <data name="ApplicationInstalling" xml:space="preserve">
+    <value>The application is installing...</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Certificate" xml:space="preserve">
+    <value>Certificate</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="SupportingDocument" xml:space="preserve">
+    <value>Supporting Document</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="SupportingFileRepeated" xml:space="preserve">
+    <value>The file that you want to upload is already in the list of supporting documents. Please, delete it before to upload an updated version of the file.</value>
+  </data>
+  <data name="DocumentInformation" xml:space="preserve">
+    <value>Document Information</value>
+  </data>
+  <data name="EditDocument" xml:space="preserve">
+    <value>Edit Document</value>
+  </data>
+  <data name="EditDocumentInstructions" xml:space="preserve">
+    <value>Edit the document description according to your needs, and save once it is properly filled.</value>
+  </data>
+  <data name="OpeningDocument" xml:space="preserve">
+    <value>Openning document: {0}</value>
+  </data>
+  <data name="DeleteMessage" xml:space="preserve">
+    <value>The item {0} will be removed. Do you want to continue?</value>
+  </data>
+  <data name="DeletedSuccessfully" xml:space="preserve">
+    <value>{0} deleted successfully.</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="UpdatedSuccessfully" xml:space="preserve">
+    <value>{0} updated successfully.</value>
+  </data>
+  <data name="DocumentDescriptionIsMandatory" xml:space="preserve">
+    <value>Document description is mandatory.</value>
+  </data>
+  <data name="CertificateCreationMessage" xml:space="preserve">
+    <value>Certificate has been created successfully</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="Alert" xml:space="preserve">
+    <value>Alert</value>
+  </data>
+  <data name="FileNotExist" xml:space="preserve">
+    <value>This file does not exist: </value>
+  </data>
+  <data name="Request" xml:space="preserve">
+    <value>Request</value>
+  </data>
+  <data name="CertificateRequestMessage" xml:space="preserve">
+    <value>You are going to request the approval of this certificate. Do you want to continue?</value>
+  </data>
+  <data name="CertificateRequestValidationError" xml:space="preserve">
+    <value>You are not allowed to do a request for this certificate as it does not have the respective CoC/NCR</value>
+  </data>
+  <data name="CertificateUpdateStatusMessage" xml:space="preserve">
+    <value>Certificate was updated successfully</value>
+  </data>
+  <data name="CertificateDeleteStatusMessage" xml:space="preserve">
+    <value>Certificate was deleted successfully</value>
+  </data>
+  <data name="Question" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="CertificateNotHaveDocumentDisplay" xml:space="preserve">
+    <value>This item does not have any certificate document to display</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Reject</value>
+  </data>
+  <data name="CertificateRejectMessage" xml:space="preserve">
+    <value>You are going to reject this certificate. Do you want to continue?</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="CertificateApproveMessage" xml:space="preserve">
+    <value>You are going to approve this certificate. Do you want to continue?</value>
+  </data>
+  <data name="CertificateApproveValidationError" xml:space="preserve">
+    <value>You are not allowed to approve this certificate because "{0}" field is empty.</value>
+  </data>
+  <data name="CertificateApproveSignatureValidationError" xml:space="preserve">
+    <value>You are not allowed to approve this certificate, because you do not have a signature registered.</value>
+  </data>
+  <data name="NonAuthorizedMessage" xml:space="preserve">
+    <value>You are not authorized to use this application</value>
+  </data>
+  <data name="SearchCriteria" xml:space="preserve">
+    <value>Search criteria</value>
+  </data>
+  <data name="MyDocuments" xml:space="preserve">
+    <value>My documents</value>
+  </data>
+  <data name="PublishUnpublish" xml:space="preserve">
+    <value>Publis / Unpublish</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="Office" xml:space="preserve">
+    <value>Office</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="UserList" xml:space="preserve">
+    <value>User List</value>
+  </data>
+  <data name="UserLogin" xml:space="preserve">
+    <value>User Login</value>
+  </data>
+  <data name="UserAdministration" xml:space="preserve">
+    <value>User Administration</value>
+  </data>
+  <data name="UserAdministrationInstructions" xml:space="preserve">
+    <value>Use this option to manage the list of users from your office.</value>
+  </data>
+  <data name="Main" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="ListUserTitle" xml:space="preserve">
+    <value>List of users</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="Conform" xml:space="preserve">
+    <value>Conform</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Created</value>
+  </data>
+  <data name="NonConform" xml:space="preserve">
+    <value>Non Conform</value>
+  </data>
+  <data name="Ongoing" xml:space="preserve">
+    <value>Ongoing</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="Requested" xml:space="preserve">
+    <value>Requested</value>
+  </data>
+  <data name="IssuanceDateFrom" xml:space="preserve">
+    <value>Issuance Date From</value>
+  </data>
+  <data name="IssuanceDateTo" xml:space="preserve">
+    <value>Issuance Date To</value>
+  </data>
+  <data name="EditUser" xml:space="preserve">
+    <value>Edit User</value>
+  </data>
+  <data name="EditUserInstructions" xml:space="preserve">
+    <value>Edit the user information according to your needs, and save once it is properly filled.</value>
+  </data>
+  <data name="UserInformation" xml:space="preserve">
+    <value>User Information</value>
+  </data>
+  <data name="FilePath" xml:space="preserve">
+    <value>File Path</value>
+  </data>
+  <data name="Signature" xml:space="preserve">
+    <value>Signature</value>
+  </data>
+  <data name="UploadSignature" xml:space="preserve">
+    <value>Upload Signature</value>
+  </data>
+  <data name="UserUpdateStatusMessage" xml:space="preserve">
+    <value>User was updated successfully</value>
+  </data>
+  <data name="Recall" xml:space="preserve">
+    <value>Recall</value>
+  </data>
+  <data name="CertificateRecallMessage" xml:space="preserve">
+    <value>You are going to recall this certificate. Do you want to continue?</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="RoleIsMandatory" xml:space="preserve">
+    <value>Role is mandatory</value>
+  </data>
+  <data name="EntryPointIsMandatoryForRoles" xml:space="preserve">
+    <value>Entry point is mandatory for selected role.</value>
+  </data>
+  <data name="FilePathIsMandatoryForRoles" xml:space="preserve">
+    <value>File path is mandatory for selected role.</value>
+  </data>
+  <data name="OfficeIsMandatoryForRoles" xml:space="preserve">
+    <value>Office is mandatory for selected role.</value>
+  </data>
+  <data name="UserNameIsMandatory" xml:space="preserve">
+    <value>User Login is mandatory</value>
+  </data>
+  <data name="UserAlreadyExists" xml:space="preserve">
+    <value>User already exists.</value>
+  </data>
+  <data name="CertificateRecallPublishValidationError" xml:space="preserve">
+    <value>This certificate can not be recalled while it is published.</value>
+  </data>
+  <data name="EditReleaseNote" xml:space="preserve">
+    <value>Edit Release Note</value>
+  </data>
+  <data name="EditReleaseNoteInstructions" xml:space="preserve">
+    <value>Edit the release note information according to your needs, and save once it is properly filled.</value>
+  </data>
+  <data name="ReleaseNoteInformation" xml:space="preserve">
+    <value>General Release Note Information</value>
+  </data>
+  <data name="PrintingReleaseNoteInformation" xml:space="preserve">
+    <value>Printing Release Note Information</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="DocumentaryCheckResults" xml:space="preserve">
+    <value>Documentary Check Results</value>
+  </data>
+  <data name="Goods" xml:space="preserve">
+    <value>Goods</value>
+  </data>
+  <data name="JointSamplingMade" xml:space="preserve">
+    <value>Joint Sampling Made</value>
+  </data>
+  <data name="NetWeight" xml:space="preserve">
+    <value>Net Weight - MT (Bulk or packed goods)</value>
+  </data>
+  <data name="NumberOfContainers" xml:space="preserve">
+    <value>Number of Trucks or Containers Presented</value>
+  </data>
+  <data name="OverallResults" xml:space="preserve">
+    <value>Overall Results</value>
+  </data>
+  <data name="PartialNumber" xml:space="preserve">
+    <value>Partial N°</value>
+  </data>
+  <data name="PhysicalCheckResults" xml:space="preserve">
+    <value>Physical Check Results</value>
+  </data>
+  <data name="SecurityPaperNumber" xml:space="preserve">
+    <value>Issued Security papers N°</value>
+  </data>
+  <data name="VisualInspectionOfGoods" xml:space="preserve">
+    <value>Visual Inspection of Goods</value>
+  </data>
+  <data name="ReleaseNotes" xml:space="preserve">
+    <value>Release Notes</value>
+  </data>
+  <data name="CloseQuestionMessage" xml:space="preserve">
+    <value>You are going to close this certificate, do you want to continue?</value>
+  </data>
+  <data name="ReleaseNoteSavedStatusMessage" xml:space="preserve">
+    <value>Release note was saved successfully</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="Unclose" xml:space="preserve">
+    <value>Unclose</value>
+  </data>
+  <data name="DeleteQuestionMessage" xml:space="preserve">
+    <value>You are going to delete this certificate including its physical documents, do you want to continue?</value>
+  </data>
+  <data name="UnCloseQuestionMessage" xml:space="preserve">
+    <value>You are going to unclose this certificate, do you want to continue?</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailMandatory" xml:space="preserve">
+    <value>Email is mandatory</value>
+  </data>
+  <data name="EmailNotValid" xml:space="preserve">
+    <value>Email format not valid</value>
+  </data>
+  <data name="CertificateFileRepeated" xml:space="preserve">
+    <value>The file that you want to upload is already in the list as certificate.</value>
+  </data>
+  <data name="NotInvoiceMessage" xml:space="preserve">
+    <value>You are not allowed to approve this certificate because "Invoiced" field is empty</value>
+  </data>
+  <data name="CertificateDocumentValidator" xml:space="preserve">
+    <value>You are not allowed to approve this certificate because there is no Certificate Document</value>
+  </data>
+  <data name="CertificateApproveValidationErrorPlural" xml:space="preserve">
+    <value>You are not allowed to approve this certificate because "{0}" fields are empty.</value>
+  </data>
+  <data name="NonInvoiced" xml:space="preserve">
+    <value>B.F. Non invoiced</value>
+  </data>
+  <data name="OpeningDocumentFromServer" xml:space="preserve">
+    <value>Openning from central server the document: {0}</value>
+  </data>
+  <data name="CertificateCancellEdition" xml:space="preserve">
+    <value>You are going to set this certificate as cancelled. Do you want to continue?</value>
+  </data>
+  <data name="ApprovedListSuccess" xml:space="preserve">
+    <value>All certificates were approved successfully</value>
+  </data>
+  <data name="RecallListSuccess" xml:space="preserve">
+    <value>All certificates were recalled successfully</value>
+  </data>
+  <data name="CloseQuestionMessagePlural" xml:space="preserve">
+    <value>You are going to close this list of certificates, do you want to continue?</value>
+  </data>
+  <data name="DeleteQuestionMessagePlural" xml:space="preserve">
+    <value>You are going to delete this list of certificates including its physical documents, do you want to continue?</value>
+  </data>
+  <data name="UnCloseQuestionMessagePlural" xml:space="preserve">
+    <value>You are going to unclose this list of certificates, do you want to continue?</value>
+  </data>
+  <data name="ApproveMultiselectQuestion" xml:space="preserve">
+    <value>You are going to approve these certificates, do you want to continue?</value>
+  </data>
+  <data name="RecallMultiselectQuestion" xml:space="preserve">
+    <value>You are going to recall these certificates, do you want to continue?</value>
+  </data>
+  <data name="NewCocButton" xml:space="preserve">
+    <value>Create certificate</value>
+  </data>
+  <data name="CurrentUserUpdateInformation" xml:space="preserve">
+    <value>Please close and open the application again to refresh the changes applied.</value>
+  </data>
+  <data name="CreateCertificateError" xml:space="preserve">
+    <value>Your user has incomplete information and the certificate cannot be created, please contact the system administrator.</value>
+  </data>
+  <data name="UserNameFormatNotValid" xml:space="preserve">
+    <value>The format of the user name is not correct, please write in this format: Domain\UserName</value>
+  </data>
+  <data name="MultipleActionErrorResultPlural" xml:space="preserve">
+    <value>The following {0} have errors:</value>
+  </data>
+  <data name="ActionTypeApproved" xml:space="preserve">
+    <value>approved</value>
+  </data>
+  <data name="ActionTypeClosed" xml:space="preserve">
+    <value>closed</value>
+  </data>
+  <data name="ActionTypeDeleted" xml:space="preserve">
+    <value>deleted</value>
+  </data>
+  <data name="ActionTypePublished" xml:space="preserve">
+    <value>published</value>
+  </data>
+  <data name="ActionTypeRejected" xml:space="preserve">
+    <value>rejected</value>
+  </data>
+  <data name="ActionTypeRequested" xml:space="preserve">
+    <value>requested</value>
+  </data>
+  <data name="ActionTypeUnclosed" xml:space="preserve">
+    <value>unclosed</value>
+  </data>
+  <data name="ActionTypeUnpublished" xml:space="preserve">
+    <value>unpublished</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>User not found, please verify the user name.</value>
+  </data>
+  <data name="ActionTypeRecall" xml:space="preserve">
+    <value>recalled</value>
+  </data>
+  <data name="CertificateDocumentRequestValidator" xml:space="preserve">
+    <value>You are not allowed to request this certificate because there is no Certificate Document</value>
+  </data>
+  <data name="ItemTypeCertificate" xml:space="preserve">
+    <value>certificate</value>
+  </data>
+  <data name="ItemTypeCertificates" xml:space="preserve">
+    <value>certificates</value>
+  </data>
+  <data name="ItemTypeDocument" xml:space="preserve">
+    <value>document</value>
+  </data>
+  <data name="ItemTypeDocuments" xml:space="preserve">
+    <value>documents</value>
+  </data>
+  <data name="MultiActionSuccessResult" xml:space="preserve">
+    <value>{0} {1} has been {2} :</value>
+  </data>
+  <data name="MultiActionSuccessResultPlural" xml:space="preserve">
+    <value>{0} {1} have been {2} :</value>
+  </data>
+  <data name="ActionListSuccess" xml:space="preserve">
+    <value>All {0} were {1} successfully</value>
+  </data>
+  <data name="MultipleActionWarningsResultPlural" xml:space="preserve">
+    <value>The following {0} have warnings:</value>
+  </data>
+  <data name="MultipleActionGenericWarningsResult" xml:space="preserve">
+    <value>The process threw the following warning:</value>
+  </data>
+  <data name="MultipleActionErrorResult" xml:space="preserve">
+    <value>The following {0} has an error:</value>
+  </data>
+  <data name="MultipleActionWarningsResult" xml:space="preserve">
+    <value>The following {0} has a warning:</value>
+  </data>
+  <data name="UserLoginScreen" xml:space="preserve">
+    <value>User Login - Domain\AccountName</value>
+  </data>
+  <data name="MultipleActionGenericErrosResult" xml:space="preserve">
+    <value>The process threw the following error:</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="UserNotFoundByEmail" xml:space="preserve">
+    <value>User not found, please verify the email.</value>
+  </data>
+  <data name="CertificateNCRUnclosePublished" xml:space="preserve">
+    <value>This certificate can not be unclosed while it is published.</value>
+  </data>
+  <data name="OfficeAdministration" xml:space="preserve">
+    <value>Office Administration</value>
+  </data>
+  <data name="OfficeAdministrationInstructions" xml:space="preserve">
+    <value>Use this option to manage the list of office.</value>
+  </data>
+  <data name="OfficeName" xml:space="preserve">
+    <value>Office Name</value>
+  </data>
+  <data name="OfficeCode" xml:space="preserve">
+    <value>Office Code</value>
+  </data>
+  <data name="CountryCode" xml:space="preserve">
+    <value>Country Code</value>
+  </data>
+  <data name="OfficeList" xml:space="preserve">
+    <value>Office List</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="SecurityPapers" xml:space="preserve">
+    <value>Security Papers</value>
+  </data>
+  <data name="SecurityPaperInstructions" xml:space="preserve">
+    <value>Please find below the list of security papers.</value>
+  </data>
+  <data name="FileReference" xml:space="preserve">
+    <value>File reference</value>
+  </data>
+  <data name="RemittedTo" xml:space="preserve">
+    <value>Remitted to</value>
+  </data>
+  <data name="SecurityPaperList" xml:space="preserve">
+    <value>Available Security Papers</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="ImporterName" xml:space="preserve">
+    <value>Importer Name</value>
+  </data>
+  <data name="VisuallyCheck" xml:space="preserve">
+    <value>Visually Check the packages</value>
+  </data>
+  <data name="ContainersDetails" xml:space="preserve">
+    <value>Containers packing details not mentioned</value>
+  </data>
+  <data name="ImportDocumentDetails" xml:space="preserve">
+    <value>Import document  not mentioned</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>Partial</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>Complete</value>
+  </data>
+  <data name="NumberLineItems" xml:space="preserve">
+    <value>Number of line items</value>
+  </data>
+  <data name="ContainerSection" xml:space="preserve">
+    <value>Container</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="EditOffice" xml:space="preserve">
+    <value>Edit Office</value>
+  </data>
+  <data name="EditOfficeInstructions" xml:space="preserve">
+    <value>Edit the office information according to your needs.</value>
+  </data>
+  <data name="OfficeInformation" xml:space="preserve">
+    <value>Office Information</value>
+  </data>
+  <data name="OfficeStamp" xml:space="preserve">
+    <value>Office Stamp</value>
+  </data>
+  <data name="OfficeNameIsMandatory" xml:space="preserve">
+    <value>Office Name is mandatory</value>
+  </data>
+  <data name="OfficeCodeIsMandatory" xml:space="preserve">
+    <value>Office Code is mandatory</value>
+  </data>
+  <data name="OfficeSaveStatusMessage" xml:space="preserve">
+    <value>Office was saved successfully</value>
+  </data>
+  <data name="NewOffice" xml:space="preserve">
+    <value>New Office</value>
+  </data>
+  <data name="OfficeAlreadyExists" xml:space="preserve">
+    <value>Office Name and Office Code already exist.</value>
+  </data>
+  <data name="OfficeNameAlreadyExists" xml:space="preserve">
+    <value>Office Name already exists.</value>
+  </data>
+  <data name="OfficeCodeAlreadyExists" xml:space="preserve">
+    <value>Office Code already exists.</value>
+  </data>
+  <data name="PrintRN" xml:space="preserve">
+    <value>Generate Release Note</value>
+  </data>
+  <data name="_AppVersion" xml:space="preserve">
+    <value>Version: 1.0.0.24</value>
+  </data>
+  <data name="Issued" xml:space="preserve">
+    <value>Issued</value>
+  </data>
+  <data name="MisPrinted" xml:space="preserve">
+    <value>Misprinted</value>
+  </data>
+  <data name="NotIssued" xml:space="preserve">
+    <value>Not Issued</value>
+  </data>
+  <data name="SecurityPapersStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="UploadStamp" xml:space="preserve">
+    <value>Upload Stamp</value>
+  </data>
+  <data name="DocumentDoesNotExist" xml:space="preserve">
+    <value>There is no document associated to the Release Note selected.</value>
+  </data>
+  <data name="CreateSecurityPapers" xml:space="preserve">
+    <value>Create Security Papers</value>
+  </data>
+  <data name="CreateSecurityPaperInstructions" xml:space="preserve">
+    <value>Please choose an entry point and write a range to create Security Papers</value>
+  </data>
+  <data name="SecurityPaperInformation" xml:space="preserve">
+    <value>Security Paper Information</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="InitialLetter" xml:space="preserve">
+    <value>Initial letter</value>
+  </data>
+  <data name="IsVChecked" xml:space="preserve">
+    <value>Please choose a letter</value>
+  </data>
+  <data name="NoValueWritten" xml:space="preserve">
+    <value>Please write a value</value>
+  </data>
+  <data name="P" xml:space="preserve">
+    <value>P</value>
+  </data>
+  <data name="Range" xml:space="preserve">
+    <value>Range</value>
+  </data>
+  <data name="SelectedEntryPointId" xml:space="preserve">
+    <value>Please choose an entry point</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="V" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="SecurityPapersMandatory" xml:space="preserve">
+    <value>Security Papers The Security Paper field is required</value>
+  </data>
+  <data name="SecurityPaperDeleteMessage" xml:space="preserve">
+    <value>One ore more security papers have been selected for deletion. Do you want to continue?</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="CommentMandatory" xml:space="preserve">
+    <value>Please write a comment</value>
+  </data>
+  <data name="ScurityPaperCancellMissPrintedInstruction" xml:space="preserve">
+    <value>Please write a comment before perform {0} action</value>
+  </data>
+  <data name="ScurityPaperCancellMissPrintedTitle" xml:space="preserve">
+    <value>{0} Security papers</value>
+  </data>
+  <data name="MisPrint" xml:space="preserve">
+    <value>Misprint</value>
+  </data>
+  <data name="GridNetWeight" xml:space="preserve">
+    <value>Net Weight</value>
+  </data>
+  <data name="TotalNetWeight" xml:space="preserve">
+    <value>The total Net Weight released is: {0}</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="GridSecurityPapersList" xml:space="preserve">
+    <value>Security Papers List</value>
+  </data>
+  <data name="ModificationBy" xml:space="preserve">
+    <value>Modification by</value>
+  </data>
+  <data name="ModificationDate" xml:space="preserve">
+    <value>Modification date</value>
+  </data>
+  <data name="ModificationDateFrom" xml:space="preserve">
+    <value>Modification Date From</value>
+  </data>
+  <data name="ModificationDateTo" xml:space="preserve">
+    <value>Modification Date To</value>
+  </data>
+  <data name="ViewOffice" xml:space="preserve">
+    <value>View Office</value>
+  </data>
+  <data name="ViewOfficeInstructions" xml:space="preserve">
+    <value>Office information.</value>
+  </data>
+  <data name="ViewUser" xml:space="preserve">
+    <value>View User</value>
+  </data>
+  <data name="ViewUserInstructions" xml:space="preserve">
+    <value>User information.</value>
+  </data>
+  <data name="ViewReleaseNote" xml:space="preserve">
+    <value>Release Note</value>
+  </data>
+  <data name="ViewReleaseNoteInstructions" xml:space="preserve">
+    <value>Release Note information.</value>
+  </data>
+  <data name="CertificateHistoryInstruction" xml:space="preserve">
+    <value>Please find bellow the history of this certificate</value>
+  </data>
+  <data name="CertificateHistoryTitle" xml:space="preserve">
+    <value>Certificate History</value>
+  </data>
+  <data name="CertificateTrackingSection" xml:space="preserve">
+    <value>Tracking list</value>
+  </data>
+  <data name="ModificatedBy" xml:space="preserve">
+    <value>Modicated by</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="DeleteMultipleDocumentsQuestion" xml:space="preserve">
+    <value>{0} documents have been selected for deletion. Do you want to continue?</value>
+  </data>
+  <data name="DeleteMultipleDocumentsQuestionDocOne" xml:space="preserve">
+    <value>one document has been selected for deletion. Do you want to continue?</value>
+  </data>
+  <data name="BFInvoiced" xml:space="preserve">
+    <value>B.F. Invoiced</value>
+  </data>
+  <data name="RegionalOffice" xml:space="preserve">
+    <value>Regional Office</value>
+  </data>
+  <data name="OfficeType" xml:space="preserve">
+    <value>Office type</value>
+  </data>
+  <data name="RegionalOfficeList" xml:space="preserve">
+    <value>Regional Offices</value>
+  </data>
+  <data name="LocalOffice" xml:space="preserve">
+    <value>Local Office</value>
+  </data>
+  <data name="IsRoUser" xml:space="preserve">
+    <value>Allow to view other certificates</value>
+  </data>
+  <data name="OfficeTypeMandatory" xml:space="preserve">
+    <value>Please choose an office type</value>
+  </data>
+  <data name="RegionalOfficeMandatory" xml:space="preserve">
+    <value>Please choose a regional office</value>
+  </data>
+  <data name="ReceivedQty" xml:space="preserve">
+    <value>Received Quantity</value>
+  </data>
+  <data name="RemainingQty" xml:space="preserve">
+    <value>Remaining Quantity</value>
+  </data>
+  <data name="TotalQty" xml:space="preserve">
+    <value>Total Quantity</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="ShipmentType" xml:space="preserve">
+    <value>Shipment Type</value>
+  </data>
+  <data name="ComdivNumber" xml:space="preserve">
+    <value>Comdiv Number</value>
+  </data>
+  <data name="ComdivNumberMandatoryMessage" xml:space="preserve">
+    <value>You are not allowed to approve this certificate because "Comdiv number" field is empty</value>
+  </data>
+  <data name="ReleaseNoteReport" xml:space="preserve">
+    <value>Release notes report</value>
+  </data>
+  <data name="ComdivNumberMandatory" xml:space="preserve">
+    <value>Comdiv number is mandatory</value>
+  </data>
+  <data name="NoIssuersRequestForApproval" xml:space="preserve">
+    <value>There are no users with the issuer profile, do you want to continue requesting for approval this certificate?</value>
+  </data>
+  <data name="Air" xml:space="preserve">
+    <value>Air</value>
+  </data>
+  <data name="Land" xml:space="preserve">
+    <value>Land</value>
+  </data>
+  <data name="Maritime" xml:space="preserve">
+    <value>Maritime</value>
+  </data>
+  <data name="SeaLand" xml:space="preserve">
+    <value>Sea &amp; Land</value>
+  </data>
+  <data name="SelectedCertificateTypeMandatory" xml:space="preserve">
+    <value>Certificate type is mandatory</value>
+  </data>
+  <data name="EntryPointMandatory" xml:space="preserve">
+    <value>Please choose an entry point</value>
+  </data>
+  <data name="IsInvoicedMandatory" xml:space="preserve">
+    <value>Please select if the certificate fees were invoiced or not</value>
+  </data>
+  <data name="FOBValue" xml:space="preserve">
+    <value>FOB Value</value>
+  </data>
+  <data name="FOBValueMandatory" xml:space="preserve">
+    <value>FOB Value is mandatory</value>
+  </data>
+  <data name="FOBValueUSD" xml:space="preserve">
+    <value>FOB Value - USD</value>
+  </data>
+  <data name="Uncancelled" xml:space="preserve">
+    <value>Uncancelled</value>
+  </data>
+  <data name="SyncComdiv" xml:space="preserve">
+    <value>Synchronize with Comdiv</value>
+  </data>
+  <data name="ActionTypeSyncComdiv" xml:space="preserve">
+    <value>synchronized</value>
+  </data>
+  <data name="SendComdiv" xml:space="preserve">
+    <value>Send to Comdiv</value>
+  </data>
+  <data name="SyncCompletedMessage" xml:space="preserve">
+    <value>Synchronization completed</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="_UrlHelp" xml:space="preserve">
+    <value>http://cotecnet/commercial/voc/VOC%2017020%20Procedures/W-10-20%20SOP%20Iraq%20for%20EO.docx</value>
+  </data>
+  <data name="ApproveFile" xml:space="preserve">
+    <value>Approve the file</value>
+  </data>
+  <data name="DeleteFile" xml:space="preserve">
+    <value>Delete the file</value>
+  </data>
+  <data name="RecallFile" xml:space="preserve">
+    <value>Recall the file</value>
+  </data>
+  <data name="RejectFile" xml:space="preserve">
+    <value>Reject the file</value>
+  </data>
+  <data name="RequestFile" xml:space="preserve">
+    <value>Request the file</value>
+  </data>
+  <data name="PaidFees" xml:space="preserve">
+    <value>Paid Fees - USD</value>
+  </data>
+  <data name="PaidFeesMandatory" xml:space="preserve">
+    <value>Border fees are mandatory. Please enter a value.</value>
+  </data>
+  <data name="Synchronized" xml:space="preserve">
+    <value>Synchronized</value>
+  </data>
+  <data name="SyncComdivNotPossible" xml:space="preserve">
+    <value>This certificate cannot be synchronized because there is no comdiv platform installed in the certificate's office.</value>
+  </data>
+  <data name="DeleteOneReleaseNoteMessage" xml:space="preserve">
+    <value>One release note has been selected for deletion. Do you want to continue?</value>
+  </data>
+  <data name="DeleteSomeReleaseNoteMessage" xml:space="preserve">
+    <value>{0} release notes have been selected for deletion. Do you want to continue?</value>
+  </data>
+  <data name="SecurityPaperEditionBorderText" xml:space="preserve">
+    <value>Edit information</value>
+  </data>
+  <data name="SecurityPaperEditionInstruction" xml:space="preserve">
+    <value>Please choose an entry point in order to modify the remittance of selected security papers.</value>
+  </data>
+  <data name="SecurityPaperEditionTitle" xml:space="preserve">
+    <value>Security paper edition</value>
+  </data>
+</root>

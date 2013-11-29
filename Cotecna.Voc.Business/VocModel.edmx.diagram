@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3544b4fc47d14546b93b61b9e2822ea2" Name="Diagram1">
+        <EntityTypeShape EntityType="VocModel.Document" Width="1.5" PointX="0.6176600813016575" PointY="22.606386597550653" />
+        <EntityTypeShape EntityType="VocModel.EntryPoint" Width="1.5" PointX="4.1466150582519425" PointY="9.747837533125578" />
+        <EntityTypeShape EntityType="VocModel.Certificate" Width="1.5" PointX="11.926704542677246" PointY="8.49402444460151" />
+        <AssociationConnector Association="VocModel.FK_CertificateDocument" />
+        <AssociationConnector Association="VocModel.FK_EntryPointCertificate" />
+        <EntityTypeShape EntityType="VocModel.Office" Width="1.5" PointX="1.5839135691448645" PointY="1.0183845763180333" />
+        <AssociationConnector Association="VocModel.FK_OfficeCertificate" />
+        <EntityTypeShape EntityType="VocModel.FileRequest" Width="1.5" PointX="9.8089893524576866" PointY="9.87463248235855" />
+        <EntityTypeShape EntityType="VocModel.ReleaseNote" Width="2.25" PointX="11.625" PointY="21.75" />
+        <AssociationConnector Association="VocModel.FK_CertificateReleaseNote" />
+        <EntityTypeShape EntityType="VocModel.SecurityPaper" Width="1.75" PointX="18" PointY="9" />
+        <AssociationConnector Association="VocModel.FK_SecurityPaperEntryPoint" />
+        <AssociationConnector Association="VocModel.FK_SecurityPaperReleaseNote" />
+        <AssociationConnector Association="VocModel.FK_ReleaseNoteDocument" />
+        <EntityTypeShape EntityType="VocModel.CertificateTracking" Width="1.5" PointX="8.5343969504043447" PointY="15.967445455476383" />
+        <AssociationConnector Association="VocModel.FK_CertificateTracking_Certificate" />
+        <AssociationConnector Association="VocModel.RegionalOffice_Office" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

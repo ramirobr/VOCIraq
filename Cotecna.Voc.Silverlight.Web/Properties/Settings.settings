@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Cotecna.Voc.Silverlight.Web.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PathDocument" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\\uiowebqa03\DEVELOPER\FileStorage\</Value>
+    </Setting>
+    <Setting Name="PageSize" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="NameEmailSupport" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">VoC support team</Value>
+    </Setting>
+    <Setting Name="EmailSupport" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">no-reply@cotecna.ch</Value>
+    </Setting>
+    <Setting Name="DomainAD" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AMERICA</Value>
+    </Setting>
+    <Setting Name="UserAD" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ecuiovqtest</Value>
+    </Setting>
+    <Setting Name="PwdAD" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">VQ.citt.2011</Value>
+    </Setting>
+    <Setting Name="ExcelFolder" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ExportFiles</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

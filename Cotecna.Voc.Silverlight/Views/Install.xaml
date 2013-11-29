@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Cotecna.Voc.Silverlight.Install"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="600"
+    xmlns:local="clr-namespace:Cotecna.Voc.Silverlight">
+    <UserControl.DataContext>
+        <local:InstallViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <local:BoolToVisibilityInverseConverter x:Key="BoolToVisibilityInverseConverter" />
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Grid MaxHeight="300" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+     
+
+            <TextBlock Grid.Row="0" x:Name="lblError" Text="{Binding ErrorMessage}" Margin="20" Foreground="Red" />
+            <TextBlock  Text="{Binding Message}" 
+                    Visibility="{Binding IsNotInstalled, Converter={StaticResource BoolToVisibilityInverseConverter}}" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="18" 
+                    />
+        
+        <StackPanel Grid.Row="0" 
+                        HorizontalAlignment="Center"
+                        Visibility="{Binding IsNotInstalled, Converter={StaticResource BoolToVisibilityConverter}}">
+                <TextBlock  Text="{Binding Translations.RequireInstallApplication, Source={StaticResource ResourceWrapper}}" 
+                            HorizontalAlignment="Center" FontSize="18"
+                            Margin="0,40,0,40"/>
+            
+            <Button x:Name="btnInstall" Grid.Row="1" IsEnabled="{Binding IsNotInstalled}" 
+                    Command="{Binding Install}"
+                    Content="Click to Install" FontSize="18" Width="350" Height="150" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

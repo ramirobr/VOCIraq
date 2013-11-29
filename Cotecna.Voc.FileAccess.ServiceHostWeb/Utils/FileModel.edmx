@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VocIraqModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="VocIraqModelStoreContainer">
+          <EntitySet Name="Document" EntityType="VocIraqModel.Store.Document" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FileRequest" EntityType="VocIraqModel.Store.FileRequest" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="DocumentId" />
+          </Key>
+          <Property Name="DocumentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CertificateId" Type="int" Nullable="false" />
+          <Property Name="Filename" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="FilePath" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="IsSupporting" Type="bit" Nullable="false" />
+          <Property Name="CreationBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="ModificationBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="ModificationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="FileRequest">
+          <Key>
+            <PropertyRef Name="FileRequestId" />
+          </Key>
+          <Property Name="FileRequestId" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="256" />
+          <Property Name="DocumentId" Type="int" />
+          <Property Name="IsRequested" Type="bit" />
+          <Property Name="CreationBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="ModificationBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="ModificationDate" Type="datetime" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VocIraqModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Documents" EntityType="VocIraqModel.Document" />
+          <EntitySet Name="FileRequests" EntityType="VocIraqModel.FileRequest" />
+        </EntityContainer>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="DocumentId" />
+          </Key>
+          <Property Name="DocumentId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CertificateId" Type="Int32" Nullable="false" />
+          <Property Name="Filename" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="FilePath" Type="String" Nullable="false" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="IsSupporting" Type="Boolean" Nullable="false" />
+          <Property Name="CreationBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="ModificationBy" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="FileRequest">
+          <Key>
+            <PropertyRef Name="FileRequestId" />
+          </Key>
+          <Property Name="FileRequestId" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="DocumentId" Type="Int32" />
+          <Property Name="IsRequested" Type="Boolean" />
+          <Property Name="CreationBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="ModificationBy" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VocIraqModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="VocIraqModel.Document">
+              <MappingFragment StoreEntitySet="Document">
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="CertificateId" ColumnName="CertificateId" />
+                <ScalarProperty Name="Filename" ColumnName="Filename" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="IsSupporting" ColumnName="IsSupporting" />
+                <ScalarProperty Name="CreationBy" ColumnName="CreationBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModificationBy" ColumnName="ModificationBy" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileRequests">
+            <EntityTypeMapping TypeName="VocIraqModel.FileRequest">
+              <MappingFragment StoreEntitySet="FileRequest">
+                <ScalarProperty Name="FileRequestId" ColumnName="FileRequestId" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="IsRequested" ColumnName="IsRequested" />
+                <ScalarProperty Name="CreationBy" ColumnName="CreationBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModificationBy" ColumnName="ModificationBy" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

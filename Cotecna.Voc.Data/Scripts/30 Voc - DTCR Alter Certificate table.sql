@@ -1,0 +1,5 @@
+USE [IQVOC]
+GO
+
+ALTER TABLE [dbo].[Certificate]
+ALTER COLUMN [Sequential] NVARCHAR(20) NULL

@@ -1,0 +1,25 @@
+﻿@{ string ok = Resources.Common.Ok;
+ }
+<script type="text/javascript">
+    function ShowMessage(message, title) {
+        $(function () {
+            $("#messageBody").html(message);
+            $("#confirmationMessage").attr("title", title);
+            $("#confirmationMessage").dialog({
+                resizable: false,
+                height: 130,
+                modal: true,
+                buttons: {
+                    '@ok': function () {
+                        $(this).dialog('close');
+                    }
+                }
+            });
+        });
+    }
+
+</script>
+<div id="confirmationMessage" >
+    <span id="messageBody"></span>
+</div>
+

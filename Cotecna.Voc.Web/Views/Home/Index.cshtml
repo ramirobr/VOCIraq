@@ -1,0 +1,183 @@
+﻿@using Cotecna.Voc.Web.Common;
+@model Cotecna.Voc.Web.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+    Layout = null;
+    bool _isDisclaimerAccepted = false;
+    bool _isFirstLoad = false;
+    if (ViewBag.IsDisclaimerAccepted != null)
+    {
+        _isDisclaimerAccepted = ViewBag.IsDisclaimerAccepted;
+        _isFirstLoad = false;
+    }
+    else
+    {
+        _isDisclaimerAccepted = true;
+        _isFirstLoad = true;
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @*<meta charset="utf-8" />*@
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/jquery-1.8.3.js"></script>
+    <script src="~/Scripts/jquery-ui-1.9.2.js"></script>
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/jqueryPopUp.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            GetDisclaimer();
+        });
+        function LogoutDisclaimer() {
+            var ajaxUrl = '@Url.Action("LogoutDisclaimer", "Home")';
+            $.ajax({
+                global: false,
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'json',
+                success: function () {
+                    window.location = '@Url.Action("Index","Home")';
+                },
+                error: function () { alert('An error occurred') }
+            });
+        }
+
+        function AcceptDisclaimer() {
+            var ajaxUrl = '@Url.Action("AcceptDisclaimer", "Home")';
+            $.ajax({
+                global: false,
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'json',
+                success: function () {
+                    window.location = '@Url.Action("Index", "Certificate")';
+                },
+                error: function () { alert('An error occurred') }
+            });
+        }
+        function chkDisclaimerChange(value) {
+            if (value == true) {
+                $("#spanAgreeButton").show();
+            }
+            else {
+                $("#spanAgreeButton").hide();
+            }
+        }
+
+        function GetDisclaimer() {
+            var ajaxUrl = '@Url.Action("GetDisclaimer", "Home")';
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'html',
+                success: function (response) {
+                    $("#ContenedorDisclaimer").html(response);
+                    $("#disclaimer").dialog({
+                        autoOpen: false,
+                        resizable: false,
+                        height: 480,
+                        width: 610,
+                        modal: true
+                    });
+                    $("#agreeButton").click(function () {
+                        $('#disclaimer').dialog('close');
+                        AcceptDisclaimer();
+                    });
+                    $("#desagreeButton").click(function () {
+                        $('#disclaimer').dialog('close');
+                        LogoutDisclaimer();
+                    });
+                    $("#spanAgreeButton").hide();
+                    var isDisclaimerAccepted = '@_isDisclaimerAccepted';
+                    var isFirtsLoad = '@_isFirstLoad';
+                    if (isFirtsLoad == 'False' && isDisclaimerAccepted == 'False') {
+                        $('#disclaimer').dialog('open');
+                    }
+                },
+                error: function () { alert('An error occurred') }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="TopBackground" style="background-color: #09aec6;"></div>
+    <div id="Container">
+        <!-- change logo, header, margin images here -->
+        <a href="http://www.cotecna.com/" id="logo" style="left: 45px; top: 45px;">
+            <img src="@Url.Content("~/Images/Logo-Voc-Iraq.png")" alt="Cotecna at your side" />
+        </a>
+        <img src="@Url.Content("~/Images/VOC-Iraq_external-web_banner-illustration.png")" id="headerImage" style="left: 195px; top: -22px;" />
+        <img src="@Url.Content("~/Images/VOC-Iraq_external-web_left-illustration.png")" id="marginImage" style="left:-210px;top:150px;" />
+
+        <div id="Heading">
+      
+        </div>
+        <div id="HeadingMenu">
+          
+        </div>
+
+        <div class="expand-container"></div>
+        <div id="PageLayout">
+            <div id="Content" style="width:95%">
+                @using (Html.BeginForm((string)ViewBag.FormAction, "Home", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form">
+
+                    <div class="legend">
+                        <span>&nbsp;</span>
+                        @Resources.Common.Login
+                    </div>
+                       
+                    <ol>
+                        <li>
+                             <label>
+                                <span class="name">@Resources.Common.Email</span>
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "txt" })
+                             </label>
+                            
+                        </li>
+                        <li>
+                            <label>
+                                <span class ="name">@Resources.Common.Password</span>
+                                @Html.PasswordFor(m => m.Password, new { @class = "txt" })
+                            </label>
+                            
+                        </li>  
+                        <li>
+                            <label>
+                                <a class="linkContent" href="@Url.Action("ForgetPasswordRequest", "ForgetPassword")">@Resources.Common.ForgotPassword</a>
+                            </label>
+                            
+                        </li>                      
+                    </ol>
+                    
+                    <p class ="btn">
+                        <span class="btn2">
+                            <input type="submit" value="@Resources.Common.Login" />
+                        </span>
+                    </p>
+                    <br />
+                    @Html.LocalValidationSummary()
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div id="ContenedorDisclaimer">
+
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

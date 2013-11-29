@@ -1,0 +1,138 @@
+﻿@model Cotecna.Voc.Web.Models.CertificateDetailModel
+
+@{
+    int totalNumberOfItemsWithoutPagination = Model.Documents.TotalCount;
+
+    string errorPdfFileNotConfigured = Resources.Common.ErrorPdfFile;
+    string errorPdfTitle = Resources.Common.ErrorPdfTitle;
+    string errorPdfFileNotExist = Resources.Common.ErrorPdfFileNotExist;
+    string dataSent = "";
+    dataSent = dataSent + " certificateId:"+Model.Certificate.CertificateId+",";
+
+}
+
+@Html.Partial("_MessagePopup")
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Content").width(915);       
+        
+    });
+
+    function ResultCheckFile(result) {
+        if (result == "ok") {
+            $("#formDownload").submit();
+
+        }
+        else {
+            ShowMessage('@errorPdfFileNotExist', '@errorPdfTitle');
+        }
+    }
+
+    function LaunchViewDocument(filepath, fileName) {
+        if (!fileName || !filepath) {
+            ShowMessage('@errorPdfFileNotConfigured', '@errorPdfTitle');
+        }
+        else {
+            $("#fileSectionPath").val(filepath);
+            $("#fileName").val(fileName);
+
+            var ajaxUrl = '@Url.Action("CheckFile", "Certificate")';
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'html',
+                success: ResultCheckFile,
+                error: function () { alert('@Resources.Common.CommonErrorMessageAjax') },
+                data: {
+                    fileSectionPath: filepath,
+                    fileName: fileName
+                }
+            });
+        }
+    }   
+
+</script>
+
+@if (totalNumberOfItemsWithoutPagination == 0)
+{
+    <div class="table-legend">
+        @Resources.Common.NoResults
+    </div>
+}
+else
+{
+<div class="table-legend"><span class="bottom">&nbsp;</span>Results (<span class="count">@totalNumberOfItemsWithoutPagination</span>)</div>
+                <table class="data" summary="search results">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div>@Resources.Common.DocumentName</div>
+                            </th>
+                            <th>
+                                <div>@Resources.Common.DocumentDescription</div>
+                            </th>
+                            <th>
+                                <div>@Resources.Common.DocumentCategory</div>
+                            </th>
+                            <th>
+                                <div>@Resources.Common.DownloadCertificate</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int counterRow = 0;
+                        }
+                        @foreach (var document in Model.Documents.Collection)
+                        {
+                            string rowAlter = "ev";
+                            
+                            string category = string.Empty;
+                            switch (document.DocumentType)
+                            {
+                                case Cotecna.Voc.Business.DocumentTypeEnum.Certificate:
+                                    category = Resources.Common.CertificateFile;
+                                    break;
+
+                                case Cotecna.Voc.Business.DocumentTypeEnum.SupportingDocument:
+                                    category = Resources.Common.SupportingDocument;
+                                    break;
+
+                                case Cotecna.Voc.Business.DocumentTypeEnum.ReleaseNote:
+                                    category = Resources.Common.ReleaseNote;
+                                    break;
+                                    
+                                default:
+                                    break;
+                            }
+                            
+                            string filePathRow = !String.IsNullOrEmpty(document.FilePath) ? document.FilePath.Replace(@"\", "/") : "";
+                            string fileNameRow = !String.IsNullOrEmpty(document.Filename) ? document.Filename.Replace(@"\", "/") : "";
+                            
+                            if (counterRow % 2 == 0)
+                            {
+                                rowAlter = "od";
+                            }
+                            
+                            <tr class="@rowAlter">
+                                <td>@document.Filename</td>
+                                <td>@document.Description</td>
+                                <td>@category</td>
+                                <td>
+                                    <a style="cursor: pointer;" onclick="LaunchViewDocument('@filePathRow', '@fileNameRow');">
+                                    @Resources.Common.DownloadCertificate
+                                    </a>    
+                                </td>
+                            </tr>
+                            counterRow++;                            
+                        }                        
+                     </tbody>
+</table>
+}
+
+<form action="@Url.Action("ViewCertificate", "Certificate")" method="post" id="formDownload">
+        <input type="hidden" name="fileSectionPath" id="fileSectionPath" value="" />
+    <input type="hidden" name="fileName" id="fileName" value="" />
+</form>

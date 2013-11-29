@@ -1,0 +1,124 @@
+﻿/* tags */
+#ContentPopUp h1{background:url("../Images/h1.png") repeat-x;color:#004C93;font-size:18px;font-weight:normal;line-height:22px;height:33px;margin-bottom:14px;padding-left:6px;padding-top:2px;}
+#ContentPopUp p {color:#888;font-size:12px;padding-left:7px;margin-bottom:12px;}
+
+#ContentPopUp div.legend {color:#00ABC4;font-size:14px;font-weight:bold;height:19px;padding:12px 0 0 7px;}
+
+#ContentPopUp p.btn {padding:0;margin-top:10px;overflow:hidden;padding:0 20px;}
+
+#ContentPopUp a.btn {color:#fff;text-decoration:none;height:20px;padding:0 10px 0 0;overflow:visible;border:none;cursor:pointer;outline:0;
+    background:#fff url(../Images/p.btn.png) no-repeat top right;line-height:20px;float:right;}
+#ContentPopUp a.btn span {height:20px;padding:0 0 0 10px;background:#fff url(../Images/p.btn.png) no-repeat top left;float:left;font-weight:bold;
+    font-size:11px;}
+#ContentPopUp a.btn:hover span{background:#fff url(../Images/p.btn.png) no-repeat;background-position:left -20px;}
+#ContentPopUp a.btn:hover{background:#fff url(../Images/p.btn.png) no-repeat;background-position:right -20px;color:#FFF;}
+
+#ContentPopUp span.btn
+{
+    font-size: 11px;
+    font-weight: bold;
+    height: 20px;
+    padding: 0 0 0 10px;
+    background: #fff url(../Images/p.btn.png) no-repeat left top;
+    float: right;
+}
+#ContentPopUp span.btnRight
+{
+    font-size: 11px;
+    font-weight: bold;
+    height: 20px;
+    padding: 0 0 0 10px;
+    background: #fff url(../Images/p.btn.png) no-repeat left top;
+    float: right;
+    margin-right: 10px;
+}
+#ContentPopUp span.btn input
+{
+    margin: 0;
+    padding: 0 10px 0px 0;
+    height: 20px;
+    line-height: 20px;
+    overflow: visible;
+    border: none;
+    cursor: pointer;
+    outline: 0;
+    background: #fff url(../Images/p.btn.png) no-repeat right top;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 11px;
+}
+#ContentPopUp span.btn:hover{background:#fff url(../Images/p.btn.png) no-repeat;background-position:left -20px;}
+#ContentPopUp span.btn:hover input{background:#fff url(../Images/p.btn.png) no-repeat;background-position:right -20px;color:#FFF;font-weight:bold;}
+
+#ContentPopUp span.btn2
+{
+    margin-right: 17px;
+    font-size: 11px;
+    font-weight: bold;
+    height: 20px;
+    padding: 0 0 0 10px;
+    background: #fff url(../Images/p.btn.png) no-repeat;
+    background-position: left -40px;
+    float: left;
+}
+#ContentPopUp span.btn2 input
+{
+    margin: 0;
+    padding: 0 10px 0px 0;
+    height: 20px;
+    line-height: 20px;
+    overflow: visible;
+    border: none;
+    cursor: pointer;
+    outline: 0;
+    background: #fff url(../Images/p.btn.png) no-repeat;
+    background-position: right -40px;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 11px;
+}
+#ContentPopUp span:hover.btn2{background:#fff url(../Images/p.btn.png) no-repeat;background-position:left -20px;}
+#ContentPopUp span:hover.btn2 input{background:#fff url(../Images/p.btn.png) no-repeat;background-position:right -20px;color:#FFF;font-weight:bold;}
+
+
+#ContentPopUp a.btn2
+{
+    color: #fff;
+    text-decoration: none;
+    height: 20px;
+    padding: 0 10px 0 0;
+    overflow: visible;
+    border: none;
+    cursor: pointer;
+    outline: 0;
+    background: #fff url(../Images/p.btn.png) no-repeat;
+    background-position: left -40px;
+    line-height: 20px;
+    float: left;
+}
+#ContentPopUp a.btn2 span
+{
+    height: 20px;
+    padding: 0 0 0 10px;
+    background: #fff url(../Images/p.btn.png) no-repeat;
+    background-position: left -40px;
+    float: left;
+    font-weight: bold;
+    font-size: 11px;
+}
+#ContentPopUp a.btn2:hover span
+{
+    background: #fff url(../Images/p.btn.png) no-repeat;
+    background-position: left -20px;
+}
+#ContentPopUp a.btn2:hover
+{
+    background: #fff url(../Images/p.btn.png) no-repeat;
+    background-position: right -20px;
+    color: #FFF;
+}
+
+
+
+
+#ContentPopUp p.btn a.prev, #Content p.btn span.prev {float:left;}

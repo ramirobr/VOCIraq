@@ -1,0 +1,893 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VocModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="VocModelStoreContainer">
+          <EntitySet Name="Certificate" EntityType="VocModel.Store.Certificate" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CertificateTracking" EntityType="VocModel.Store.CertificateTracking" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Document" EntityType="VocModel.Store.Document" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EntryPoint" EntityType="VocModel.Store.EntryPoint" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FileRequest" EntityType="VocModel.Store.FileRequest" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Office" EntityType="VocModel.Store.Office" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ReleaseNote" EntityType="VocModel.Store.ReleaseNote" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SecurityPaper" EntityType="VocModel.Store.SecurityPaper" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CertificateDocument" Association="VocModel.Store.FK_CertificateDocument">
+            <End Role="Certificate" EntitySet="Certificate" />
+            <End Role="Document" EntitySet="Document" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CertificateReleaseNote" Association="VocModel.Store.FK_CertificateReleaseNote">
+            <End Role="Certificate" EntitySet="Certificate" />
+            <End Role="ReleaseNote" EntitySet="ReleaseNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CertificateTracking_Certificate" Association="VocModel.Store.FK_CertificateTracking_Certificate">
+            <End Role="Certificate" EntitySet="Certificate" />
+            <End Role="CertificateTracking" EntitySet="CertificateTracking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntryPointCertificate" Association="VocModel.Store.FK_EntryPointCertificate">
+            <End Role="EntryPoint" EntitySet="EntryPoint" />
+            <End Role="Certificate" EntitySet="Certificate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfficeCertificate" Association="VocModel.Store.FK_OfficeCertificate">
+            <End Role="Office" EntitySet="Office" />
+            <End Role="Certificate" EntitySet="Certificate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReleaseNoteDocument" Association="VocModel.Store.FK_ReleaseNoteDocument">
+            <End Role="ReleaseNote" EntitySet="ReleaseNote" />
+            <End Role="Document" EntitySet="Document" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SecurityPaperEntryPoint" Association="VocModel.Store.FK_SecurityPaperEntryPoint">
+            <End Role="EntryPoint" EntitySet="EntryPoint" />
+            <End Role="SecurityPaper" EntitySet="SecurityPaper" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SecurityPaperReleaseNote" Association="VocModel.Store.FK_SecurityPaperReleaseNote">
+            <End Role="ReleaseNote" EntitySet="ReleaseNote" />
+            <End Role="SecurityPaper" EntitySet="SecurityPaper" />
+          </AssociationSet>
+          <AssociationSet Name="RegionalOffice_Office" Association="VocModel.Store.RegionalOffice_Office">
+            <End Role="Office" EntitySet="Office" />
+            <End Role="Office1" EntitySet="Office" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Certificate">
+          <Key>
+            <PropertyRef Name="CertificateId" />
+          </Key>
+          <Property Name="CertificateId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Sequential" Type="nvarchar" MaxLength="20" />
+          <Property Name="WorkflowStatusId" Type="tinyint" />
+          <Property Name="IsPublished" Type="bit" Nullable="false" />
+          <Property Name="CertificateStatusId" Type="tinyint" Nullable="false" />
+          <Property Name="IssuanceDate" Type="datetime" />
+          <Property Name="IsInvoiced" Type="bit" />
+          <Property Name="CreationBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="EntryPointId" Type="int" />
+          <Property Name="OfficeId" Type="int" />
+          <Property Name="WorkflowStatusDate" Type="datetime" />
+          <Property Name="ModificationBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="ModificationDate" Type="datetime" />
+          <Property Name="ApprovedBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="ComdivNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="FOBValue" Type="decimal" Precision="14" Scale="2" />
+          <Property Name="IsSynchronized" Type="bit" />
+        </EntityType>
+        <EntityType Name="CertificateTracking">
+          <Key>
+            <PropertyRef Name="CertificateTranckingId" />
+          </Key>
+          <Property Name="CertificateTranckingId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CertificateId" Type="int" Nullable="false" />
+          <Property Name="TrackingDate" Type="datetime" Nullable="false" />
+          <Property Name="TrackingBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="TrackingStatus" Type="tinyint" Nullable="false" />
+          <Property Name="CreationBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="ModficationBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="ModificationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="DocumentId" />
+          </Key>
+          <Property Name="DocumentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CertificateId" Type="int" Nullable="false" />
+          <Property Name="Filename" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="FilePath" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="IsSupporting" Type="bit" Nullable="false" />
+          <Property Name="CreationBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="ModificationBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="ModificationDate" Type="datetime" />
+          <Property Name="DocumentType" Type="tinyint" />
+          <Property Name="ReleaseNoteId" Type="int" />
+        </EntityType>
+        <EntityType Name="EntryPoint">
+          <Key>
+            <PropertyRef Name="EntryPointId" />
+          </Key>
+          <Property Name="EntryPointId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="CreationBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="ModificationBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="ModificationDate" Type="datetime" />
+          <Property Name="IsLo" Type="bit" />
+        </EntityType>
+        <EntityType Name="FileRequest">
+          <Key>
+            <PropertyRef Name="FileRequestId" />
+          </Key>
+          <Property Name="FileRequestId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="256" />
+          <Property Name="DocumentId" Type="int" />
+          <Property Name="IsRequested" Type="bit" />
+          <Property Name="CreationBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="ModificationBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="ModificationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Office">
+          <Key>
+            <PropertyRef Name="OfficeId" />
+          </Key>
+          <Property Name="OfficeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OfficeName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="OfficeCode" Type="nchar" Nullable="false" MaxLength="3" />
+          <Property Name="CountryCode" Type="nchar" MaxLength="2" />
+          <Property Name="CreationBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="ModificationBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="ModificationDate" Type="datetime" />
+          <Property Name="OfficeStamp" Type="varbinary(max)" />
+          <Property Name="OfficeType" Type="tinyint" />
+          <Property Name="RegionalOfficeId" Type="int" />
+          <Property Name="ServerName" Type="nvarchar" MaxLength="256" />
+          <Property Name="DatabaseName" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="ReleaseNote">
+          <Key>
+            <PropertyRef Name="ReleaseNoteId" />
+          </Key>
+          <Property Name="ReleaseNoteId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CertificateId" Type="int" Nullable="false" />
+          <Property Name="PartialNumber" Type="int" />
+          <Property Name="Goods" Type="nvarchar" MaxLength="512" />
+          <Property Name="NumberOfContainers" Type="int" />
+          <Property Name="NetWeight" Type="decimal" Scale="2" />
+          <Property Name="DocumentaryCheckResultId" Type="tinyint" />
+          <Property Name="PhysicalCheckResultId" Type="tinyint" />
+          <Property Name="VisualInspectionMade" Type="bit" />
+          <Property Name="OverallResultId" Type="tinyint" />
+          <Property Name="NoteIssuedId" Type="tinyint" />
+          <Property Name="IssuanceDate" Type="datetime" Nullable="false" />
+          <Property Name="JointSamplingMade" Type="bit" />
+          <Property Name="CreationBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="ModificationBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="ModificationDate" Type="datetime" />
+          <Property Name="Containers" Type="nvarchar" MaxLength="512" />
+          <Property Name="ImporterName" Type="nvarchar" MaxLength="512" />
+          <Property Name="VisuallyCheck" Type="bit" />
+          <Property Name="ContainersDetails" Type="nvarchar" MaxLength="512" />
+          <Property Name="ImportDocumentDetails" Type="nvarchar" MaxLength="512" />
+          <Property Name="PartialComplete" Type="bit" />
+          <Property Name="NumberLineItems" Type="int" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="ShipmentType" Type="tinyint" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="64" />
+          <Property Name="ReceivedQuantity" Type="decimal" Scale="4" />
+          <Property Name="RemainingQuantity" Type="decimal" Scale="4" />
+          <Property Name="PaidFees" Type="decimal" Precision="14" Scale="2" />
+        </EntityType>
+        <EntityType Name="SecurityPaper">
+          <Key>
+            <PropertyRef Name="SecurityPaperId" />
+          </Key>
+          <Property Name="SecurityPaperId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EntryPointId" Type="int" Nullable="false" />
+          <Property Name="ReleaseNoteId" Type="int" />
+          <Property Name="SecurityPaperNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Status" Type="tinyint" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="CreationBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="ModificationBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="ModificationDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_CertificateDocument">
+          <End Role="Certificate" Type="VocModel.Store.Certificate" Multiplicity="1" />
+          <End Role="Document" Type="VocModel.Store.Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Certificate">
+              <PropertyRef Name="CertificateId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="CertificateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CertificateReleaseNote">
+          <End Role="Certificate" Type="VocModel.Store.Certificate" Multiplicity="1" />
+          <End Role="ReleaseNote" Type="VocModel.Store.ReleaseNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Certificate">
+              <PropertyRef Name="CertificateId" />
+            </Principal>
+            <Dependent Role="ReleaseNote">
+              <PropertyRef Name="CertificateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CertificateTracking_Certificate">
+          <End Role="Certificate" Type="VocModel.Store.Certificate" Multiplicity="1" />
+          <End Role="CertificateTracking" Type="VocModel.Store.CertificateTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Certificate">
+              <PropertyRef Name="CertificateId" />
+            </Principal>
+            <Dependent Role="CertificateTracking">
+              <PropertyRef Name="CertificateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntryPointCertificate">
+          <End Role="EntryPoint" Type="VocModel.Store.EntryPoint" Multiplicity="0..1" />
+          <End Role="Certificate" Type="VocModel.Store.Certificate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntryPoint">
+              <PropertyRef Name="EntryPointId" />
+            </Principal>
+            <Dependent Role="Certificate">
+              <PropertyRef Name="EntryPointId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfficeCertificate">
+          <End Role="Office" Type="VocModel.Store.Office" Multiplicity="0..1" />
+          <End Role="Certificate" Type="VocModel.Store.Certificate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Office">
+              <PropertyRef Name="OfficeId" />
+            </Principal>
+            <Dependent Role="Certificate">
+              <PropertyRef Name="OfficeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReleaseNoteDocument">
+          <End Role="ReleaseNote" Type="VocModel.Store.ReleaseNote" Multiplicity="0..1" />
+          <End Role="Document" Type="VocModel.Store.Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReleaseNote">
+              <PropertyRef Name="ReleaseNoteId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="ReleaseNoteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SecurityPaperEntryPoint">
+          <End Role="EntryPoint" Type="VocModel.Store.EntryPoint" Multiplicity="1" />
+          <End Role="SecurityPaper" Type="VocModel.Store.SecurityPaper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntryPoint">
+              <PropertyRef Name="EntryPointId" />
+            </Principal>
+            <Dependent Role="SecurityPaper">
+              <PropertyRef Name="EntryPointId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SecurityPaperReleaseNote">
+          <End Role="ReleaseNote" Type="VocModel.Store.ReleaseNote" Multiplicity="0..1" />
+          <End Role="SecurityPaper" Type="VocModel.Store.SecurityPaper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReleaseNote">
+              <PropertyRef Name="ReleaseNoteId" />
+            </Principal>
+            <Dependent Role="SecurityPaper">
+              <PropertyRef Name="ReleaseNoteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RegionalOffice_Office">
+          <End Role="Office" Type="VocModel.Store.Office" Multiplicity="0..1" />
+          <End Role="Office1" Type="VocModel.Store.Office" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Office">
+              <PropertyRef Name="OfficeId" />
+            </Principal>
+            <Dependent Role="Office1">
+              <PropertyRef Name="RegionalOfficeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VocModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="VocEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Documents" EntityType="VocModel.Document" />
+          <EntitySet Name="EntryPoints" EntityType="VocModel.EntryPoint" />
+          <EntitySet Name="Certificates" EntityType="VocModel.Certificate" />
+          <AssociationSet Name="FK_CertificateDocument" Association="VocModel.FK_CertificateDocument">
+            <End Role="Certificate" EntitySet="Certificates" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntryPointCertificate" Association="VocModel.FK_EntryPointCertificate">
+            <End Role="EntryPoint" EntitySet="EntryPoints" />
+            <End Role="Certificate" EntitySet="Certificates" />
+          </AssociationSet>
+          <EntitySet Name="Offices" EntityType="VocModel.Office" />
+          <AssociationSet Name="FK_OfficeCertificate" Association="VocModel.FK_OfficeCertificate">
+            <End Role="Office" EntitySet="Offices" />
+            <End Role="Certificate" EntitySet="Certificates" />
+          </AssociationSet>
+          <EntitySet Name="FileRequests" EntityType="VocModel.FileRequest" />
+          <EntitySet Name="ReleaseNotes" EntityType="VocModel.ReleaseNote" />
+          <AssociationSet Name="FK_CertificateReleaseNote" Association="VocModel.FK_CertificateReleaseNote">
+            <End Role="Certificate" EntitySet="Certificates" />
+            <End Role="ReleaseNote" EntitySet="ReleaseNotes" />
+          </AssociationSet>
+          <EntitySet Name="SecurityPapers" EntityType="VocModel.SecurityPaper" />
+          <AssociationSet Name="FK_SecurityPaperEntryPoint" Association="VocModel.FK_SecurityPaperEntryPoint">
+            <End Role="EntryPoint" EntitySet="EntryPoints" />
+            <End Role="SecurityPaper" EntitySet="SecurityPapers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SecurityPaperReleaseNote" Association="VocModel.FK_SecurityPaperReleaseNote">
+            <End Role="ReleaseNote" EntitySet="ReleaseNotes" />
+            <End Role="SecurityPaper" EntitySet="SecurityPapers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReleaseNoteDocument" Association="VocModel.FK_ReleaseNoteDocument">
+            <End Role="ReleaseNote" EntitySet="ReleaseNotes" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <EntitySet Name="CertificateTrackings" EntityType="VocModel.CertificateTracking" />
+          <AssociationSet Name="FK_CertificateTracking_Certificate" Association="VocModel.FK_CertificateTracking_Certificate">
+            <End Role="Certificate" EntitySet="Certificates" />
+            <End Role="CertificateTracking" EntitySet="CertificateTrackings" />
+          </AssociationSet>
+          <AssociationSet Name="RegionalOffice_Office" Association="VocModel.RegionalOffice_Office">
+            <End Role="Office" EntitySet="Offices" />
+            <End Role="Office1" EntitySet="Offices" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="DocumentId" />
+          </Key>
+          <Property Type="Int32" Name="DocumentId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CertificateId" Nullable="false" />
+          <Property Type="String" Name="Filename" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FilePath" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsSupporting" Nullable="false" />
+          <Property Type="String" Name="CreationBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" Precision="3" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <NavigationProperty Name="Certificate" Relationship="VocModel.FK_CertificateDocument" FromRole="Document" ToRole="Certificate" />
+          <Property Type="String" Name="ModificationBy" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ModificationDate" Precision="3" />
+          <Property Type="Int32" Name="ReleaseNoteId" />
+          <NavigationProperty Name="ReleaseNote" Relationship="VocModel.FK_ReleaseNoteDocument" FromRole="Document" ToRole="ReleaseNote" />
+          <Property Type="VocModel.DocumentTypeEnum" Name="DocumentType" />
+        </EntityType>
+        <EntityType Name="EntryPoint">
+          <Key>
+            <PropertyRef Name="EntryPointId" />
+          </Key>
+          <Property Type="Int32" Name="EntryPointId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreationBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" Precision="3" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <NavigationProperty Name="Certificates" Relationship="VocModel.FK_EntryPointCertificate" FromRole="EntryPoint" ToRole="Certificate" />
+          <Property Type="String" Name="ModificationBy" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ModificationDate" Precision="3" />
+          <Property Type="Boolean" Name="IsLo" />
+          <NavigationProperty Name="SecurityPapers" Relationship="VocModel.FK_SecurityPaperEntryPoint" FromRole="EntryPoint" ToRole="SecurityPaper" />
+        </EntityType>
+        <EnumType Name="CertificateStatusEnum" UnderlyingType="Byte" IsFlags="true">
+          <Member Name="Conform" Value="1" />
+          <Member Name="NonConform" Value="2" />
+          <Member Name="Cancelled" Value="3" />
+          <Member Name="New" Value="0" />
+        </EnumType>
+        <EnumType Name="WorkflowStatusEnum" IsFlags="true" UnderlyingType="Byte">
+          <Member Name="Created" Value="1" />
+          <Member Name="Requested" Value="2" />
+          <Member Name="Approved" Value="3" />
+          <Member Name="Rejected" Value="4" />
+          <Member Name="Ongoing" Value="5" />
+          <Member Name="Closed" Value="6" />
+          <Member Name="New" Value="0" />
+        </EnumType>
+        <EntityType Name="Certificate">
+          <Key>
+            <PropertyRef Name="CertificateId" />
+          </Key>
+          <Property Type="Int32" Name="CertificateId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Sequential" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="VocModel.WorkflowStatusEnum" Name="WorkflowStatusId" Nullable="false" />
+          <Property Type="Boolean" Name="IsPublished" Nullable="false" />
+          <Property Type="VocModel.CertificateStatusEnum" Name="CertificateStatusId" Nullable="false" />
+          <Property Type="DateTime" Name="IssuanceDate" Precision="3" />
+          <Property Type="Boolean" Name="IsInvoiced" />
+          <Property Type="String" Name="CreationBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" Precision="3" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="Int32" Name="EntryPointId" />
+          <NavigationProperty Name="Documents" Relationship="VocModel.FK_CertificateDocument" FromRole="Certificate" ToRole="Document" />
+          <NavigationProperty Name="EntryPoint" Relationship="VocModel.FK_EntryPointCertificate" FromRole="Certificate" ToRole="EntryPoint" />
+          <Property Type="Int32" Name="OfficeId" />
+          <NavigationProperty Name="Office" Relationship="VocModel.FK_OfficeCertificate" FromRole="Certificate" ToRole="Office" />
+          <Property Type="DateTime" Name="WorkflowStatusDate" Precision="3" />
+          <Property Type="String" Name="ModificationBy" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ModificationDate" Precision="3" />
+          <Property Type="String" Name="ApprovedBy" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ReleaseNotes" Relationship="VocModel.FK_CertificateReleaseNote" FromRole="Certificate" ToRole="ReleaseNote" />
+          <NavigationProperty Name="CertificateTrackings" Relationship="VocModel.FK_CertificateTracking_Certificate" FromRole="Certificate" ToRole="CertificateTracking" />
+          <Property Type="String" Name="ComdivNumber" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="FOBValue" Precision="14" Scale="2" />
+          <Property Type="Boolean" Name="IsSynchronized" />
+        </EntityType>
+        <Association Name="FK_CertificateDocument">
+          <End Type="VocModel.Certificate" Role="Certificate" Multiplicity="1" />
+          <End Type="VocModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Certificate">
+              <PropertyRef Name="CertificateId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="CertificateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntryPointCertificate">
+          <End Type="VocModel.EntryPoint" Role="EntryPoint" Multiplicity="0..1" />
+          <End Type="VocModel.Certificate" Role="Certificate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntryPoint">
+              <PropertyRef Name="EntryPointId" />
+            </Principal>
+            <Dependent Role="Certificate">
+              <PropertyRef Name="EntryPointId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Office">
+          <Key>
+            <PropertyRef Name="OfficeId" />
+          </Key>
+          <Property Type="Int32" Name="OfficeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="OfficeName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OfficeCode" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="CountryCode" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="CreationBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Certificates" Relationship="VocModel.FK_OfficeCertificate" FromRole="Office" ToRole="Certificate" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="String" Name="ModificationBy" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ModificationDate" Precision="3" />
+          <Property Type="Binary" Name="OfficeStamp" MaxLength="Max" FixedLength="false" />
+          <Property Type="VocModel.OfficeTypeEnum" Name="OfficeType" />
+          <Property Type="Int32" Name="RegionalOfficeId" />
+          <NavigationProperty Name="LocalOffices" Relationship="VocModel.RegionalOffice_Office" FromRole="Office" ToRole="Office1" />
+          <NavigationProperty Name="RegionalOffice" Relationship="VocModel.RegionalOffice_Office" FromRole="Office1" ToRole="Office" />
+          <Property Type="String" Name="ServerName" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DatabaseName" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_OfficeCertificate">
+          <End Type="VocModel.Office" Role="Office" Multiplicity="0..1" />
+          <End Type="VocModel.Certificate" Role="Certificate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Office">
+              <PropertyRef Name="OfficeId" />
+            </Principal>
+            <Dependent Role="Certificate">
+              <PropertyRef Name="OfficeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="ResultEnum" IsFlags="true" UnderlyingType="Byte">
+          <Member Name="Pass" Value="1" />
+          <Member Name="Fail" Value="2" />
+        </EnumType>
+        <EnumType Name="NoteIssuedEnum" UnderlyingType="Byte" IsFlags="true">
+          <Member Name="Release" Value="1" />
+          <Member Name="Discrepancy" Value="2" />
+        </EnumType>
+        <EntityType Name="FileRequest">
+          <Key>
+            <PropertyRef Name="FileRequestId" />
+          </Key>
+          <Property Type="Int32" Name="FileRequestId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FullName" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="DocumentId" />
+          <Property Type="Boolean" Name="IsRequested" />
+          <Property Type="String" Name="CreationBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" Precision="3" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="String" Name="ModificationBy" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ModificationDate" Precision="3" />
+        </EntityType>
+        <EntityType Name="ReleaseNote">
+          <Key>
+            <PropertyRef Name="ReleaseNoteId" />
+          </Key>
+          <Property Type="Int32" Name="ReleaseNoteId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CertificateId" Nullable="false" />
+          <Property Type="Int32" Name="PartialNumber" />
+          <Property Type="String" Name="Goods" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="NumberOfContainers" />
+          <Property Type="String" Name="Containers" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="NetWeight" Precision="18" Scale="2" />
+          <Property Type="VocModel.ResultEnum" Name="DocumentaryCheckResultId" />
+          <Property Type="VocModel.ResultEnum" Name="PhysicalCheckResultId" />
+          <Property Type="Boolean" Name="VisualInspectionMade" />
+          <Property Type="VocModel.ResultEnum" Name="OverallResultId" />
+          <Property Type="VocModel.NoteIssuedEnum" Name="NoteIssuedId" />
+          <Property Type="DateTime" Name="IssuanceDate" Precision="3" Nullable="false" />
+          <Property Type="Boolean" Name="JointSamplingMade" />
+          <Property Type="String" Name="CreationBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" Precision="3" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="String" Name="ModificationBy" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ModificationDate" Precision="3" />
+          <NavigationProperty Name="Certificate" Relationship="VocModel.FK_CertificateReleaseNote" FromRole="ReleaseNote" ToRole="Certificate" />
+          <Property Type="String" Name="ImporterName" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="VisuallyCheck" />
+          <Property Type="String" Name="ContainersDetails" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ImportDocumentDetails" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="PartialComplete" />
+          <Property Type="Int32" Name="NumberLineItems" />
+          <Property Type="String" Name="Comments" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SecurityPapers" Relationship="VocModel.FK_SecurityPaperReleaseNote" FromRole="ReleaseNote" ToRole="SecurityPaper" />
+          <NavigationProperty Name="Documents" Relationship="VocModel.FK_ReleaseNoteDocument" FromRole="ReleaseNote" ToRole="Document" />
+          <Property Type="VocModel.ShipmentTypeEnum" Name="ShipmentType" />
+          <Property Type="String" Name="Unit" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="ReceivedQuantity" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="RemainingQuantity" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="PaidFees" Precision="14" Scale="2" />
+        </EntityType>
+        <Association Name="FK_CertificateReleaseNote">
+          <End Type="VocModel.Certificate" Role="Certificate" Multiplicity="1" />
+          <End Type="VocModel.ReleaseNote" Role="ReleaseNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Certificate">
+              <PropertyRef Name="CertificateId" />
+            </Principal>
+            <Dependent Role="ReleaseNote">
+              <PropertyRef Name="CertificateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SecurityPaper">
+          <Key>
+            <PropertyRef Name="SecurityPaperId" />
+          </Key>
+          <Property Type="Int32" Name="SecurityPaperId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="EntryPointId" Nullable="false" />
+          <Property Type="Int32" Name="ReleaseNoteId" />
+          <Property Type="String" Name="SecurityPaperNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="VocModel.SecurityPaperStatusEnum" Name="Status" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="String" Name="CreationBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="ModificationBy" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ModificationDate" Precision="3" />
+          <NavigationProperty Name="EntryPoint" Relationship="VocModel.FK_SecurityPaperEntryPoint" FromRole="SecurityPaper" ToRole="EntryPoint" />
+          <NavigationProperty Name="ReleaseNote" Relationship="VocModel.FK_SecurityPaperReleaseNote" FromRole="SecurityPaper" ToRole="ReleaseNote" />
+        </EntityType>
+        <Association Name="FK_SecurityPaperEntryPoint">
+          <End Type="VocModel.EntryPoint" Role="EntryPoint" Multiplicity="1" />
+          <End Type="VocModel.SecurityPaper" Role="SecurityPaper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntryPoint">
+              <PropertyRef Name="EntryPointId" />
+            </Principal>
+            <Dependent Role="SecurityPaper">
+              <PropertyRef Name="EntryPointId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SecurityPaperReleaseNote">
+          <End Type="VocModel.ReleaseNote" Role="ReleaseNote" Multiplicity="0..1" />
+          <End Type="VocModel.SecurityPaper" Role="SecurityPaper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReleaseNote">
+              <PropertyRef Name="ReleaseNoteId" />
+            </Principal>
+            <Dependent Role="SecurityPaper">
+              <PropertyRef Name="ReleaseNoteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="SecurityPaperStatusEnum" UnderlyingType="Byte" IsFlags="true">
+          <Member Name="NotIssued" Value="1" />
+          <Member Name="Issued" Value="2" />
+          <Member Name="Cancelled" Value="3" />
+          <Member Name="MissPrinted" Value="4" />
+        </EnumType>
+        <Association Name="FK_ReleaseNoteDocument">
+          <End Type="VocModel.ReleaseNote" Role="ReleaseNote" Multiplicity="0..1" />
+          <End Type="VocModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReleaseNote">
+              <PropertyRef Name="ReleaseNoteId" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="ReleaseNoteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="DocumentTypeEnum" UnderlyingType="Byte" IsFlags="true">
+          <Member Name="Certificate" Value="0" />
+          <Member Name="SupportingDocument" Value="1" />
+          <Member Name="ReleaseNote" Value="2" />
+        </EnumType>
+        <EntityType Name="CertificateTracking">
+          <Key>
+            <PropertyRef Name="CertificateTranckingId" />
+          </Key>
+          <Property Type="Int32" Name="CertificateTranckingId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CertificateId" Nullable="false" />
+          <Property Type="DateTime" Name="TrackingDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="TrackingBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="VocModel.TrackingStatusEnum" Name="TrackingStatus" Nullable="false" />
+          <Property Type="String" Name="CreationBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" Precision="3" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="String" Name="ModficationBy" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ModificationDate" Precision="3" />
+          <NavigationProperty Name="Certificate" Relationship="VocModel.FK_CertificateTracking_Certificate" FromRole="CertificateTracking" ToRole="Certificate" />
+        </EntityType>
+        <Association Name="FK_CertificateTracking_Certificate">
+          <End Type="VocModel.Certificate" Role="Certificate" Multiplicity="1" />
+          <End Type="VocModel.CertificateTracking" Role="CertificateTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Certificate">
+              <PropertyRef Name="CertificateId" />
+            </Principal>
+            <Dependent Role="CertificateTracking">
+              <PropertyRef Name="CertificateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="TrackingStatusEnum" UnderlyingType="Byte" IsFlags="true">
+          <Member Name="Created" Value="1" />
+          <Member Name="Requested" Value="2" />
+          <Member Name="Approved" Value="3" />
+          <Member Name="Rejected" Value="4" />
+          <Member Name="Ongoing" Value="5" />
+          <Member Name="Closed" Value="6" />
+          <Member Name="Published" Value="7" />
+          <Member Name="Unpublished" Value="8" />
+        </EnumType>
+        <Association Name="RegionalOffice_Office">
+          <End Type="VocModel.Office" Role="Office" Multiplicity="0..1" />
+          <End Type="VocModel.Office" Role="Office1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Office">
+              <PropertyRef Name="OfficeId" />
+            </Principal>
+            <Dependent Role="Office1">
+              <PropertyRef Name="RegionalOfficeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="OfficeTypeEnum" UnderlyingType="Byte" IsFlags="true">
+          <Member Name="LocalOffice" Value="1" />
+          <Member Name="RegionalOffice" Value="2" />
+        </EnumType>
+        <EnumType Name="ShipmentTypeEnum" UnderlyingType="Byte" IsFlags="true">
+          <Member Name="Air" Value="1" />
+          <Member Name="Maritime" Value="2" />
+          <Member Name="Land" Value="3" />
+          <Member Name="SeaLand" Value="4" />
+        </EnumType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VocModelStoreContainer" CdmEntityContainer="VocEntities">
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="VocModel.Document">
+              <MappingFragment StoreEntitySet="Document">
+                <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+                <ScalarProperty Name="ReleaseNoteId" ColumnName="ReleaseNoteId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModificationBy" ColumnName="ModificationBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreationBy" ColumnName="CreationBy" />
+                <ScalarProperty Name="IsSupporting" ColumnName="IsSupporting" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Filename" ColumnName="Filename" />
+                <ScalarProperty Name="CertificateId" ColumnName="CertificateId" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntryPoints">
+            <EntityTypeMapping TypeName="VocModel.EntryPoint">
+              <MappingFragment StoreEntitySet="EntryPoint">
+                <ScalarProperty Name="IsLo" ColumnName="IsLo" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModificationBy" ColumnName="ModificationBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreationBy" ColumnName="CreationBy" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EntryPointId" ColumnName="EntryPointId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Certificates">
+            <EntityTypeMapping TypeName="VocModel.Certificate">
+              <MappingFragment StoreEntitySet="Certificate">
+                <ScalarProperty Name="IsSynchronized" ColumnName="IsSynchronized" />
+                <ScalarProperty Name="FOBValue" ColumnName="FOBValue" />
+                <ScalarProperty Name="ComdivNumber" ColumnName="ComdivNumber" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModificationBy" ColumnName="ModificationBy" />
+                <ScalarProperty Name="WorkflowStatusDate" ColumnName="WorkflowStatusDate" />
+                <ScalarProperty Name="OfficeId" ColumnName="OfficeId" />
+                <ScalarProperty Name="EntryPointId" ColumnName="EntryPointId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreationBy" ColumnName="CreationBy" />
+                <ScalarProperty Name="IsInvoiced" ColumnName="IsInvoiced" />
+                <ScalarProperty Name="IssuanceDate" ColumnName="IssuanceDate" />
+                <ScalarProperty Name="CertificateStatusId" ColumnName="CertificateStatusId" />
+                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+                <ScalarProperty Name="WorkflowStatusId" ColumnName="WorkflowStatusId" />
+                <ScalarProperty Name="Sequential" ColumnName="Sequential" />
+                <ScalarProperty Name="CertificateId" ColumnName="CertificateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Offices">
+            <EntityTypeMapping TypeName="VocModel.Office">
+              <MappingFragment StoreEntitySet="Office">
+                <ScalarProperty Name="DatabaseName" ColumnName="DatabaseName" />
+                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+                <ScalarProperty Name="RegionalOfficeId" ColumnName="RegionalOfficeId" />
+                <ScalarProperty Name="OfficeType" ColumnName="OfficeType" />
+                <ScalarProperty Name="OfficeStamp" ColumnName="OfficeStamp" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModificationBy" ColumnName="ModificationBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreationBy" ColumnName="CreationBy" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="OfficeCode" ColumnName="OfficeCode" />
+                <ScalarProperty Name="OfficeName" ColumnName="OfficeName" />
+                <ScalarProperty Name="OfficeId" ColumnName="OfficeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileRequests">
+            <EntityTypeMapping TypeName="VocModel.FileRequest">
+              <MappingFragment StoreEntitySet="FileRequest">
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModificationBy" ColumnName="ModificationBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreationBy" ColumnName="CreationBy" />
+                <ScalarProperty Name="IsRequested" ColumnName="IsRequested" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="FileRequestId" ColumnName="FileRequestId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReleaseNotes">
+            <EntityTypeMapping TypeName="VocModel.ReleaseNote">
+              <MappingFragment StoreEntitySet="ReleaseNote">
+                <ScalarProperty Name="PaidFees" ColumnName="PaidFees" />
+                <ScalarProperty Name="RemainingQuantity" ColumnName="RemainingQuantity" />
+                <ScalarProperty Name="ReceivedQuantity" ColumnName="ReceivedQuantity" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="ShipmentType" ColumnName="ShipmentType" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="NumberLineItems" ColumnName="NumberLineItems" />
+                <ScalarProperty Name="PartialComplete" ColumnName="PartialComplete" />
+                <ScalarProperty Name="ImportDocumentDetails" ColumnName="ImportDocumentDetails" />
+                <ScalarProperty Name="ContainersDetails" ColumnName="ContainersDetails" />
+                <ScalarProperty Name="VisuallyCheck" ColumnName="VisuallyCheck" />
+                <ScalarProperty Name="ImporterName" ColumnName="ImporterName" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModificationBy" ColumnName="ModificationBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreationBy" ColumnName="CreationBy" />
+                <ScalarProperty Name="JointSamplingMade" ColumnName="JointSamplingMade" />
+                <ScalarProperty Name="IssuanceDate" ColumnName="IssuanceDate" />
+                <ScalarProperty Name="NoteIssuedId" ColumnName="NoteIssuedId" />
+                <ScalarProperty Name="OverallResultId" ColumnName="OverallResultId" />
+                <ScalarProperty Name="VisualInspectionMade" ColumnName="VisualInspectionMade" />
+                <ScalarProperty Name="PhysicalCheckResultId" ColumnName="PhysicalCheckResultId" />
+                <ScalarProperty Name="DocumentaryCheckResultId" ColumnName="DocumentaryCheckResultId" />
+                <ScalarProperty Name="NetWeight" ColumnName="NetWeight" />
+                <ScalarProperty Name="Containers" ColumnName="Containers" />
+                <ScalarProperty Name="NumberOfContainers" ColumnName="NumberOfContainers" />
+                <ScalarProperty Name="Goods" ColumnName="Goods" />
+                <ScalarProperty Name="PartialNumber" ColumnName="PartialNumber" />
+                <ScalarProperty Name="CertificateId" ColumnName="CertificateId" />
+                <ScalarProperty Name="ReleaseNoteId" ColumnName="ReleaseNoteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SecurityPapers">
+            <EntityTypeMapping TypeName="VocModel.SecurityPaper">
+              <MappingFragment StoreEntitySet="SecurityPaper">
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModificationBy" ColumnName="ModificationBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreationBy" ColumnName="CreationBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SecurityPaperNumber" ColumnName="SecurityPaperNumber" />
+                <ScalarProperty Name="ReleaseNoteId" ColumnName="ReleaseNoteId" />
+                <ScalarProperty Name="EntryPointId" ColumnName="EntryPointId" />
+                <ScalarProperty Name="SecurityPaperId" ColumnName="SecurityPaperId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CertificateTrackings">
+            <EntityTypeMapping TypeName="VocModel.CertificateTracking">
+              <MappingFragment StoreEntitySet="CertificateTracking">
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModficationBy" ColumnName="ModficationBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreationBy" ColumnName="CreationBy" />
+                <ScalarProperty Name="TrackingStatus" ColumnName="TrackingStatus" />
+                <ScalarProperty Name="TrackingBy" ColumnName="TrackingBy" />
+                <ScalarProperty Name="TrackingDate" ColumnName="TrackingDate" />
+                <ScalarProperty Name="CertificateId" ColumnName="CertificateId" />
+                <ScalarProperty Name="CertificateTranckingId" ColumnName="CertificateTranckingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

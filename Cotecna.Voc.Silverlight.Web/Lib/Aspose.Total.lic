@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<License>
+  <Data>
+    <LicensedTo>Cotecna Inspection SA</LicensedTo>
+    <LicenseType>Developer Enterprise Subscription</LicenseType>
+    <LicenseNote>Limited to 1 developer.</LicenseNote>
+    <OrderID>091207033954</OrderID>
+    <OEM>This is a redistributable license</OEM>
+    <Products>
+      <Product>Aspose.Total</Product>
+    </Products>
+    <EditionType>Enterprise</EditionType>
+    <SerialNumber>5e73bb1f-60f5-4644-bbd1-e87e7985fdb5</SerialNumber>
+    <SubscriptionExpiry>20101207</SubscriptionExpiry>
+    <LicenseVersion>2.2</LicenseVersion>
+  </Data>
+  <Signature>KQKjdGWbaHj+iWZEYJlA9dqwfwO8KyK4OxRnnZmvL95p5y9ecogL/P2BRu2vT0wdsblanhq2iI+Wy89m2W18rrUPiaYiisX20DUWziReF7CFuRUyw7jwqqB6bsr+4ByqIEbkadBEBd13DkYiR0Bw/5fnFN0irFuiej++ulKLoZE=</Signature>
+</License>

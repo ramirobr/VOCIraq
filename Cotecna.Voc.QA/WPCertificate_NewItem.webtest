@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebTest Name="WPCertificate_NewItem" Id="d722f283-b3d5-4daa-b6fa-f890e299cbc6" Owner="" Priority="0" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="" StopOnError="False" RecordedResultFile="">
+  <Items>
+    <Request Method="GET" Guid="a2189af7-a0ea-4fc2-91b1-038d245ba5dd" Version="1.1" Url="{{WebServer1}}/{{WebSite}}/ClientBin/Cotecna.Voc.Silverlight.xap" ThinkTime="0" Timeout="60" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="Silverlight.xap">
+      <Headers>
+        <Header Name="If-Modified-Since" Value="Thu, 10 Jan 2013 21:02:46 GMT" />
+      </Headers>
+    </Request>
+    <Request Method="POST" Guid="e4d07e9e-58b6-41d0-9ba4-26866ef69452" Version="1.1" Url="{{WebServer1}}/{{WebSite}}/ClientBin/Cotecna-Voc-Silverlight-Web-Services-AuthenticationDomainService.svc/binary/GetWindowsUser" ThinkTime="0" Timeout="60" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="GetWindowsUser">
+      <Headers>
+        <Header Name="Content-Type" Value="application/msbin1" />
+        <Header Name="Pragma" Value="no-cache" />
+      </Headers>
+      <StringHttpBody ContentType="application/msbin1" InsertByteOrderMark="False">QAAOAEcAZQB0AFcAaQBuAGQAbwB3AHMAVQBzAGUAcgAIABMAaAB0AHQAcAA6AC8ALwB0AGUAbQBwAHUAcgBpAC4AbwByAGcALwABAA==</StringHttpBody>
+    </Request>
+    <Request Method="POST" Guid="7c477559-b0bc-4ae6-9ca0-78f4d519fa49" Version="1.1" Url="{{WebServer1}}/{{WebSite}}/ClientBin/Cotecna-Voc-Silverlight-Web-Services-AuthenticationDomainService.svc/binary/PerformAuthentication" ThinkTime="0" Timeout="60" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="PerformAuthentication">
+      <Headers>
+        <Header Name="Content-Type" Value="application/msbin1" />
+        <Header Name="Pragma" Value="no-cache" />
+      </Headers>
+      <StringHttpBody ContentType="application/msbin1" InsertByteOrderMark="False">QAAVAFAAZQByAGYAbwByAG0AQQB1AHQAaABlAG4AdABpAGMAYQB0AGkAbwBuAAgAEwBoAHQAdABwADoALwAvAHQAZQBtAHAAdQByAGkALgBvAHIAZwAvAEAACAB1AHMAZQByAE4AYQBtAGUA/f8SAEEATQBFAFIASQBDAEEAXABlAGMAdQBpAG8AbwBzAG8AcwBhAAEA</StringHttpBody>
+    </Request>
+    <Request Method="GET" Guid="978fdbe4-6a41-4aea-b078-dd853b08792a" Version="1.1" Url="{{WebServer1}}/{{WebSite}}/ClientBin/Cotecna-Voc-Silverlight-Web-Services-VocService.svc/binary/GetEntryPoints" ThinkTime="0" Timeout="60" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="GetEntryPoints">
+      <QueryStringParameters>
+        <QueryStringParameter Name="$orderby" Value="it.Name" RecordedValue="" CorrelationBinding="" UrlEncode="True" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="9b626088-6953-4461-9052-22e7c4c43704" Version="1.1" Url="{{WebServer1}}/{{WebSite}}/ClientBin/Cotecna-Voc-Silverlight-Web-Services-VocService.svc/binary/GetCertificates" ThinkTime="25" Timeout="60" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="GetCertificates" />
+    <Request Method="POST" Guid="769796d4-81bd-4519-8d6d-dfb03aabd24f" Version="1.1" Url="{{WebServer1}}/{{WebSite}}/ClientBin/Cotecna-Voc-Silverlight-Web-Services-VocService.svc/binary/CreateCertificate" ThinkTime="0" Timeout="60" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="CreateCertificate">
+      <Headers>
+        <Header Name="Content-Type" Value="application/msbin1" />
+        <Header Name="Pragma" Value="no-cache" />
+      </Headers>
+      <StringHttpBody ContentType="application/msbin1" InsertByteOrderMark="False">QAARAEMAcgBlAGEAdABlAEMAZQByAHQAaQBmAGkAYwBhAHQAZQAIABMAaAB0AHQAcAA6AC8ALwB0AGUAbQBwAHUAcgBpAC4AbwByAGcALwBAAAgAdQBzAGUAcgBOAGEAbQBlAP3/EgBBAE0ARQBSAEkAQwBBAFwAZQBjAHUAaQBvAG8AcwBvAHMAYQABAA==</StringHttpBody>
+    </Request>
+    <Request Method="GET" Guid="ed5ff672-2d1a-42b5-a40f-040c1f8d824d" Version="1.1" Url="{{WebServer1}}/{{WebSite}}/ClientBin/Cotecna-Voc-Silverlight-Web-Services-VocService.svc/binary/GetCertificateByCertificateId" ThinkTime="0" Timeout="60" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="GetCertificateByCertificateId">
+      <QueryStringParameters>
+        <QueryStringParameter Name="certificateId" Value="76" RecordedValue="" CorrelationBinding="" UrlEncode="True" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="ede21b77-ba08-49f9-a3dd-fa4733c0e8af" Version="1.1" Url="{{WebServer1}}/{{WebSite}}/ClientBin/Cotecna-Voc-Silverlight-Web-Services-VocService.svc/binary/GetCertificates" ThinkTime="0" Timeout="60" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="GetCertificates" />
+    <Request Method="GET" Guid="c5fb6051-fe17-4765-8b03-de13163acf70" Version="1.1" Url="{{WebServer1}}/{{WebSite}}/ClientBin/Cotecna-Voc-Silverlight-Web-Services-VocService.svc/binary/GetDocumentsByCertificateId" ThinkTime="61" Timeout="60" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="GetDocumentsByCertificateId">
+      <QueryStringParameters>
+        <QueryStringParameter Name="certificateId" Value="76" RecordedValue="" CorrelationBinding="" UrlEncode="True" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="POST" Guid="b7edddcc-168b-4da3-9dcd-9e674099c58b" Version="1.1" Url="{{WebServer1}}/{{WebSite}}/ClientBin/Cotecna-Voc-Silverlight-Web-Services-VocService.svc/binary/SubmitChanges" ThinkTime="0" Timeout="60" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="SubmitChanges">
+      <Headers>
+        <Header Name="Content-Type" Value="application/msbin1" />
+        <Header Name="Pragma" Value="no-cache" />
+      </Headers>
+      <StringHttpBody ContentType="application/msbin1" InsertByteOrderMark="False">QAANAFMAdQBiAG0AaQB0AEMAaABhAG4AZwBlAHMACAATAGgAdAB0AHAAOgAvAC8AdABlAG0AcAB1AHIAaQAuAG8AcgBnAC8AQAAJAGMAaABhAG4AZwBlAFMAZQB0AAkAAQBhAA4ARABvAG0AYQBpAG4AUwBlAHIAdgBpAGMAZQBzAAkAAQBpACkAaAB0AHQAcAA6AC8ALwB3AHcAdwAuAHcAMwAuAG8AcgBnAC8AMgAwADAAMQAvAFgATQBMAFMAYwBoAGUAbQBhAC0AaQBuAHMAdABhAG4AYwBlAF4ADgBDAGgAYQBuAGcAZQBTAGUAdABFAG4AdAByAHkAXgAGAEUAbgB0AGkAdAB5AC4ABAB0AHkAcABlAP3/DQBjADoAQwBlAHIAdABpAGYAaQBjAGEAdABlAAkAAQBiAFEAaAB0AHQAcAA6AC8ALwBzAGMAaABlAG0AYQBzAC4AZABhAHQAYQBjAG8AbgB0AHIAYQBjAHQALgBvAHIAZwAvADIAMAAwADQALwAwADcALwBTAHkAcwB0AGUAbQAuAFMAZQByAHYAaQBjAGUATQBvAGQAZQBsAC4ARABvAG0AYQBpAG4AUwBlAHIAdgBpAGMAZQBzAC4AQwBsAGkAZQBuAHQACQABAGMAPABoAHQAdABwADoALwAvAHMAYwBoAGUAbQBhAHMALgBkAGEAdABhAGMAbwBuAHQAcgBhAGMAdAAuAG8AcgBnAC8AMgAwADAANAAvADAANwAvAEMAbwB0AGUAYwBuAGEALgBWAG8AYwAuAEIAdQBzAGkAbgBlAHMAcwBgAA0AQwBlAHIAdABpAGYAaQBjAGEAdABlAEkAZAD9/0wAYAATAEMAZQByAHQAaQBmAGkAYwBhAHQAZQBTAHQAYQB0AHUAcwBJAGQA/f8HAEMAbwBuAGYAbwByAG0AYAAKAEMAcgBlAGEAdABpAG8AbgBCAHkA/f8SAEEATQBFAFIASQBDAEEAXABlAGMAdQBpAG8AbwBzAG8AcwBhAGAADABDAHIAZQBhAHQAaQBvAG4ARABhAHQAZQD9//3/CwD9//3/MgD9//3/CABgAAwARQBuAHQAcgB5AFAAbwBpAG4AdABJAGQA/f8HAGAACQBJAHMARABlAGwAZQB0AGUAZAD9/2AACgBJAHMASQBuAHYAbwBpAGMAZQBkAC4AAwBuAGkAbAD9/wEAYAALAEkAcwBQAHUAYgBsAGkAcwBoAGUAZAD9/2AADABJAHMAcwB1AGEAbgBjAGUARABhAHQAZQAuAAMAbgBpAGwA/f8BAGAACABPAGYAZgBpAGMAZQBJAGQA/f9gAAoAUwBlAHEAdQBlAG4AdABpAGEAbAD9/xAAQwBIAEcAVgBBAC8AVgBPAEMASQBRADAAMAAwADcANQBgABIAVwBvAHIAawBmAGwAbwB3AFMAdABhAHQAdQBzAEQAYQB0AGUALgADAG4AaQBsAP3/AQBgABAAVwBvAHIAawBmAGwAbwB3AFMAdABhAHQAdQBzAEkAZAD9/wcAQwByAGUAYQB0AGUAZAABAF4ADQBFAG4AdABpAHQAeQBBAGMAdABpAG8AbgBzAC4AAwBuAGkAbAD9/wkAAQBiADkAaAB0AHQAcAA6AC8ALwBzAGMAaABlAG0AYQBzAC4AbQBpAGMAcgBvAHMAbwBmAHQALgBjAG8AbQAvADIAMAAwADMALwAxADAALwBTAGUAcgBpAGEAbABpAHoAYQB0AGkAbwBuAC8AQQByAHIAYQB5AHMAAQBeABAASABhAHMATQBlAG0AYgBlAHIAQwBoAGEAbgBnAGUAcwD9/14AAgBJAGQA/f9eAAkATwBwAGUAcgBhAHQAaQBvAG4A/f8GAFUAcABkAGEAdABlAF4ADgBPAHIAaQBnAGkAbgBhAGwARQBuAHQAaQB0AHkALgAEAHQAeQBwAGUA/f8NAGMAOgBDAGUAcgB0AGkAZgBpAGMAYQB0AGUACQABAGIAUQBoAHQAdABwADoALwAvAHMAYwBoAGUAbQBhAHMALgBkAGEAdABhAGMAbwBuAHQAcgBhAGMAdAAuAG8AcgBnAC8AMgAwADAANAAvADAANwAvAFMAeQBzAHQAZQBtAC4AUwBlAHIAdgBpAGMAZQBNAG8AZABlAGwALgBEAG8AbQBhAGkAbgBTAGUAcgB2AGkAYwBlAHMALgBDAGwAaQBlAG4AdAAJAAEAYwA8AGgAdAB0AHAAOgAvAC8AcwBjAGgAZQBtAGEAcwAuAGQAYQB0AGEAYwBvAG4AdAByAGEAYwB0AC4AbwByAGcALwAyADAAMAA0AC8AMAA3AC8AQwBvAHQAZQBjAG4AYQAuAFYAbwBjAC4AQgB1AHMAaQBuAGUAcwBzAGAADQBDAGUAcgB0AGkAZgBpAGMAYQB0AGUASQBkAP3/TABgABMAQwBlAHIAdABpAGYAaQBjAGEAdABlAFMAdABhAHQAdQBzAEkAZAABAGAACgBDAHIAZQBhAHQAaQBvAG4AQgB5AC4AAwBuAGkAbAD9/wEAYAAMAEMAcgBlAGEAdABpAG8AbgBEAGEAdABlAP3/AAAAAAAAAAAAAAAAAAAAAGAADABFAG4AdAByAHkAUABvAGkAbgB0AEkAZAAuAAMAbgBpAGwA/f8BAGAACQBJAHMARABlAGwAZQB0AGUAZAD9/2AACgBJAHMASQBuAHYAbwBpAGMAZQBkAC4AAwBuAGkAbAD9/wEAYAALAEkAcwBQAHUAYgBsAGkAcwBoAGUAZAD9/2AADABJAHMAcwB1AGEAbgBjAGUARABhAHQAZQAuAAMAbgBpAGwA/f8BAGAACABPAGYAZgBpAGMAZQBJAGQALgADAG4AaQBsAP3/AQBgAAoAUwBlAHEAdQBlAG4AdABpAGEAbAAuAAMAbgBpAGwA/f8BAGAAEgBXAG8AcgBrAGYAbABvAHcAUwB0AGEAdAB1AHMARABhAHQAZQAuAAMAbgBpAGwA/f8BAGAAEABXAG8AcgBrAGYAbABvAHcAUwB0AGEAdAB1AHMASQBkAAEAAQABAAEAAQA=</StringHttpBody>
+    </Request>
+  </Items>
+  <ContextParameters>
+    <ContextParameter Name="WebServer1" Value="http://uiowebqa03" />
+    <ContextParameter Name="WebSite" Value="VocIraqInternal" />
+  </ContextParameters>
+</WebTest>

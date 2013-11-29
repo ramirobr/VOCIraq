@@ -1,0 +1,9 @@
+USE [IQVOC] 
+GO
+
+-- OFFICE TABLE
+ALTER TABLE [dbo].[Office]
+ADD [ServerName] NVARCHAR(256) NULL
+GO
+ALTER TABLE [dbo].[Office]
+ADD [DatabaseName] NVARCHAR(256) NULL

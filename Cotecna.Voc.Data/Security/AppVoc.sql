@@ -1,0 +1,2 @@
+﻿CREATE USER [AppVoc] FOR LOGIN [AppVoc];
+

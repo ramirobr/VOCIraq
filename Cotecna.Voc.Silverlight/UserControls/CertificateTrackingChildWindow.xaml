@@ -1,0 +1,62 @@
+﻿<controls:ChildWindow x:Class="Cotecna.Voc.Silverlight.CertificateTrackingChildWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:local="clr-namespace:Cotecna.Voc.Silverlight"
+           xmlns:cotecna="clr-namespace:Cotecna.Silverlight.Controls;assembly=Cotecna.Silverlight.Controls"   
+           xmlns:cslc="clr-namespace:Cotecna.Silverlight.Controls;assembly=Cotecna.Silverlight.Controls"  
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           xmlns:Helpers="clr-namespace:Cotecna.Voc.Silverlight.Helpers"   
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+           Width="450" Height="300" 
+           Style="{StaticResource childWindowStyle}"
+           Title="{Binding Translations.CertificateHistoryTitle, Source={StaticResource ResourceWrapper}}">
+
+    <controls:ChildWindow.Resources>
+        <local:DateConverter x:Key="DateConverter"/>
+    </controls:ChildWindow.Resources>
+
+
+    <Grid Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{Binding Translations.CertificateHistoryInstruction, Source={StaticResource ResourceWrapper}}" Grid.Row="0"/>
+        <Border MaxHeight="600" Style="{StaticResource Control_TitleH2_Border}" Grid.Row="1">
+            <StackPanel>
+                <Border Style="{StaticResource Control_TitleH2_BorderBackground}">
+                    <TextBlock Text="{Binding Translations.CertificateTrackingSection, Source={StaticResource ResourceWrapper}}"
+                               Style="{StaticResource Text_TitleH2}" Margin="5"/>
+                </Border>
+                <sdk:DataGrid x:Name="GridResults" ItemsSource="{Binding TrackingList}" AutoGenerateColumns="False" 
+                          SelectedItem="{Binding SelectedCertificate, Mode=TwoWay}" Padding="5"
+                          ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                          Height="180">
+                    <sdk:DataGrid.Columns>
+                        <sdk:DataGridTextColumn local:DataGridColumnHelper.HeaderBinding="{Binding Translations.Date, Source={StaticResource ResourceWrapper}}" 
+                                                Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False"
+                                                Binding="{Binding TrackingDate,Converter={StaticResource DateConverter},ConverterParameter=time}" 
+                                                IsReadOnly="True"/>
+                        
+                        <sdk:DataGridTextColumn local:DataGridColumnHelper.HeaderBinding="{Binding Translations.Status, Source={StaticResource ResourceWrapper}}" 
+                                                Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False"
+                                                Binding="{Binding TrackingStatus}" 
+                                                IsReadOnly="True"/>
+
+                        <sdk:DataGridTextColumn local:DataGridColumnHelper.HeaderBinding="{Binding Translations.ModificatedBy, Source={StaticResource ResourceWrapper}}" 
+                                                Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False"
+                                                Binding="{Binding TrackingBy}" 
+                                                IsReadOnly="True"/>
+                    </sdk:DataGrid.Columns>
+                </sdk:DataGrid>
+            </StackPanel>
+        </Border>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
+            <Button Content= "{Binding Translations.Close, Source={StaticResource ResourceWrapper}}"
+                    Width="75" Command="{Binding CloseCommand}" 
+                    Style="{StaticResource Control_GrayButton}"/>
+        </StackPanel>
+    </Grid>
+</controls:ChildWindow>

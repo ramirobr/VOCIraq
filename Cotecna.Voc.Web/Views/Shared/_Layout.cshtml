@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @*<meta charset="utf-8" />*@
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @RenderSection("headerContent", required: false)
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setupSelects($('#Content select').not('[multiple*=multiple]')); 
+        });
+
+        function setupSelects($selects) {
+            if (!$selects) return;
+
+            $selects.each(function () {
+                //$(this).selectmenu("destroy");
+
+                var w = $.browser.safari ? $(this).outerWidth() : $(this).width();
+                var brdr = $.browser.safari || $.browser.webkit ? 2 : 4;
+                var mw = w < 50 ? w + brdr : w + 2;
+                var pos = {
+                    my: "left top",
+                    at: "left bottom",
+                    offset: $.browser.mozilla ? "1 0" : "0 0"
+                };
+
+                $(this).selectmenu({
+                    width: w,
+                    menuWidth: mw,
+                    maxHeight: 150,
+                    positionOptions: pos,
+                    wrapperElement: "<span />"
+                });
+
+            });
+
+            if (typeof (uicornerfix_js) == 'function')
+                uicornerfix_js();
+        }
+</script>
+</head>
+<body>
+    <header>
+    </header>
+
+    <div id="TopBackground" style="background-color: #09aec6;"></div>
+
+    <div id="Container">
+        <!-- change logo, header, margin images here -->
+        <a href="http://www.cotecna.com/" id="logo" style="left: 45px; top: 45px;">
+            <img src="@Url.Content("~/Images/Logo-Voc-Iraq.png")" alt="Cotecna at your side" />
+        </a>
+        <img src="@Url.Content("~/Images/VOC-Iraq_external-web_banner-illustration.png")" id="headerImage" style="left: 195px; top: -22px;" />
+        <img src="@Url.Content("~/Images/VOC-Iraq_external-web_left-illustration.png")" id="marginImage" style="left:-210px;top:150px;" />
+
+        <div id="Heading">
+            <ul class="headercontent">
+                <li>
+                     @{
+                        string userName = User.Identity.Name;
+                        <label class="selectLabel">@string.Format(Resources.Common.LoggedAs,userName)</label>
+                     }
+                </li>
+                <li>@Html.ActionLink(Resources.Common.ChangePasswordTitle, "ChangePassword", "Account")</li>
+                <li class="last">
+                    @using (Html.BeginForm("LogOff", "Home", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                    }
+                </li>
+            </ul>
+        </div>
+
+        <div id="HeadingMenu">
+            <div class="cap-left">
+            </div>
+            <div class="content">
+                <ul>
+                    <li id="liCertificates">
+                        @Html.ActionLink(Resources.Common.Certificates, "Index", "Certificate")
+                        <span></span>
+                        <div class="expand-info"></div>
+                    </li>
+                    @if(!User.IsInRole("Client"))
+                    {
+                    <li id="liUsers">
+                        @Html.ActionLink(Resources.Common.UserManagement, "Index", "Account")
+                        <span></span>
+                        <div class="expand-info"></div>
+                    </li>
+                    }
+                </ul>
+            </div>
+            <div class="cap-right">
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="expand-container"></div>
+        <div id="PageLayout">
+            @if (IsSectionDefined("leftmenu"))
+            {
+                <div id="LeftMenu">
+                    @RenderSection("leftmenu", required: false)
+                </div>
+            }
+            <div id="Content">
+                @RenderBody()
+            </div>
+            <!-- /div#Content -->
+            <div class="clear"></div>
+        </div>
+        <!-- /div#PageLayout -->
+        <form action="@Url.Action("Error", "Home")" method="post" id="formError">
+        </form>
+
+        <div id="Footer">
+            <div class="footer-info">
+                <div class="left">
+                    <span>Copyright &copy; 2013 Cotecna is one of the world’s leading trade inspection,
+                        testing and certification companies </span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <footer>
+    </footer>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+
+
+
+
+
+
+

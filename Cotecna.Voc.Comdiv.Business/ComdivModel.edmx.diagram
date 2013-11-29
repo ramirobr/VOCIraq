@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fe18f1aac9584d4c98e7492fc7bb4903" Name="Diagram1" ZoomLevel="106">
+        <EntityTypeShape EntityType="ComdivModel.ACTION" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.ADDRESS" Width="1.5" PointX="3" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.ARCHIVE" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.BANKINFO" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.COC" Width="1.5" PointX="9.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.COCCORIGIN" Width="1.5" PointX="12" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.COCITEM" Width="1.5" PointX="12" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.COMPANY" Width="1.5" PointX="0.75" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.CONTACT" Width="1.5" PointX="5.25" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.COUNTER" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.COUNTRY" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.DICTIONARY" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.DOCUMENT" Width="1.5" PointX="12" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.ERROR" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.HEADER" Width="1.5" PointX="7.5" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.HSCODE" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.HSCODE_DETAILDESCRIPTION" Width="1.5" PointX="14.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.HSDETAIL" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.INVITEM" Width="1.5" PointX="17.25" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.INVOICE" Width="1.5" PointX="15" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.INVOICEPAYMENT" Width="1.5" PointX="17.25" PointY="41" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.ISSUEDCERTIFICATE" Width="1.5" PointX="12" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.ITEM" Width="1.5" PointX="9.75" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.ITEMCOST" Width="1.5" PointX="18" PointY="29.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.ITEMFEE" Width="1.5" PointX="12" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.ITEMPOI" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.ITP" Width="1.5" PointX="12" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.LABORATORYANALYSI" Width="1.5" PointX="16.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.LOCATION" Width="1.5" PointX="4.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.OFFICECOUNTER" Width="1.5" PointX="6.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.OFFICEDICTIONARY" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.OFFICEPARAMETER" Width="1.5" PointX="18.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.POD" Width="1.5" PointX="18.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.POI" Width="1.5" PointX="9.75" PointY="47" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.REFCODE" Width="1.5" PointX="19.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.REMARK" Width="1.5" PointX="21" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.REQUEST" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.ROLE" Width="1.5" PointX="6.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.SEAL" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.SEAL_DATE" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.SECPAPER" Width="1.5" PointX="20.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.SIGNATURE" Width="1.5" PointX="16.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.USR" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComdivModel.USRROLE" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="ComdivModel.ADDRESS_CONTACT_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.ADDRESS_HEADER_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.ADDRESS_INVOICE_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.ADDRESS_ITP_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.COMPANY_ADDRESS_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.FK_COCCORIGIN_COC" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.FK_COCITEM_COC" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.FK_ISSUEDCERTIFICATE_COC" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.FK_ITEMFEE_COC" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.COMPANY_HEADER_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.COMPANY_INVOICE_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.COMPANY_ITP_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.COMPANY_REMARK_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.CONTACT_HEADER_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.CONTACT_INVOICE_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.CONTACT_ITP_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.ITEM_DOCUMENT_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.HEADER_HEADER_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.HEADER_ITEM_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.FK_HSDETAIL_HSCODE" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.INVOICE_INVITEM_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.FK_INVOICEPAYMENT_INVOICE" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.ITEM_INVOICE_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.FK_ITEMCOST_ITEM" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.FK_ITEMFEE_ITEM" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.ITEM_ITP_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.ITEM_REMARK_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.FK_ITEMCOST_ITEMFEE" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.POI_ITP_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.FK_SEAL_DATE_SEAL" ManuallyRouted="false" />
+        <AssociationConnector Association="ComdivModel.FK_USRROLE_USR" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ComdivModel.V_DICTIONARY" Width="1.5" PointX="9.9821144612422756" PointY="26.289585781418527" />
+        <EntityTypeShape EntityType="ComdivModel.V_EXRATE" Width="1.5" PointX="10.125" PointY="0.75" />
+        <EntityTypeShape EntityType="ComdivModel.V_OFFICE" Width="1.5" PointX="10.412441711133551" PointY="31.835567593497956" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

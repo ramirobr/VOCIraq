@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="cb627fde-c25a-4bdf-abd0-d4a6ef741840" ChangeDateTime="01/08/2013 19:56:32">
+    <Property Name="ElementName" Value="[dbo].[Office].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Office]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OfficeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="fa45e775-72d7-4b19-81ca-606cc3bb1c58" ChangeDateTime="01/08/2013 21:10:58">
+    <Property Name="ElementName" Value="[dbo].[Certificate].[IX_Certificate_Column]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[dbo].[Certificate]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_Certificate_Sequential]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="dcf3a83b-584b-4e03-a484-dc4c4ecf659b" ChangeDateTime="01/30/2013 20:24:24">
+    <Property Name="ElementName" Value="[dbo].[ReleaseNote].[DocumentaryCheckResults]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ReleaseNote]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DocumentaryCheckResultsId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f0230ff1-eef3-410e-a20c-f8dff576da08" ChangeDateTime="01/30/2013 20:24:29">
+    <Property Name="ElementName" Value="[dbo].[ReleaseNote].[PhysicalCheckResults]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ReleaseNote]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PhysicalCheckResultsId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="753f6f8a-8ee1-4716-896b-c95691aaa08c" ChangeDateTime="01/30/2013 20:24:31">
+    <Property Name="ElementName" Value="[dbo].[ReleaseNote].[OverallResults]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ReleaseNote]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OverallResultsId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="096de10c-04f5-4fb8-aaa0-bf1ecd639950" ChangeDateTime="01/30/2013 20:24:38">
+    <Property Name="ElementName" Value="[dbo].[ReleaseNote].[VisualInspection]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ReleaseNote]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsVisualInspectionMade" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5488ebcb-b2ff-47c2-8701-d35ad38b5339" ChangeDateTime="01/30/2013 20:34:41">
+    <Property Name="ElementName" Value="[dbo].[ReleaseNote].[IsVisualInspectionMade]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ReleaseNote]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="VisualInspectionMade" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5823350e-846f-4ebe-b110-b3a20545402a" ChangeDateTime="01/30/2013 20:34:47">
+    <Property Name="ElementName" Value="[dbo].[ReleaseNote].[NoteIssued]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ReleaseNote]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="NoteIssuedId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="001c3888-5059-405b-b81d-041554d88c45" ChangeDateTime="01/31/2013 19:55:53">
+    <Property Name="ElementName" Value="[dbo].[Office].[OfficeSignet]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Office]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OfficeStamp" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="16f9aed4-d8e5-480d-ad87-efcf0bc552a7" ChangeDateTime="03/18/2013 21:26:49">
+    <Property Name="ElementName" Value="[dbo].[SecurityPaper].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SecurityPaper]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SecurityPaperId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="32dcb5a7-1cc8-4101-a50e-a4d4eb9fa663" ChangeDateTime="04/01/2013 14:35:15">
+    <Property Name="ElementName" Value="[dbo].[CertificateTracking].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CertificateTracking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CertificateTranckingId" />
+  </Operation>
+</Operations>

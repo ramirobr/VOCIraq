@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cotecna.Voc.FileAccess.ServiceHostWeb", "Cotecna.Voc.FileAccess.ServiceHostWeb\Cotecna.Voc.FileAccess.ServiceHostWeb.csproj", "{8D0238FF-7DEB-4350-BA7C-67025D0E5F45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cotecna.Voc.FileAccess.Test", "Cotecna.Voc.FileAccess.Test\Cotecna.Voc.FileAccess.Test.csproj", "{A9D59018-9DEC-4B23-B085-C51F97DFD158}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cotecna.Voc.FileAccess.Invoker", "Cotecna.Voc.FileAccess.Invoker\Cotecna.Voc.FileAccess.Invoker.csproj", "{534DCF98-7083-4086-BCB8-2F9694D67A61}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8D0238FF-7DEB-4350-BA7C-67025D0E5F45} = {8D0238FF-7DEB-4350-BA7C-67025D0E5F45}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://gvatfs:8080/tfs/cotecna
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Cotecna.Voc.FileAccess.Invoker\\Cotecna.Voc.FileAccess.Invoker.csproj
+		SccProjectName1 = Cotecna.Voc.FileAccess.Invoker
+		SccLocalPath1 = Cotecna.Voc.FileAccess.Invoker
+		SccProjectUniqueName2 = Cotecna.Voc.FileAccess.ServiceHostWeb\\Cotecna.Voc.FileAccess.ServiceHostWeb.csproj
+		SccProjectName2 = Cotecna.Voc.FileAccess.ServiceHostWeb
+		SccLocalPath2 = Cotecna.Voc.FileAccess.ServiceHostWeb
+		SccProjectUniqueName3 = Cotecna.Voc.FileAccess.Test\\Cotecna.Voc.FileAccess.Test.csproj
+		SccProjectName3 = Cotecna.Voc.FileAccess.Test
+		SccLocalPath3 = Cotecna.Voc.FileAccess.Test
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D0238FF-7DEB-4350-BA7C-67025D0E5F45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D0238FF-7DEB-4350-BA7C-67025D0E5F45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D0238FF-7DEB-4350-BA7C-67025D0E5F45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D0238FF-7DEB-4350-BA7C-67025D0E5F45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9D59018-9DEC-4B23-B085-C51F97DFD158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9D59018-9DEC-4B23-B085-C51F97DFD158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9D59018-9DEC-4B23-B085-C51F97DFD158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9D59018-9DEC-4B23-B085-C51F97DFD158}.Release|Any CPU.Build.0 = Release|Any CPU
+		{534DCF98-7083-4086-BCB8-2F9694D67A61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{534DCF98-7083-4086-BCB8-2F9694D67A61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{534DCF98-7083-4086-BCB8-2F9694D67A61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{534DCF98-7083-4086-BCB8-2F9694D67A61}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

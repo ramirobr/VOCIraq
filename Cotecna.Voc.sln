@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cotecna.Voc.Web", "Cotecna.Voc.Web\Cotecna.Voc.Web.csproj", "{15A19808-D270-4C96-B021-2B33D7CA4212}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cotecna.Voc.Web.Tests", "Cotecna.Voc.Web.Tests\Cotecna.Voc.Web.Tests.csproj", "{F0C2259D-4409-4D8A-AF7A-011C7F3D3D47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cotecna.Voc.Business", "Cotecna.Voc.Business\Cotecna.Voc.Business.csproj", "{EBB62542-2F1E-46A9-B794-847CAD937208}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Cotecna.Voc.Data", "Cotecna.Voc.Data\Cotecna.Voc.Data.sqlproj", "{3CD90155-37F0-4396-B819-2F67CA89C9A6}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://gvatfs:8080/tfs/cotecna
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Cotecna.Voc.Web.Tests\\Cotecna.Voc.Web.Tests.csproj
+		SccProjectName1 = Cotecna.Voc.Web.Tests
+		SccLocalPath1 = Cotecna.Voc.Web.Tests
+		SccProjectUniqueName2 = Cotecna.Voc.Web\\Cotecna.Voc.Web.csproj
+		SccProjectName2 = Cotecna.Voc.Web
+		SccLocalPath2 = Cotecna.Voc.Web
+		SccProjectUniqueName3 = Cotecna.Voc.Business\\Cotecna.Voc.Business.csproj
+		SccProjectName3 = Cotecna.Voc.Business
+		SccLocalPath3 = Cotecna.Voc.Business
+		SccProjectUniqueName4 = Cotecna.Voc.Data\\Cotecna.Voc.Data.sqlproj
+		SccProjectName4 = Cotecna.Voc.Data
+		SccLocalPath4 = Cotecna.Voc.Data
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15A19808-D270-4C96-B021-2B33D7CA4212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15A19808-D270-4C96-B021-2B33D7CA4212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15A19808-D270-4C96-B021-2B33D7CA4212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15A19808-D270-4C96-B021-2B33D7CA4212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0C2259D-4409-4D8A-AF7A-011C7F3D3D47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0C2259D-4409-4D8A-AF7A-011C7F3D3D47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0C2259D-4409-4D8A-AF7A-011C7F3D3D47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBB62542-2F1E-46A9-B794-847CAD937208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBB62542-2F1E-46A9-B794-847CAD937208}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBB62542-2F1E-46A9-B794-847CAD937208}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBB62542-2F1E-46A9-B794-847CAD937208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CD90155-37F0-4396-B819-2F67CA89C9A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CD90155-37F0-4396-B819-2F67CA89C9A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CD90155-37F0-4396-B819-2F67CA89C9A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CD90155-37F0-4396-B819-2F67CA89C9A6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Logging.5.0.505.1\lib\NET35;packages\EnterpriseLibrary.ExceptionHandling.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.ExceptionHandling.Logging.5.0.505.0\lib\NET35
+	EndGlobalSection
+EndGlobal

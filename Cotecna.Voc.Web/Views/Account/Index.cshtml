@@ -1,0 +1,94 @@
+﻿@using Cotecna.Voc.Web.Models;
+@model UserListModel
+@{
+    ViewBag.Title = Resources.Common.UserManagement;
+}
+
+
+@section headerContent{
+    @Styles.Render("~/Content/selectmenucss")
+    @Scripts.Render("~/bundles/selectmenujs")
+<script src="@Url.Content("~/Scripts/jquery.ezmark.min.js")" type="text/javascript"></script>
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("#Content").width(915);
+        $("#resetButton").click(function () {
+            window.location = '@Url.Action("Index")';
+        });
+        $("#searchButton").click(function () {
+            var ajaxUrl = '@Url.Action("SearchUsers", "Account")';
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'html',
+                success: UpdateResult,
+                error: function () { alert('@Resources.Common.CommonErrorMessageAjax') },
+                data: { pageNumber: '1', firstName: $("#FirstName").val(), lastName: $("#LastName").val() }
+            });
+        });
+
+        $("#newButton").click(function () {
+            $("#newUserForm").submit();
+        });
+    });
+    function UpdateResult(results) {
+        $(".gridArea").html(results);
+        $(".gridArea").fadeIn("slow");
+    }
+    $(document).ready(function () {
+        $("#liUsers").attr("class", "first current");
+    });
+</script>
+<div id="Breadcrumbs">
+    <div class="cap-left">
+    </div>
+    <ul>
+        <li class="last">@Resources.Common.UserManagement</li>
+    </ul>
+    <div class="cap-right">
+    </div>
+</div>
+<h1>@Resources.Common.UserManagement</h1>
+<p>@Resources.Common.LegendSearch</p>
+
+<div class="form">
+    <div class="legend">        
+        <span>&nbsp;</span>
+        @Resources.Common.Search
+    </div>
+    <ol>
+        <li class="datehalf">
+            <label>
+                <span class="name">@Resources.Common.FirstName</span>
+                @Html.TextBox("FirstName","", new {@class="txt"})
+            </label>
+        </li>
+        <li class="datehalf">
+            <label>
+                <span class="name">@Resources.Common.LastName</span>
+                @Html.TextBox("LastName","", new {@class="txt"})
+            </label>
+        </li>
+    </ol>
+    <p class="btn">
+        <span class="btn">
+            <input type="button" value="@Resources.Common.Search" id="searchButton" />
+        </span>
+        <span class="btn2">
+            <input type="button" value="@Resources.Common.Reset" id="resetButton" />
+        </span>
+    </p>
+</div>
+<div class="gridArea">
+    @Html.Partial("_UserList",Model.SearchResult)
+</div>
+ <p class="btn">
+    <span class="btn">
+        <input type="button" value="@Resources.Common.New" id="newButton" />
+    </span>
+</p>
+<form id="newUserForm" action="@Url.Action("CreateUser")" method="post">
+
+</form>

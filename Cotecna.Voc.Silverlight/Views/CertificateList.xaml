@@ -1,0 +1,496 @@
+﻿<UserControl x:Class="Cotecna.Voc.Silverlight.CertificateList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    mc:Ignorable="d"
+    xmlns:local="clr-namespace:Cotecna.Voc.Silverlight"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"    
+    xmlns:dataPrimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"	
+    xmlns:cotecna="clr-namespace:Cotecna.Silverlight.Controls;assembly=Cotecna.Silverlight.Controls"   
+    xmlns:controls="clr-namespace:Cotecna.Voc.Silverlight.Assets"         
+    d:DesignHeight="450" d:DesignWidth="1600" x:Name="Control">
+    
+    <UserControl.Resources>
+        <local:DateConverter x:Key="DateConverter"/>
+        <local:EntryPointConverter x:Key="EntryPointConverter"/>
+        <local:YesNoConverter x:Key="YesNoConverter"/>
+        <local:YesNoNullConverter x:Key="YesNoNullConverter"/>
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <local:OfficeConverter x:Key="OfficeConverter"/>
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <local:CertificateListViewModel  />
+    </UserControl.DataContext>
+    <Grid>
+        <cotecna:ScrollableTabControl Margin="0" Padding="0" x:Name="tab" BorderBrush="Gray" BorderThickness="1" >
+            <cotecna:ClosableTabItem CloseButtonVisibility="Collapsed" Margin="0"   Header="{Binding Translations.ListCertificateTitle, Source={StaticResource ResourceWrapper}}"  >
+                <toolkit:BusyIndicator IsBusy="{Binding IsBusy}" BusyContent="{Binding Translations.PleaseWait, Source={StaticResource ResourceWrapper}}" >
+                    <Grid Style="{StaticResource PageStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <!-- 2: Commands -->
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Margin="10,5,10,5" Grid.Row="0">
+                <TextBlock Text="{Binding Translations.ListCertificateTitle, Source={StaticResource ResourceWrapper}}"  
+                                               Style="{StaticResource Text_TitleH1}" 
+                                               TextTrimming="WordEllipsis"/>
+                <TextBlock TextWrapping="Wrap" 
+                           Text="{Binding Translations.ListCertificateInstructions, Source={StaticResource ResourceWrapper}}" 
+                       VerticalAlignment="Top" HorizontalAlignment="Left" />
+            </StackPanel>
+                        
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                            <Border MaxHeight="600" Margin="10,5,10,5" Style="{StaticResource Control_TitleH2_Border}" Grid.Row="0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Border Style="{StaticResource Control_TitleH2_BorderBackground}" Grid.Row="0" >
+                                        <TextBlock Margin="5" 
+                                                    Style="{StaticResource Text_TitleH2}"
+                                                    Text="{Binding Translations.SearchCriteria, Source={StaticResource ResourceWrapper}}"
+                                                    HorizontalAlignment="Left"/>
+                                    </Border>
+                                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" BorderThickness="0">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid Grid.Row="0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <!--row 0-->
+
+                                                    <toolkit:DataField Grid.Column="0" Grid.Row="0"
+                                                Label="{Binding Translations.ComdivNumber, Source={StaticResource ResourceWrapper}}" LabelPosition="Top" 
+								                DescriptionViewerPosition="BesideLabel" DescriptionViewerVisibility="Collapsed" 
+								                Width="150">
+                                                        <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                                                    MaxLength="16"
+                                                    Text="{Binding CertificateListFilters.ComdivNumber,Mode=TwoWay}"
+                                                    Margin="{StaticResource Value_DataFieldContentMargin}" />
+                                                    </toolkit:DataField>
+
+
+                                                    <toolkit:DataField Grid.Column="1" Grid.Row="0"
+                                                Label="{Binding Translations.CertificateNumber, Source={StaticResource ResourceWrapper}}" LabelPosition="Top" 
+								                DescriptionViewerPosition="BesideLabel" DescriptionViewerVisibility="Collapsed" 
+								                Width="150">
+                                                        <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                                                    MaxLength="16"
+                                                    Text="{Binding CertificateListFilters.CertificateNumber,Mode=TwoWay}"
+                                                    Margin="{StaticResource Value_DataFieldContentMargin}" />
+                                                    </toolkit:DataField>
+                                                    <toolkit:DataField 
+                                                Label="{Binding Translations.IssuanceDateFrom, Source={StaticResource ResourceWrapper}}" LabelPosition="Top" 
+								                DescriptionViewerPosition="BesideLabel" DescriptionViewerVisibility="Collapsed" 
+								                Grid.Column="2" Grid.Row="0" Width="150" >
+                                                        <sdk:DatePicker  HorizontalAlignment="Stretch"  Margin="{StaticResource Value_DataFieldContentMargin}"                                                    
+                                                            VerticalAlignment="Top"
+                                                            SelectedDate="{Binding CertificateListFilters.IssuanceDateFrom,Mode=TwoWay}"
+                                                            d:LayoutOverrides="Height" 
+                                                            SelectedDateFormat="Short"/>
+                                                    </toolkit:DataField>
+                                                    <toolkit:DataField 
+                                                Label="{Binding Translations.IssuanceDateTo, Source={StaticResource ResourceWrapper}}" LabelPosition="Top" 
+								                DescriptionViewerPosition="BesideLabel" DescriptionViewerVisibility="Collapsed" 
+								                Grid.Column="3" Grid.Row="0" Width="150" >
+                                                        <sdk:DatePicker  HorizontalAlignment="Stretch"  Margin="{StaticResource Value_DataFieldContentMargin}"                                                    
+                                                            VerticalAlignment="Top" 
+                                                            SelectedDate="{Binding CertificateListFilters.IssuanceDateTo,Mode=TwoWay}"
+                                                            d:LayoutOverrides="Height" 
+                                                            SelectedDateFormat="Short"/>
+                                                    </toolkit:DataField>
+                                                    <toolkit:DataField 
+                                                Label="{Binding Translations.EntryPoint, Source={StaticResource ResourceWrapper}}" LabelPosition="Top" 
+								                DescriptionViewerPosition="BesideLabel" DescriptionViewerVisibility="Collapsed" 
+								                Grid.Column="4" Grid.Row="0" Width="142">
+                                                        <ComboBox x:Name="cbEntryPoint" ItemsSource="{Binding CertificateListFilters.EntryPointList, Mode=TwoWay}" 
+                                                            DisplayMemberPath="Name" SelectedValuePath="EntryPointId" Width="130"
+                                                            SelectedValue="{Binding CertificateListFilters.SelectedEntryPointId, Mode=TwoWay}" 
+                                                            HorizontalAlignment="Left" Margin="{StaticResource Value_DataFieldContentMargin}"/>
+                                                    </toolkit:DataField>
+                                                    <toolkit:DataField Visibility="{Binding CertificateListFilters.IsOfficeListVisible,Converter={StaticResource BoolToVisibilityConverter}}"
+                                                Label="{Binding Translations.Office, Source={StaticResource ResourceWrapper}}" 
+                                                LabelPosition="Top" HorizontalAlignment="Left"
+								                DescriptionViewerPosition="BesideLabel" DescriptionViewerVisibility="Collapsed" 
+								                Grid.Column="5" Grid.Row="0" Width="142">
+                                                        <ComboBox  ItemsSource="{Binding CertificateListFilters.OfficeList, Mode=TwoWay}" 
+                                                        DisplayMemberPath="OfficeName" SelectedValuePath="OfficeId" Width="130"
+                                                        SelectedValue="{Binding CertificateListFilters.SelectedOffice, Mode=TwoWay}" 
+                                                        HorizontalAlignment="Left" Margin="{StaticResource Value_DataFieldContentMargin}"/>
+                                                    </toolkit:DataField>
+                                                    <StackPanel Orientation="Horizontal" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                        <CheckBox IsChecked="{Binding CertificateListFilters.Published,Mode=TwoWay}"
+                                                                  Content="{Binding Translations.Publish, Source={StaticResource ResourceWrapper}}"
+                                                                  Margin="10,15,0,0"
+                                                                  Visibility="{Binding CertificateListFilters.IsPublishVisible,Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                                        <CheckBox IsChecked="{Binding CertificateListFilters.Unpublished,Mode=TwoWay}" 
+                                                                  Content="{Binding Translations.Unpublish, Source={StaticResource ResourceWrapper}}" 
+                                                                  Margin="10,15,0,0"
+                                                                  Visibility="{Binding CertificateListFilters.IsUnPublishVisible,Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                                        
+                                                    </StackPanel>
+                                                </Grid>
+                                                <Border Grid.Row="1" Margin="9,10,5,0"  Style="{StaticResource Control_TitleH2_Border}"
+                                                        Visibility="{Binding CertificateListFilters.IsNotBorderAgent,Converter={StaticResource BoolToVisibilityConverter}}"
+                                                    Padding="3" Width="260" HorizontalAlignment="Left">
+                                                    <StackPanel>
+                                                        <sdk:Label Content="{Binding Translations.TypeOfCertificate, Source={StaticResource ResourceWrapper}}" Margin="10,0,0,5"/>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <CheckBox Content="{Binding Translations.Conform, Source={StaticResource ResourceWrapper}}"
+                                                          Margin="10,0,0,0"
+                                                          IsChecked="{Binding CertificateListFilters.Conform,Mode=TwoWay}"/>
+                                                            <CheckBox Content="{Binding Translations.NonConform, Source={StaticResource ResourceWrapper}}"
+                                                          Margin="10,0,0,0"
+                                                          IsChecked="{Binding CertificateListFilters.NonConform,Mode=TwoWay}"/>
+                                                            <CheckBox Content="{Binding Translations.Cancelled, Source={StaticResource ResourceWrapper}}" 
+                                                          Margin="10,0,0,0" 
+                                                          IsChecked="{Binding CertificateListFilters.Cancelled,Mode=TwoWay}"/>
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                </Border>
+                                                <Border Grid.Row="1"  Margin="280,10,5,0"  Style="{StaticResource Control_TitleH2_Border}"
+                                                        Visibility="{Binding CertificateListFilters.IsNotBorderAgent,Converter={StaticResource BoolToVisibilityConverter}}"
+                                                Padding="2" Width="460" HorizontalAlignment="Left">
+                                                    <StackPanel>
+                                                        <sdk:Label Content="{Binding Translations.WorkflowStatus, Source={StaticResource ResourceWrapper}}" Margin="10,0,0,5"/>
+                                                        <StackPanel Orientation="Horizontal" >
+                                                            <CheckBox Content="{Binding Translations.Created, Source={StaticResource ResourceWrapper}}"
+                                                          Margin="10,0,0,0" 
+                                                          IsChecked="{Binding CertificateListFilters.Created,Mode=TwoWay}"/>
+                                                            <CheckBox Content="{Binding Translations.Requested, Source={StaticResource ResourceWrapper}}"
+                                                          Margin="10,0,0,0" 
+                                                          IsChecked="{Binding CertificateListFilters.Requested,Mode=TwoWay}"/>
+                                                            <CheckBox Content="{Binding Translations.Approved, Source={StaticResource ResourceWrapper}}" 
+                                                          Margin="10,0,0,0" 
+                                                          IsChecked="{Binding CertificateListFilters.Approved,Mode=TwoWay}"/>
+                                                            <CheckBox Content="{Binding Translations.Rejected, Source={StaticResource ResourceWrapper}}" 
+                                                          Margin="10,0,0,0" 
+                                                          IsChecked="{Binding CertificateListFilters.Rejected,Mode=TwoWay}"/>
+                                                            <CheckBox Content="{Binding Translations.Ongoing, Source={StaticResource ResourceWrapper}}"
+                                                          Margin="10,0,0,0"
+                                                          IsChecked="{Binding CertificateListFilters.Ongoing,Mode=TwoWay}"/>
+                                                            <CheckBox Content="{Binding Translations.Closed, Source={StaticResource ResourceWrapper}}"
+                                                          Margin="10,0,0,0"
+                                                          IsChecked="{Binding CertificateListFilters.Closed,Mode=TwoWay}"/>
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                </Border>
+
+
+                                                <Border Grid.Row="1" Margin="9,10,5,0"  Style="{StaticResource Control_TitleH2_Border}"
+                                                        Visibility="{Binding CertificateListFilters.IsBorderAgent,Converter={StaticResource BoolToVisibilityConverter}}"
+                                                    Padding="3" Width="180" HorizontalAlignment="Left">
+                                                    <StackPanel>
+                                                        <sdk:Label Content="{Binding Translations.TypeOfCertificate, Source={StaticResource ResourceWrapper}}" Margin="10,0,0,5"/>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <CheckBox Content="{Binding Translations.Conform, Source={StaticResource ResourceWrapper}}"
+                                                          Margin="10,0,0,0"
+                                                          IsChecked="{Binding CertificateListFilters.Conform,Mode=TwoWay}"/>
+                                                            <CheckBox Content="{Binding Translations.NonConform, Source={StaticResource ResourceWrapper}}"
+                                                          Margin="10,0,0,0"
+                                                          IsChecked="{Binding CertificateListFilters.NonConform,Mode=TwoWay}"/>
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                </Border>
+                                                <Border Grid.Row="1"  Margin="200,10,5,0"  Style="{StaticResource Control_TitleH2_Border}"
+                                                        Visibility="{Binding CertificateListFilters.IsBorderAgent,Converter={StaticResource BoolToVisibilityConverter}}"
+                                                Padding="2" Width="240" HorizontalAlignment="Left">
+                                                    <StackPanel>
+                                                        <sdk:Label Content="{Binding Translations.WorkflowStatus, Source={StaticResource ResourceWrapper}}" Margin="10,0,0,5"/>
+                                                        <StackPanel Orientation="Horizontal" >
+                                                            <CheckBox Content="{Binding Translations.Approved, Source={StaticResource ResourceWrapper}}" 
+                                                          Margin="10,0,0,0" 
+                                                          IsChecked="{Binding CertificateListFilters.Approved,Mode=TwoWay}"/>
+                                                            <CheckBox Content="{Binding Translations.Ongoing, Source={StaticResource ResourceWrapper}}"
+                                                          Margin="10,0,0,0"
+                                                          IsChecked="{Binding CertificateListFilters.Ongoing,Mode=TwoWay}"/>
+                                                            <CheckBox Content="{Binding Translations.Closed, Source={StaticResource ResourceWrapper}}"
+                                                          Margin="10,0,0,0"
+                                                          IsChecked="{Binding CertificateListFilters.Closed,Mode=TwoWay}"/>
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                </Border>
+                                                
+                                                <StackPanel Grid.Row="1" Margin="455,32,0,0" Orientation="Horizontal"
+                                                            Visibility="{Binding CertificateListFilters.IsBorderAgent,Converter={StaticResource BoolToVisibilityConverter}}">
+                                                    <CheckBox IsChecked="{Binding CertificateListFilters.Invoiced,Mode=TwoWay}"
+                                                          Content="{Binding Translations.Invoiced, Source={StaticResource ResourceWrapper}}"/>
+                                                    <CheckBox IsChecked="{Binding CertificateListFilters.NonInvoiced,Mode=TwoWay}"
+                                                          Content="{Binding Translations.NonInvoiced, Source={StaticResource ResourceWrapper}}"
+                                                          Margin="10,0,0,0"/>
+                                                </StackPanel>
+
+                                                <StackPanel Margin="750,34,0,0" Orientation="Horizontal" Grid.Row="1">
+                                                    <CheckBox IsChecked="{Binding CertificateListFilters.MyDocuments,Mode=TwoWay}" 
+                                                          Content="{Binding Translations.MyDocuments, Source={StaticResource ResourceWrapper}}"
+                                                          Visibility="{Binding CertificateListFilters.IsMyDocumentsVisible,Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+                                                    <CheckBox IsChecked="{Binding CertificateListFilters.Invoiced,Mode=TwoWay}"
+                                                          Content="{Binding Translations.BFInvoiced, Source={StaticResource ResourceWrapper}}"
+                                                                  Visibility="{Binding CertificateListFilters.IsNotBorderAgent,Converter={StaticResource BoolToVisibilityConverter}}"
+                                                          Margin="10,0,0,0"/>
+                                                    <CheckBox IsChecked="{Binding CertificateListFilters.NonInvoiced,Mode=TwoWay}"
+                                                          Content="{Binding Translations.NonInvoiced, Source={StaticResource ResourceWrapper}}"
+                                                                  Visibility="{Binding CertificateListFilters.IsNotBorderAgent,Converter={StaticResource BoolToVisibilityConverter}}"
+                                                          Margin="10,0,0,0"/>
+                                                </StackPanel>
+                                            </Grid>
+                                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                                                <Button Content="{Binding Translations.Reset, Source={StaticResource ResourceWrapper}}"
+                                                Command="{Binding ResetCommand}"/>
+                                                <Button Content="{Binding Translations.Search, Source={StaticResource ResourceWrapper}}" 
+                                                Command="{Binding SearchCommand}"
+                                                Style="{StaticResource Control_GreenButton}"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </ScrollViewer>
+                                    
+                                </Grid>
+                            </Border>
+                                <Border MaxHeight="600" Margin="10,5,10,5" Style="{StaticResource Control_TitleH2_Border}" Grid.Row="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Border Style="{StaticResource Control_TitleH2_BorderBackground}" Grid.Row="0" >
+                                        <TextBlock Margin="5" 
+                        Style="{StaticResource Text_TitleH2}"
+                        Text="{Binding Translations.Certificates, Source={StaticResource ResourceWrapper}}"
+                        HorizontalAlignment="Left"/>
+                                    </Border>
+                                    <sdk:DataGrid x:Name="GridResults" ItemsSource="{Binding CertificateList}" AutoGenerateColumns="False" 
+                          SelectedItem="{Binding SelectedCertificate, Mode=TwoWay}" Padding="5"
+                          Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                          MinHeight="60">
+                                        <sdk:DataGrid.Columns>
+                                            <sdk:DataGridTemplateColumn x:Name="CheckedColumn" IsReadOnly="True" 
+                                                CanUserReorder="False" CanUserResize="False" CanUserSort="False"
+                                                      Width="Auto"                  >                                  
+
+                                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                        
+                                                            <CheckBox HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center"
+                                                                       IsChecked="{Binding Checked,Mode=TwoWay}"
+                                                             Margin="7,0,3,0"/>
+                                                   
+                                                            
+                                                </DataTemplate>
+                                            </sdk:DataGridTemplateColumn.CellTemplate>
+                                                <sdk:DataGridTemplateColumn.HeaderStyle>
+                                                    <Style TargetType="dataPrimitives:DataGridColumnHeader">
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate>
+                                                                    <Grid Background="{StaticResource HeaderNormalBackgroundBrush}">
+                                                                        <Grid.ColumnDefinitions>
+                                                                            <ColumnDefinition></ColumnDefinition>
+                                                                        </Grid.ColumnDefinitions>
+                                                                        <CheckBox IsChecked="{Binding CheckAll,Mode=TwoWay}" VerticalAlignment="Center"
+                                                                                  HorizontalAlignment="Center" HorizontalContentAlignment="Center"
+                                                                                    Margin="7,0,3,0"/>
+                                                                    </Grid>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Style>
+                                                </sdk:DataGridTemplateColumn.HeaderStyle>
+
+                                            </sdk:DataGridTemplateColumn>
+
+                                            <sdk:DataGridTextColumn local:DataGridColumnHelper.HeaderBinding="{Binding Translations.Office, Source={StaticResource ResourceWrapper}}" 
+                                                Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False"
+                                                Binding="{Binding OfficeId,Converter={StaticResource OfficeConverter}}" 
+                                                IsReadOnly="True"/>
+
+                                            <sdk:DataGridTextColumn local:DataGridColumnHelper.HeaderBinding="{Binding Translations.ComdivNumber, Source={StaticResource ResourceWrapper}}" 
+                                    Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False"
+                                    Binding="{Binding ComdivNumber}"  
+                                    IsReadOnly="True"/>
+
+                                            <sdk:DataGridTextColumn local:DataGridColumnHelper.HeaderBinding="{Binding Translations.CertificateNumber, Source={StaticResource ResourceWrapper}}" 
+                                    Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False"
+                                    Binding="{Binding Sequential}"  
+                                    IsReadOnly="True"/>
+
+                                            <sdk:DataGridTextColumn local:DataGridColumnHelper.HeaderBinding="{Binding Translations.IssuanceDate, Source={StaticResource ResourceWrapper}}"  
+                                Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False"
+                                Binding="{Binding IssuanceDate,Converter={StaticResource DateConverter}}" 
+                                IsReadOnly="True"/>
+
+                                            <sdk:DataGridTextColumn local:DataGridColumnHelper.HeaderBinding="{Binding Translations.CertificateStatus, Source={StaticResource ResourceWrapper}}" 
+                                                Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False"
+                                                Binding="{Binding CertificateStatusId}" 
+                                                IsReadOnly="True"/>
+
+                                            <sdk:DataGridTextColumn local:DataGridColumnHelper.HeaderBinding="{Binding Translations.WorkflowStatus, Source={StaticResource ResourceWrapper}}" 
+                                                Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False"
+                                                Binding="{Binding WorkflowStatusId}" 
+                                                IsReadOnly="True"/>
+
+                                            <sdk:DataGridTextColumn local:DataGridColumnHelper.HeaderBinding="{Binding Translations.EntryPoint, Source={StaticResource ResourceWrapper}}" 
+                                                Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False"
+                                                Binding="{Binding EntryPointId,Converter={StaticResource EntryPointConverter}}" 
+                                                IsReadOnly="True"/>
+
+                                            <sdk:DataGridTextColumn local:DataGridColumnHelper.HeaderBinding="{Binding Translations.FOBValue, Source={StaticResource ResourceWrapper}}" 
+                                                Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False"
+                                                Binding="{Binding FOBValue}" 
+                                                IsReadOnly="True"/>
+
+                                            <sdk:DataGridTextColumn local:DataGridColumnHelper.HeaderBinding="{Binding Translations.Invoiced, Source={StaticResource ResourceWrapper}}" 
+                                                Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False"
+                                                Binding="{Binding IsInvoiced,Converter={StaticResource YesNoConverter}}" 
+                                                IsReadOnly="True"/>
+
+                                            <sdk:DataGridTextColumn x:Name="colPublishInformation" local:DataGridColumnHelper.HeaderBinding="{Binding Translations.Published, Source={StaticResource ResourceWrapper}}" 
+                                                Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False" 
+                                                Binding="{Binding IsPublished,Converter={StaticResource YesNoConverter}}" 
+                                                IsReadOnly="True"/>
+
+                                            <sdk:DataGridTextColumn x:Name="colSyncComdiv" local:DataGridColumnHelper.HeaderBinding="{Binding Translations.Synchronized, Source={StaticResource ResourceWrapper}}" 
+                                                Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False" 
+                                                Binding="{Binding IsSynchronized,Converter={StaticResource YesNoNullConverter}}" 
+                                                IsReadOnly="True"/>
+
+                                            <sdk:DataGridTemplateColumn x:Name="colEditAction" Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False" >
+                                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <HyperlinkButton Content="{Binding Translations.Edit, Source={StaticResource ResourceWrapper}}"                                                 
+                                            Command="{Binding  Path=DataContext.EditCertificateCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                            CommandParameter="{Binding }" VerticalAlignment="Center"/>
+                                                    </DataTemplate>
+                                                </sdk:DataGridTemplateColumn.CellTemplate>
+                                            </sdk:DataGridTemplateColumn>
+
+                                            <sdk:DataGridTemplateColumn Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False" >
+                                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <HyperlinkButton Content="{Binding Translations.View, Source={StaticResource ResourceWrapper}}"                                                 
+                                                        Command="{Binding Path=DataContext.ViewFileCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                                        CommandParameter="{Binding }" VerticalAlignment="Center"
+                                                        />
+                                                    </DataTemplate>
+                                                </sdk:DataGridTemplateColumn.CellTemplate>
+                                            </sdk:DataGridTemplateColumn>
+
+                                            <sdk:DataGridTemplateColumn Width="Auto" CanUserReorder="False" CanUserResize="False" CanUserSort="False" >
+                                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <HyperlinkButton Content="{Binding Translations.History, Source={StaticResource ResourceWrapper}}"                                                 
+                                                        Command="{Binding Path=DataContext.ViewHistoryCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                                        CommandParameter="{Binding }" VerticalAlignment="Center"
+                                                        />
+                                                    </DataTemplate>
+                                                </sdk:DataGridTemplateColumn.CellTemplate>
+                                            </sdk:DataGridTemplateColumn>
+
+                                        </sdk:DataGrid.Columns>
+                                    </sdk:DataGrid>
+                                    <controls:GridHeader Grid.Row="2" GridData="{Binding ElementName=GridResults}" 
+                                 DataContext="{Binding GridViewModel,Mode=TwoWay}" 
+                                  Name="paginator"
+                                    Visibility="Visible" />
+                                </Grid>
+                            </Border>
+                        </Grid>
+
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Button  Content="{Binding Translations.Delete, Source={StaticResource ResourceWrapper}}" 
+                                     Margin="5" Style="{StaticResource Control_GrayButton}"
+                                     Visibility="{Binding IsDeleteVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                                     HorizontalAlignment="Right" Command="{Binding DeleteCommand}"/>
+                        </StackPanel>
+
+                    <!-- 3: Commands -->
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" >
+
+                            <Button  Content="{Binding Translations.SendComdiv, Source={StaticResource ResourceWrapper}}" 
+                         Margin="5" 
+                         Visibility="{Binding IsSendComdivVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                         HorizontalAlignment="Right" Command="{Binding SendComdivCommand}"/>
+
+                            <Button  Content="{Binding Translations.Unclose, Source={StaticResource ResourceWrapper}}" 
+                         Margin="5" 
+                         Visibility="{Binding IsUncloseVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                         HorizontalAlignment="Right" Command="{Binding UncloseCommand}"/>
+
+                            <Button  Content="{Binding Translations.Close, Source={StaticResource ResourceWrapper}}" 
+                         Margin="5" 
+                         Visibility="{Binding IsCloseVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                         HorizontalAlignment="Right" Command="{Binding CloseCommand}"/>
+
+                            <Button  Content="{Binding Translations.Unpublish, Source={StaticResource ResourceWrapper}}" 
+                         Margin="5" 
+                         Visibility="{Binding IsUnpublishVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                         HorizontalAlignment="Right" Command="{Binding UnpublishCommand}"/>
+
+                            <Button  Content="{Binding Translations.Publish, Source={StaticResource ResourceWrapper}}" 
+                         Margin="5" 
+                         Visibility="{Binding IsPublishActionVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                         HorizontalAlignment="Right" Command="{Binding PublishCommand}"/>
+
+                            <Button  Content="{Binding Translations.Recall, Source={StaticResource ResourceWrapper}}" 
+                         Margin="5" 
+                         Visibility="{Binding IsRecallVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                         HorizontalAlignment="Right" Command="{Binding RecallCommand}"/>
+
+                            <Button  Content="{Binding Translations.Request, Source={StaticResource ResourceWrapper}}" 
+                         Margin="5" 
+                         Visibility="{Binding IsRequestVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                         HorizontalAlignment="Right" Command="{Binding RequestCommand}"/>
+
+                            <Button  Content="{Binding Translations.Reject, Source={StaticResource ResourceWrapper}}" 
+                         Margin="5" 
+                         Visibility="{Binding IsRejectVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                         HorizontalAlignment="Right" Command="{Binding RejectCommand}"/>
+
+                            <Button  Content="{Binding Translations.Approve, Source={StaticResource ResourceWrapper}}" 
+                         Margin="5" 
+                         Visibility="{Binding IsApproveVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                         HorizontalAlignment="Right" Command="{Binding ApproveCommand}"/>
+
+                            <Button  Content="{Binding Translations.NewCocButton, Source={StaticResource ResourceWrapper}}" 
+                         Margin="5" 
+                         Visibility="{Binding IsNewVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                         HorizontalAlignment="Right" Command="{Binding NewCommand}"/>
+                
+            </StackPanel>
+
+        </Grid>
+                </toolkit:BusyIndicator>
+            </cotecna:ClosableTabItem>
+
+        </cotecna:ScrollableTabControl>
+    </Grid>
+</UserControl>

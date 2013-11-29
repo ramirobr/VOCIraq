@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2C5C2C82-B55C-4422-BB83-B3F8CCF8EEFC}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cotecna.Voc.Silverlight</RootNamespace>
+    <AssemblyName>Cotecna.Voc.Silverlight</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Cotecna.Voc.Silverlight.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Cotecna.Voc.Silverlight.App</SilverlightAppEntry>
+    <TestPageFileName>Cotecna.Voc.SilverlightTestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>true</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>..\Cotecna.Voc.Silverlight.Web\Cotecna.Voc.Silverlight.Web.csproj</LinkedServerProject>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <InBrowserSettingsFile>Properties\InBrowserSettings.xml</InBrowserSettingsFile>
+    <RequireInBrowserElevation>true</RequireInBrowserElevation>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>BasicCorrectnessRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>10D46D9214B84C532785B5F79F17DC1568111600</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Cotecna.Voc.Silverlight.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cotecna.Silverlight.Controls">
+      <HintPath>Lib\Cotecna.Silverlight.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Cotecna.Silverlight.Controls.Extension">
+      <HintPath>Lib\Cotecna.Silverlight.Controls.Extension.dll</HintPath>
+    </Reference>
+    <Reference Include="Cotecna.Silverlight.UserAdmin">
+      <HintPath>Lib\Cotecna.Silverlight.UserAdmin.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsSL4.Controls.Grids.XamGrid.v10.2">
+      <HintPath>Lib\InfragisticsSL4.Controls.Grids.XamGrid.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsSL4.Excel.v10.2">
+      <HintPath>Lib\InfragisticsSL4.Excel.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsSL4.v10.2">
+      <HintPath>Lib\InfragisticsSL4.v10.2.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.DomainServices.Client, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.DomainServices.Client.Web, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.Web.Extensions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.DataForm.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Base\ICloneable.cs" />
+    <Compile Include="Assets\Base\IEditableDataComparer.cs" />
+    <Compile Include="Assets\Base\ViewModelChildWindow.cs" />
+    <Compile Include="Assets\Controls\DecimalTextBox.cs" />
+    <Compile Include="Assets\Controls\GridHeader.xaml.cs">
+      <DependentUpon>GridHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Controls\GridHeaderViewModel.cs" />
+    <Compile Include="Assets\Controls\InformativeChildWindow.xaml.cs">
+      <DependentUpon>InformativeChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Controls\InformativeChildWindows.cs" />
+    <Compile Include="Assets\Controls\NumericTextBox.cs" />
+    <Compile Include="Assets\Converters\BooleanVisibilityConverters.cs" />
+    <Compile Include="Assets\Converters\ByteToImageConverter.cs" />
+    <Compile Include="Assets\Converters\CheckBoxNullableConverter.cs" />
+    <Compile Include="Assets\Converters\DateConverter.cs" />
+    <Compile Include="Assets\Converters\DocumentCategoryConverter.cs" />
+    <Compile Include="Assets\Converters\EntryPointConverter.cs" />
+    <Compile Include="Assets\Converters\OfficeConverter.cs" />
+    <Compile Include="Assets\Converters\OfficeTypeConverter.cs" />
+    <Compile Include="Assets\Converters\OnlineToColorConverter.cs" />
+    <Compile Include="Assets\Converters\RadioButtonConverter.cs" />
+    <Compile Include="Assets\Converters\SecurtyPaperStatusConverter.cs" />
+    <Compile Include="Assets\Converters\ShipmentTypeConverter.cs" />
+    <Compile Include="Assets\Converters\UserRoleConverter.cs" />
+    <Compile Include="Assets\Converters\WorkflowStatusConverter.cs" />
+    <Compile Include="Assets\Converters\YesNoConverter.cs" />
+    <Compile Include="Assets\Resources\Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Utils\ChildWindowCheckChanges.cs" />
+    <Compile Include="Assets\Utils\DataGridColumnHelper.cs" />
+    <Compile Include="Assets\Utils\GlobalAccessor.cs" />
+    <Compile Include="Assets\Utils\ResourceWrapper.cs" />
+    <Compile Include="Assets\Base\DelegateCommand.cs" />
+    <Compile Include="Assets\Base\ViewModel.cs" />
+    <Compile Include="Assets\Utils\StaticReferences.cs" />
+    <Compile Include="Assets\Utils\ContextEditionEventArgs.cs" />
+    <Compile Include="Extensions\QuereableExtensions.cs" />
+    <Compile Include="Extensions\VocContext.cs" />
+    <Compile Include="Extensions\VocUser.cs" />
+    <Compile Include="Models\Certificate.cs" />
+    <Compile Include="Models\DictionaryEnum.cs" />
+    <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\ReleaseNote.cs" />
+    <Compile Include="Models\SecurityPaper.cs" />
+    <Compile Include="Models\UserProfile.cs" />
+    <Compile Include="Assets\Converters\ResultEnumConverter.cs" />
+    <Compile Include="UserControls\CertificateTrackingChildWindow.xaml.cs">
+      <DependentUpon>CertificateTrackingChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CertificateTrackingViewModel.cs">
+      <DependentUpon>CertificateTrackingChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CheckableSecurityPaper.cs">
+      <DependentUpon>ReleaseNoteChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ReleaseNoteChildWindow.xaml.cs">
+      <DependentUpon>ReleaseNoteChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ReleaseNoteViewModel.cs">
+      <DependentUpon>ReleaseNoteChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DocumentChildWindow.xaml.cs">
+      <DependentUpon>DocumentChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DocumentViewModel.cs">
+      <DependentUpon>DocumentChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SecurityPaperChildWindows.xaml.cs">
+      <DependentUpon>SecurityPaperChildWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SecurityPaperCommentChildWindow.xaml.cs">
+      <DependentUpon>SecurityPaperCommentChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SecurityPaperCommentViewModel.cs">
+      <DependentUpon>SecurityPaperCommentChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SecurityPaperEditionChildWindow.xaml.cs">
+      <DependentUpon>SecurityPaperEditionChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SecurityPaperEditionViewModel.cs">
+      <DependentUpon>SecurityPaperEditionChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SecurityPaperViewModel.cs">
+      <DependentUpon>SecurityPaperChildWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OfficeList.xaml.cs">
+      <DependentUpon>OfficeList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OfficeListFilters.cs">
+      <DependentUpon>OfficeList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OfficeListViewModel.cs">
+      <DependentUpon>OfficeList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OfficeViewModel.cs">
+      <DependentUpon>OfficeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OfficeWindow.xaml.cs">
+      <DependentUpon>OfficeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SecurityPaperFilters.cs">
+      <DependentUpon>SecurityPaperList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SecurityPaperList.xaml.cs">
+      <DependentUpon>SecurityPaperList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SecurityPaperListViewModel.cs">
+      <DependentUpon>SecurityPaperList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserViewModel.cs">
+      <DependentUpon>UserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserWindow.xaml.cs">
+      <DependentUpon>UserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserListFilters.cs">
+      <DependentUpon>UserList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserList.xaml.cs">
+      <DependentUpon>UserList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserListViewModel.cs">
+      <DependentUpon>UserList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CertificateListFilters.cs">
+      <DependentUpon>CertificateList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Install.xaml.cs">
+      <DependentUpon>Install.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InstallViewModel.cs">
+      <DependentUpon>Install.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPageViewModel.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\CertificateList.xaml.cs">
+      <DependentUpon>CertificateList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CertificateListViewModel.cs">
+      <DependentUpon>CertificateList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CertificateViewModel.cs">
+      <DependentUpon>CertificateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CertificateWindow.xaml.cs">
+      <DependentUpon>CertificateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ErrorWindow.xaml.cs">
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginViewModel.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="Assets\Controls\GridHeader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Controls\InformativeChildWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\DefaultStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Images\CertificateImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Images\HelpImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Images\OfficeImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Images\SecurityPaperImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Images\UserAdministrationImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\VocResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CertificateTrackingChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ReleaseNoteChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DocumentChildWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\SecurityPaperChildWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SecurityPaperCommentChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SecurityPaperEditionChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OfficeList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OfficeWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SecurityPaperList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Install.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CertificateList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CertificateWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ErrorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Cotecna.Voc.Silverlight.pfx" />
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\Cotecna.Voc.Silverlight.Web.Services.AuthenticationDomainContext.datasource" />
+    <None Include="Properties\DataSources\Cotecna.Voc.Silverlight.Web.Services.VocContext.datasource" />
+    <None Include="Properties\OutOfBrowserSettings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\InBrowserSettings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Resources\Strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Logo_VocIraq_25px.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

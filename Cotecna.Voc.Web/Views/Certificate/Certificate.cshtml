@@ -1,0 +1,89 @@
+﻿@model Cotecna.Voc.Web.Models.CertificateDetailModel
+
+@{
+    ViewBag.Title = @Resources.Common.CertificateTitle;    
+}
+
+@Html.Partial("_MessagePopup")
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Content").width(915);
+
+        $("#backButton").click(function () {
+            window.location = '@Url.Action("Index")';
+        });
+        $("#liCertificates").attr("class", "first current");
+    });
+
+</script>
+
+<div id="Breadcrumbs">
+    <div class="cap-left">
+    </div>
+    <ul>
+        <li>@Html.ActionLink(Resources.Common.SearchCertificates, "Index", "Certificate") &gt;</li>
+        <li class="last">@Resources.Common.CertificateTitle</li>
+    </ul>
+    <div class="cap-right">
+    </div>
+</div>
+<h1>@Resources.Common.CertificateTitle</h1>
+<form id="form1" method="post" action="/VestalisV3/ServiceOrder/SaveServiceOrder">
+<div class="legend"><span>&nbsp;</span>@Resources.Common.GeneralInformation</div>
+<div class="form product">
+@{
+    string issuanceDate = Model.Certificate.IssuanceDate.HasValue ? Model.Certificate.IssuanceDate.Value.ToString("dd/MM/yyyy") : "";
+    string isPublished = Model.Certificate.IsPublished ? Resources.Common.Yes : Resources.Common.No;
+    string isInvoiced = Model.Certificate.IsInvoiced.HasValue && Model.Certificate.IsInvoiced.Value ? Resources.Common.Yes : Resources.Common.No;
+    }
+<ol>
+    <li class="half">
+                            <label>
+                                <span class="name" style="width:142px">@Resources.Common.CertificateNumber</span>
+                                <span class="valueForm">@Model.Certificate.Sequential</span>
+                            </label>
+    </li>
+    <li class="half">
+                            <label>
+                                <span class="name" style="width:142px">@Resources.Common.IssuanceDate</span>
+                                <span class="valueForm">@issuanceDate</span>
+                            </label>
+                        </li>
+    <li class="half">
+                            <label>
+                                <span class="name" style="width:142px">@Resources.Common.CertificateType</span>
+                                <span class="valueForm">@Model.Certificate.CertificateStatusId.ToString()</span>
+                            </label>
+    </li>
+    <li class="half">
+                            <label>
+                                <span class="name" style="width:142px">@Resources.Common.EntryPoint</span>
+                                <span class="valueForm">@{
+                                    if (Model.Certificate.EntryPoint == null) 
+                                    {
+                                        @String.Empty; 
+                                    }
+                                    else 
+                                    {
+                                        @Model.Certificate.EntryPoint.Name;
+                                    }
+                                }</span>
+                            </label>
+    </li>
+    </ol>
+   </div> 
+</form>
+
+<div class="gridArea">
+    @Html.Partial("_CertificateDocument", Model)
+</div>
+
+<p class="btn">
+    <span class="btn2">
+        <input type="button" value="@Resources.Common.Back" id="backButton" />
+    </span>
+</p>
+
+    

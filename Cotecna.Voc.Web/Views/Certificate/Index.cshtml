@@ -1,0 +1,165 @@
+﻿@model Cotecna.Voc.Web.Models.CertificateListModel
+
+@{
+    ViewBag.Title = @Resources.Common.SearchCertificates;
+}
+
+
+@section headerContent{
+    @Styles.Render("~/Content/selectmenucss")
+    @Scripts.Render("~/bundles/selectmenujs")
+<script src="@Url.Content("~/Scripts/jquery.ezmark.min.js")" type="text/javascript"></script>
+}
+<script>
+    
+    $(function () {
+        $("#Content").width(915);
+
+                        $("#IssuanceDateFrom").datepicker({
+                        showOn: "button",
+                        buttonImage: '@Url.Content("~/Images/date.png")',
+                        buttonImageOnly: true,
+                        dateFormat: "dd/mm/yy",
+                        firstDay: 1
+                        });
+
+                        $("#IssuanceDateTo").datepicker({
+                            showOn: "button",
+                            buttonImage: '@Url.Content("~/Images/date.png")',
+                            buttonImageOnly: true,
+                            dateFormat: "dd/mm/yy",
+                            firstDay: 1
+                        });
+                        $("input").ezMark();
+
+                        $("#searchButton").click(function () {
+                            var ajaxUrl = '@Url.Action("SearchCertificateGrid", "Certificate")';
+                            var certificateStatus = null;
+                            if ($('#FilterConformStatus:checked').val() != null)
+                            {
+                                certificateStatus = $('#FilterConformStatus:checked').val();
+                            }
+
+                            if ($('#FilterNoConformStatus:checked').val() != null) {
+                                if (certificateStatus != null)
+                                    certificateStatus = certificateStatus+ "," + $('#FilterNoConformStatus:checked').val();
+                                else
+                                    certificateStatus = $('#FilterNoConformStatus:checked').val();
+                            }
+
+                            if ($('#FilterCancelledStatus:checked').val() != null) {
+                                if (certificateStatus != null)
+                                    certificateStatus = certificateStatus + "," + $('#FilterCancelledStatus:checked').val();
+                                else
+                                    certificateStatus = $('#FilterCancelledStatus:checked').val();
+                            }
+
+                        
+
+                        $(".gridArea").hide();
+                        $.ajax({
+                            url: ajaxUrl,
+                            type: 'POST',
+                            dataType: 'html',
+                            success: UpdateGrid,
+                            error: function () { $(".gridArea").html('<p>Error retrieving data<p/>'); },
+                            data: {
+                                CertificateNumber: $('#CertificateNumber').val(),
+                                IssuanceDateFrom: $('#IssuanceDateFrom').val(),
+                                IssuanceDateTo: $('#IssuanceDateTo').val(),
+                                EntryPointSelected: $('#EntryPointSelected').val(),
+                                CertificateStatusSelected: certificateStatus                            
+                            }
+                        });
+
+                        $("input").ezMark();
+                        });
+
+        function UpdateGrid(results) {
+            $(".gridArea").html(results);
+            $(".gridArea").fadeIn("slow");
+        }
+
+        $(document).ready(function () {
+            $("#liCertificates").attr("class", "first current");
+        });
+    });
+
+    
+
+</script>
+
+<div id="Breadcrumbs">
+    <div class="cap-left">
+    </div>
+    <ul>
+        <li class="last">@Resources.Common.SearchCertificates</li>
+    </ul>
+    <div class="cap-right">
+    </div>
+</div>
+<h1>@Resources.Common.SearchCertificates</h1>
+<p>@Resources.Common.LegendSearch</p>
+
+<div class="form"> 
+    <div class="legend">        
+        <span>&nbsp;</span>
+        @Resources.Common.Search
+    </div>
+    <ol>
+        <li class="datehalf">
+                <label>
+                    <span class="name">@Resources.Common.CertificateNumber</span>
+                    @Html.TextBoxFor(x=>x.CertificateNumber, new {@class="txt"})                     
+                </label>
+        </li>
+        <li class="datehalf">
+                <label>
+                    <span class="name">@Resources.Common.EntryPoint</span>
+                    @Html.DropDownListFor(x=>x.EntryPointSelected, Model.EntryPoints, Resources.Common.All)
+                </label>
+        </li>
+       <li >
+                <label>
+                    <span class="name">@Resources.Common.CertificateStatus</span>
+                    <label class="inline">
+                                <span class="name">Conform</span>
+                                <input type="checkbox" checked="checked" id="FilterConformStatus" value="1">
+                            </label>
+                            <label class="inline">
+                                <span class="name">No Conform</span>
+                                <input type="checkbox" checked="checked" id="FilterNoConformStatus" value="2">
+                            </label>
+                            <label class="inline">
+                                <span class="name">Cancelled</span>
+                                <input type="checkbox" checked="checked" id="FilterCancelledStatus" value="3">
+                         </label>
+                </label>
+        </li>
+        
+        <li class="datehalf">
+                <label>
+                    
+                    <span class="name">@Resources.Common.IssuanceDateFrom</span>
+                    @Html.TextBoxFor(x=>x.IssuanceDateFrom, new {@class="txt", disabled="disabled"})  
+                </label>
+        </li>
+        <li class="datehalf">
+                <label>
+                    <span class="name">@Resources.Common.IssuanceDateTo</span>
+                    @Html.TextBoxFor(x=>x.IssuanceDateTo, new {@class="txt", disabled="disabled"})                     
+                </label>
+        </li>      
+    </ol>
+</div>
+<p class="btn">
+        <span class="btn">
+            <input type="submit" value="@Resources.Common.Search" id="searchButton" />
+        </span>
+        <span class="btn2">
+            <input type="reset" value="@Resources.Common.Reset" id="resetButton" />
+        </span>
+ </p>
+<div class="gridArea">
+    @Html.Partial("_CertificateGrid", Model)
+</div>

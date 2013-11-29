@@ -1,0 +1,229 @@
+﻿@using Cotecna.Voc.Web.Models;
+@model PaginatedList<UserModel>
+
+@{
+    int totalItems = Model.TotalCount;
+    int counterRow = 0;
+    int currentPage = Model.Page;
+    int numberOfPages = Model.NumberOfPages;
+    int pageSize = Model.PageSize;
+
+    int pageNext = currentPage + 1;
+    int pageLast = currentPage - 1;
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var firstName = $("#FirstName").val();
+        var lastName = $("#LastName").val();
+
+        function UpdateGridResult(results) {
+            $(".gridArea").html(results);
+            $(".gridArea").fadeIn("slow");
+        }
+
+        $("#nextButton").click(function () {
+            var ajaxUrl = '@Url.Action("SearchUsers", "Account")';
+
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'html',
+                success: UpdateGridResult,
+                error: function () { alert('@Resources.Common.CommonErrorMessageAjax') },
+                data: { pageNumber: '@pageNext', firstName: firstName, lastName: lastName }
+            });
+        });
+
+        $("#endButton").click(function () {
+
+            var ajaxUrl = '@Url.Action("SearchUsers", "Account")';
+
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'html',
+                success: UpdateGridResult,
+                error: function () { alert('@Resources.Common.CommonErrorMessageAjax') },
+                data: { pageNumber: '@numberOfPages', firstName: firstName, lastName: lastName }
+            });
+        });
+
+
+        $("#lastButton").click(function () {
+
+            var ajaxUrl = '@Url.Action("SearchUsers", "Account")';
+
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'html',
+                success: UpdateGridResult,
+                error: function () { alert('@Resources.Common.CommonErrorMessageAjax') },
+                data: { pageNumber: '@pageLast', firstName: firstName, lastName: lastName }
+            });
+
+        });
+
+
+        $("#firtsButton").click(function () {
+
+            var ajaxUrl = '@Url.Action("SearchUsers", "Account")';
+
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'html',
+                success: UpdateGridResult,
+                error: function () { alert('@Resources.Common.CommonErrorMessageAjax') },
+                data: { pageNumber: '1', firstName: firstName, lastName: lastName }
+            });
+
+        });
+
+
+        $("#gotoButton").click(function () {
+
+            var parameter = $("#pageNumber").val().toString();
+            var ajaxUrl = '@Url.Action("SearchUsers", "Account")';
+
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'html',
+                success: UpdateGridResult,
+                error: function () { alert('@Resources.Common.CommonErrorMessageAjax') },
+                data: { pageNumber: parameter, firstName: firstName, lastName: lastName }
+            });
+        });
+
+        $("#exportButton").click(function () {
+
+            var ajaxUrl = '@Url.Action("ExportToExcel", "Account")';
+
+            $.ajax({
+                url: ajaxUrl,
+                type: 'POST',
+                dataType: 'json',
+                success: function () {
+                    $("#exportExcelForm").submit();
+                },
+                error: function () { alert('@Resources.Common.CommonErrorMessageAjax') },
+                data: { firstName: firstName, lastName: lastName }
+            });
+        });
+    });
+
+    function editUser(email) {
+        $("#userEmail").val(email);
+        $("#editUserFrom").submit();
+    }
+
+</script>
+
+
+
+@if (totalItems == 0)
+{
+    <div class="table-legend">
+        @Resources.Common.NoResults
+    </div>
+}
+else
+{
+<div class="table-legend"><span class="bottom">&nbsp;</span>Results (<span class="count">@totalItems</span>)</div>
+<table class="data" summary="search results">
+    <thead>
+        <tr>
+            <th>@Resources.Common.Email</th>
+            <th>@Resources.Common.FullName</th>
+            <th>@Resources.Common.Active</th>
+            <th>@Resources.Common.Role</th>
+            <th>@Resources.Common.Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Collection)
+        {
+            string rowAlter = "ev";
+                            
+                            
+            if (counterRow % 2 == 0)
+            {
+                rowAlter = "od";
+            }
+                            
+            <tr class="@rowAlter">
+                <td>@user.Email</td>
+                <td>@user.FullName</td>
+                <td>@user.IsActive</td>
+                <td>@user.Role</td>
+                <td>
+                    <a onclick="editUser('@user.Email');" style="cursor: pointer;">
+                        @Resources.Common.Edit
+                    </a>
+                </td>
+            </tr>
+            counterRow++;                            
+        }                        
+    </tbody>
+</table>
+<div class="form">
+    <div class="pages">
+
+        <div style="float:left; padding-left:17px;">
+            <span class="btn" id="spanExportButton">
+                <input type="reset" value="@Resources.Common.ExportExcelButton" id="exportButton" />
+            </span>
+        </div>
+
+        <div>
+        
+            @if (totalItems > pageSize)
+            {
+                <label>
+                    <span class="name">@Resources.Common.GotoPage</span>
+                    <input type="text" class="txt w1"  id="pageNumber" name="pageNumber"/>
+                    <a id="gotoButton" class="btn">
+                        <span class="btn">@Resources.Common.Go</span>
+                    </a>
+                </label>
+            }
+
+            @if (currentPage != 1)
+            {
+                
+                <a class="btn" id="firtsButton">
+                     <span class="btn">&lt;&lt;</span>
+                </a>    
+                <a class="btn" id="lastButton">
+                     <span class="btn">&lt;</span>
+                </a>
+                
+            }
+
+            <span class="num">@string.Format(Resources.Common.PageCurrentPaginator, currentPage, numberOfPages)</span>
+
+            @if (currentPage < numberOfPages)
+            {
+            
+                <a id="nextButton" class="btn">
+                    <span class="btn">&gt;</span>
+                </a>
+                <a id="endButton" class="btn">
+                    <span class="btn">&gt;&gt;</span>
+                </a>
+            
+            }
+        </div>
+    </div>
+</div>
+}
+<form id="editUserFrom" action="@Url.Action("EditUser")" method="post">
+    <input type="hidden" id="userEmail" name="userEmail" value="" />
+</form>
+
+<form id="exportExcelForm" action="@Url.Action("DownloadExcelReport")" method="post">
+
+</form>

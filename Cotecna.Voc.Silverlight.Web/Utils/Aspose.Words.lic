@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<License>
+  <Data>
+    <LicensedTo>Cotecna Inspection SA</LicensedTo>
+    <LicenseType>Developer Small Business</LicenseType>
+    <LicenseNote>Limited to 1 developer.</LicenseNote>
+    <OrderID>130128103917</OrderID>
+    <OEM>This is not a non-redistributable license</OEM>
+    <Products>
+      <Product>Aspose.Words for .NET</Product>
+    </Products>
+    <EditionType>Enterprise</EditionType>
+    <SerialNumber>8660aa15-6d02-4741-88f2-baeefd221584</SerialNumber>
+    <SubscriptionExpiry>20140128</SubscriptionExpiry>
+    <LicenseVersion>2.2</LicenseVersion>
+  </Data>
+  <Signature>hPQ4r+WjSdhqQkbtJgbSr+9SUhnbqsZ++XkFcLq1RnUubCJ79qKGQnUMCt6UV1MTboTL592DH8gVpzaN2bub/cbli0XnB1uRFcGvW7XCKuqwOy8CmC2dLfpiVSQ8AUz2Z3E9RV6a5OxhHuPQ7RQJU6YsHb2SuwH9PPY8BwHGnIw=</Signature>
+</License>

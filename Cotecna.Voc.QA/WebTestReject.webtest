@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebTest Name="WebTestReject" Id="55a0fcd1-3220-4df7-8f0d-f445d2519126" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="" StopOnError="False" RecordedResultFile="WebTest1.f1482426-6466-4f1a-a18f-c44264f460aa.rec.webtestresult">
+  <Items>
+    <Request Method="POST" Version="1.1" Url="{{WebServer1}}/{{ApplicationName}}/ClientBin/Cotecna-Voc-Silverlight-Web-Services-AuthenticationDomainService.svc/binary/GetWindowsUser" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="">
+      <BinaryHttpBody ContentType="application/msbin1">QA5HZXRXaW5kb3dzVXNlcggTaHR0cDovL3RlbXB1cmkub3JnLwE=</BinaryHttpBody>
+    </Request>
+    <Request Method="POST" Version="1.1" Url="{{WebServer1}}/{{ApplicationName}}/ClientBin/Cotecna-Voc-Silverlight-Web-Services-AuthenticationDomainService.svc/binary/PerformAuthentication" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="">
+      <BinaryHttpBody ContentType="application/msbin1">QBVQZXJmb3JtQXV0aGVudGljYXRpb24IE2h0dHA6Ly90ZW1wdXJpLm9yZy9ACHVzZXJOYW1lmRZBTUVSSUNBXGVjdWlvcmJhdGFsbGFzAQ==</BinaryHttpBody>
+    </Request>
+    <Request Method="GET" Version="1.1" Url="{{WebServer1}}/{{ApplicationName}}/ClientBin/Cotecna-Voc-Silverlight-Web-Services-VocService.svc/binary/GetEntryPoints" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="">
+      <QueryStringParameters>
+        <QueryStringParameter Name="$orderby" Value="it.Name" RecordedValue="it.Name" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Version="1.1" Url="{{WebServer1}}/{{ApplicationName}}/ClientBin/Cotecna-Voc-Silverlight-Web-Services-VocService.svc/binary/GetCertificates" ThinkTime="10" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="">
+      <QueryStringParameters>
+        <QueryStringParameter Name="$orderby" Value="it.Sequential.Substring((it.Sequential.Length-5)%252c%2b5)" RecordedValue="it.Sequential.Substring((it.Sequential.Length-5)%252c%2b5)" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="$skip" Value="0" RecordedValue="0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="$take" Value="20" RecordedValue="20" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="$includeTotalCount" Value="True" RecordedValue="True" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="POST" Version="1.1" Url="{{WebServer1}}/{{ApplicationName}}/ClientBin/Cotecna-Voc-Silverlight-Web-Services-VocService.svc/binary/SubmitChanges" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="">
+      <BinaryHttpBody ContentType="application/msbin1">QA1TdWJtaXRDaGFuZ2VzCBNodHRwOi8vdGVtcHVyaS5vcmcvQAljaGFuZ2VTZXQJAWEORG9tYWluU2VydmljZXMJAWkpaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2VeDkNoYW5nZVNldEVudHJ5XgZFbnRpdHkuBHR5cGWYDWM6Q2VydGlmaWNhdGUJAWJRaHR0cDovL3NjaGVtYXMuZGF0YWNvbnRyYWN0Lm9yZy8yMDA0LzA3L1N5c3RlbS5TZXJ2aWNlTW9kZWwuRG9tYWluU2VydmljZXMuQ2xpZW50CQFjPGh0dHA6Ly9zY2hlbWFzLmRhdGFjb250cmFjdC5vcmcvMjAwNC8wNy9Db3RlY25hLlZvYy5CdXNpbmVzc2ANQ2VydGlmaWNhdGVJZIkgYBNDZXJ0aWZpY2F0ZVN0YXR1c0lkmQdDb25mb3JtYApDcmVhdGlvbkJ5mQR0ZW1wYAxDcmVhdGlvbkRhdGWXcNavZN23zwhgDEVudHJ5UG9pbnRJZIkOYAlJc0RlbGV0ZWSFYApJc0ludm9pY2Vkh2ALSXNQdWJsaXNoZWSHYAxJc3N1YW5jZURhdGUuA25pbIYBYAhPZmZpY2VJZC4DbmlshgFgClNlcXVlbnRpYWyZEEdCTE9OL1ZPQ0lRMDAwMDdgEldvcmtmbG93U3RhdHVzRGF0ZS4DbmlshgFgEFdvcmtmbG93U3RhdHVzSWSZCFJlamVjdGVkAV4NRW50aXR5QWN0aW9ucy4DbmlshgkBYjlodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tLzIwMDMvMTAvU2VyaWFsaXphdGlvbi9BcnJheXMBXhBIYXNNZW1iZXJDaGFuZ2Vzh14CSWSBXglPcGVyYXRpb26ZBlVwZGF0ZV4OT3JpZ2luYWxFbnRpdHkuBHR5cGWYDWM6Q2VydGlmaWNhdGUJAWJRaHR0cDovL3NjaGVtYXMuZGF0YWNvbnRyYWN0Lm9yZy8yMDA0LzA3L1N5c3RlbS5TZXJ2aWNlTW9kZWwuRG9tYWluU2VydmljZXMuQ2xpZW50CQFjPGh0dHA6Ly9zY2hlbWFzLmRhdGFjb250cmFjdC5vcmcvMjAwNC8wNy9Db3RlY25hLlZvYy5CdXNpbmVzc2ANQ2VydGlmaWNhdGVJZIkgYBNDZXJ0aWZpY2F0ZVN0YXR1c0lkAWAKQ3JlYXRpb25CeS4DbmlshgFgDENyZWF0aW9uRGF0ZZcAAAAAAAAAAGAMRW50cnlQb2ludElkLgNuaWyGAWAJSXNEZWxldGVkhWAKSXNJbnZvaWNlZC4DbmlshgFgC0lzUHVibGlzaGVkhWAMSXNzdWFuY2VEYXRlLgNuaWyGAWAIT2ZmaWNlSWQuA25pbIYBYApTZXF1ZW50aWFsLgNuaWyGAWASV29ya2Zsb3dTdGF0dXNEYXRlLgNuaWyGAWAQV29ya2Zsb3dTdGF0dXNJZAEBAQEB</BinaryHttpBody>
+    </Request>
+    <Request Method="GET" Version="1.1" Url="{{WebServer1}}/{{ApplicationName}}/ClientBin/Cotecna-Voc-Silverlight-Web-Services-VocService.svc/binary/GetCertificates" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="">
+      <QueryStringParameters>
+        <QueryStringParameter Name="$orderby" Value="it.Sequential.Substring((it.Sequential.Length-5)%252c%2b5)" RecordedValue="it.Sequential.Substring((it.Sequential.Length-5)%252c%2b5)" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="$skip" Value="0" RecordedValue="0" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="$take" Value="20" RecordedValue="20" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="$includeTotalCount" Value="True" RecordedValue="True" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+  </Items>
+  <ContextParameters>
+    <ContextParameter Name="WebServer1" Value="http://localhost" />
+    <ContextParameter Name="ApplicationName" Value="VocIraq" />
+  </ContextParameters>
+  <ValidationRules>
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidateResponseUrl, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Response URL" Description="Validates that the response URL after redirects are followed is the same as the recorded response URL.  QueryString parameters are ignored." Level="Low" ExectuionOrder="BeforeDependents" />
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleResponseTimeGoal, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Response Time Goal" Description="Validates that the response time for the request is less than or equal to the response time goal as specified on the request.  Response time goals of zero will be ignored." Level="Low" ExectuionOrder="AfterDependents">
+      <RuleParameters>
+        <RuleParameter Name="Tolerance" Value="0" />
+      </RuleParameters>
+    </ValidationRule>
+  </ValidationRules>
+  <WebTestPlugins>
+    <WebTestPlugin Classname="WebTest.WebService.Plugin.Runtime.WebServicePlugin, WebTest.WebService.Plugin.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DisplayName="" Description="" />
+  </WebTestPlugins>
+</WebTest>

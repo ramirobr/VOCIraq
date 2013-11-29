@@ -1,0 +1,295 @@
+﻿@using Cotecna.Voc.Web.Common
+@using Cotecna.Voc.Web.Models;
+@model UserModel
+
+@{
+    ViewBag.Title = "User";
+
+    List<SelectListItem> RoleList = new List<SelectListItem>();
+    RoleList.Add(new SelectListItem { Value = "", Text = "Choose a role" });
+    RoleList.Add(new SelectListItem { Value = "Client", Text = "Client" });
+    RoleList.Add(new SelectListItem { Value = "SuperAdmin", Text = "Super Admin" });
+}
+
+@section headerContent{
+    @Styles.Render("~/Content/selectmenucss")
+    @Scripts.Render("~/bundles/selectmenujs")
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.ezmark.min.js")" type="text/javascript"></script>
+
+}
+
+@if (Model.ScreenOpenMode == (int)OpenMode.New)
+{
+    <div id="Breadcrumbs">
+        <div class="cap-left">
+        </div>
+        <ul>
+            <li>@Html.ActionLink(Resources.Common.SearchUsers, "Index", "Account") &gt;</li>
+            <li class="last">@Resources.Common.NewUser</li>
+        </ul>
+        <div class="cap-right">
+        </div>
+    </div>
+}
+else
+{
+    <div id="Breadcrumbs">
+        <div class="cap-left">
+        </div>
+        <ul>
+            <li>@Html.ActionLink(Resources.Common.SearchUsers, "Index", "Account") &gt;</li>
+            <li class="last">@Resources.Common.EditingUser</li>
+        </ul>
+        <div class="cap-right">
+        </div>
+    </div>   
+}
+
+@if (Model.ScreenOpenMode == (int)OpenMode.New)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Active").prop('checked', 'checked');
+        });
+    </script>
+}
+
+<script type="text/javascript">
+    $(function () {
+
+        $("#Content").width(915);
+
+        $("#backButton").click(function () {
+            window.location = '@Url.Action("Index")';
+        });
+    });
+
+    $(document).ready(function () {
+
+        $("#liUsers").attr("class", "first current");
+        
+        $("input").ezMark();
+
+        $("#SelectedRole").change(function () {
+
+            var li = $(this).closest('li');
+
+            if ($(this).val() != "" && $(li).hasClass("error"))
+            {                
+                $(li).removeClass("error");
+                var span = $(this).prev('span');
+                span.html("@Resources.Common.Role");
+                
+            }
+            else if ($(this).val() == "" && !$(li).hasClass("error"))
+            {
+                $(li).attr("class", "error");
+                var span = $(this).prev('span');  
+               
+                span.html("@Resources.Common.Role<span class='error' for='SelectedRole' generated='true'>@Resources.Common.FieldMandatoryValidation</span>");
+
+
+            }
+        });
+
+        $("#SaveButton").click(function () {
+
+            $("#form1").validate({
+                errorElement: "span",
+                errorClass: "error",
+                rules: {
+                    Email: {
+                        required: true,
+                        email: true
+                    },
+                    FirstName: {
+                        required: true
+                    },
+                    LastName: {
+                        required: true
+                    },
+                    NewPassword: {
+                        required: true,
+                        minlength: '@Model.MinLenghtPassword',
+                        maxlength: '@Model.MaxLenghtPassword'
+                    },
+                    ReNewPassword: {
+                        required: true,
+                        minlength: '@Model.MinLenghtPassword',
+                        maxlength: '@Model.MaxLenghtPassword',
+                        equalTo: "#NewPassword"
+                    }
+                },
+                messages: {
+                    Email: {
+                        required: '@Resources.Common.FieldMandatoryValidation',
+                        email: '@Resources.Common.EmailFormatNotValid'
+                    },
+                    FirstName: {
+                        required: '@Resources.Common.FieldMandatoryValidation'
+                    },
+                    LastName: {
+                        required: '@Resources.Common.FieldMandatoryValidation'
+                    },
+                    NewPassword: {
+                        required: '@Resources.Common.FieldMandatoryValidation'
+                    },
+                    ReNewPassword: {
+                        required: '@Resources.Common.FieldMandatoryValidation',
+                        equalTo: '@Resources.Common.NotIqualPasswordValidation'
+                    }
+                },
+                success: function (span) {
+                },
+                errorPlacement: function (error, element) {
+                    
+                    var span = element.prev('span');
+                    error.appendTo(span)
+                },
+                highlight: function (element, errorClass) {
+                    
+                    var li = $(element).closest('li');
+                    $(li).addClass(errorClass);
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    
+                    var li = $(element).closest('li');
+                    $(li).removeClass(errorClass);
+                },
+                invalidHandler: function (event, validator) {
+                    
+                    var a = validator.errorList[0].element.id;
+                    $('#' + a).focus();
+                }
+            });
+
+          
+            var var2 = $("#form1").valid();
+
+            var li = $("#SelectedRole").closest('li');
+            if ($("#SelectedRole").val() == "")
+            {
+                if (!$(li).hasClass("error")) {
+                    $(li).attr("class", "error");
+                }
+                var span = $("#SelectedRole").prev('span');
+                span.html("@Resources.Common.Role<span class='error' for='SelectedRole' generated='true'>@Resources.Common.FieldMandatoryValidation</span>");                
+            }
+
+            if (var2 && $("#SelectedRole").val() != "") {
+                $("#form1").submit();
+            }
+
+
+        });
+
+
+    });
+
+
+
+</script>
+
+@if (Model.ScreenOpenMode == (int)OpenMode.New)
+{
+    <h1>@Resources.Common.NewUser</h1>
+}
+else
+{
+    <h1>@Resources.Common.EditingUser</h1>    
+}
+
+
+@using (Html.BeginForm("SaveNewUser", "Account", FormMethod.Post, new { id = "form1" }))
+{
+    @Html.HiddenFor(m => m.ScreenOpenMode)
+    <div class="form product">
+
+        <ol>
+
+            <li>
+
+                @if (Model.ScreenOpenMode == (int)OpenMode.New)
+                {
+                    <label>
+                        <span class="name">@Resources.Common.Email</span>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "txt" })
+                    </label>
+                }
+                else
+                {
+                    
+                <label>
+                        <span class="name">@Resources.Common.Email</span>
+                        <span class="value">@Model.Email</span>
+                        @Html.HiddenFor(m => m.Email)
+                    </label>                        
+                }
+
+            </li>
+            <li>
+                <label>
+                    <span class="name">@Resources.Common.FirstName</span>
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "txt" })
+                </label>
+            </li>
+            <li>
+                <label>
+                    <span class="name">@Resources.Common.LastName</span>
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "txt" })
+                </label>
+            </li>
+
+            @if (Model.ScreenOpenMode == (int)OpenMode.New)
+            {
+
+                <li>
+                    <label>
+                        <span class="name">@Resources.Common.NewPassword</span>
+                        @Html.PasswordFor(m => m.NewPassword, new { @class = "txt" })
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <span class="name">@Resources.Common.ConfirmNewPassword</span>
+                        @Html.PasswordFor(m => m.ReNewPassword, new { @class = "txt" })
+                    </label>
+                </li>
+            }
+
+            <li>
+                <label>
+                    <span class="name">@Resources.Common.Active</span>
+                    @Html.CheckBoxFor(m => m.Active)
+
+                </label>
+            </li>
+            <li id="idDropdownList">
+                <label>
+                    <span class="name">@Resources.Common.Role</span>
+                    @Html.DropDownListFor(m => m.SelectedRole, RoleList)
+                </label>
+            </li>
+        </ol>
+
+    </div>
+   
+    <p class="btn">
+        <span class="btn">
+            <input type="button" value="@Resources.Common.Save" id="SaveButton" />
+        </span>
+
+        <span class="btn2">
+            <input type="button" value="@Resources.Common.Back" id="backButton" />
+        </span>
+
+    </p>
+    
+    <div class="form">
+        @Html.LocalValidationSummary()
+    </div>
+}
+
+
+
